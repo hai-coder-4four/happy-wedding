@@ -81,47 +81,41 @@ const Album = () => {
       <div className="grid grid-cols-3 grid-rows-11 gap-1">
         <div
           ref={addLeftRef}
-          className="row-start-2 row-span-2 w-full min-h-[100px] bg-gray-200"
+          className="row-start-2 row-span-2 w-full min-h-[80px] bg-gray-200"
         ></div>
 
         <div
           ref={addRightRef}
-          className="col-start-2 col-span-2 row-span-2 w-full min-h-[100px] bg-gray-200"
+          className="col-start-2 col-span-2 row-span-2 w-full min-h-[80px] bg-gray-200"
         ></div>
 
         <div
           ref={addRightRef}
-          className="col-span-2 row-span-5 w-full min-h-[100px] bg-gray-200"
+          className="col-span-2 row-span-5 w-full min-h-[80px] bg-gray-200"
         ></div>
+
+        <div ref={addLeftRef} className="w-full min-h-[80px] bg-gray-200"></div>
 
         <div
           ref={addLeftRef}
-          className="w-full min-h-[100px] bg-gray-200"
+          className="row-span-2 w-full min-h-[80px] bg-gray-200"
         ></div>
+
+        <div ref={addLeftRef} className="w-full min-h-[80px] bg-gray-200"></div>
 
         <div
           ref={addLeftRef}
-          className="row-span-2 w-full min-h-[100px] bg-gray-200"
-        ></div>
-
-        <div
-          ref={addLeftRef}
-          className="w-full min-h-[100px] bg-gray-200"
-        ></div>
-
-        <div
-          ref={addLeftRef}
-          className="row-span-2 w-full min-h-[100px] bg-gray-200"
+          className="row-span-2 w-full min-h-[80px] bg-gray-200"
         ></div>
 
         <div
           ref={addRightRef}
-          className="col-span-2 row-span-5 w-full min-h-[100px] bg-gray-200"
+          className="col-span-2 row-span-5 w-full min-h-[80px] bg-gray-200"
         ></div>
 
         <div
           ref={addLeftRef}
-          className="row-span-2 w-full min-h-[100px] bg-gray-200"
+          className="row-span-2 w-full min-h-[80px] bg-gray-200"
         ></div>
       </div>
     </div>

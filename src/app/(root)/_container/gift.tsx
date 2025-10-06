@@ -29,7 +29,7 @@ const Gift = () => {
       <Dialog>
         <DialogTrigger asChild className="cursor-pointer">
           <Button>
-            <span>Mừng cưới ở đây nhé</span>
+            <span>Mừng cưới</span>
             <Image
               src="/assets/gif/lucky-bag.gif"
               alt="lucky-bag"
@@ -41,9 +41,9 @@ const Gift = () => {
         </DialogTrigger>
         <DialogContent className="bg-white w-full !max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-center">Gift</DialogTitle>
+            <DialogTitle className="text-center">QR Ngân Hàng</DialogTitle>
             <DialogDescription className="text-center">
-              This is a gift for you.
+              Quét mã QR để chuyển tiền.
             </DialogDescription>
           </DialogHeader>
           <div>
