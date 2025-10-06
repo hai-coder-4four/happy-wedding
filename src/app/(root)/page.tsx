@@ -9,7 +9,7 @@ import Album from "./_container/album";
 
 export default function Home() {
   return (
-    <div className="min-h-screen px-2">
+    <div className="min-h-screen px-2 pb-10">
       <Heading />
       <Banner />
       <Spinning />

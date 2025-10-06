@@ -18,7 +18,7 @@ import Image from "next/image";
 
 const Gift = () => {
   return (
-    <div className="flex flex-col items-center justify-center shadow-lg rounded-lg">
+    <div className="flex flex-col items-center justify-center">
       <div className="w-full h-[120px] flex flex-col items-center justify-center">
         <Lottie
           animationData={GiftAnimation}
@@ -28,7 +28,16 @@ const Gift = () => {
       </div>
       <Dialog>
         <DialogTrigger asChild className="cursor-pointer">
-          <Button>Click me</Button>
+          <Button>
+            <span>Mừng cưới ở đây nhé</span>
+            <Image
+              src="/assets/gif/lucky-bag.gif"
+              alt="lucky-bag"
+              width={24}
+              height={24}
+              className="mb-2"
+            />
+          </Button>
         </DialogTrigger>
         <DialogContent className="bg-white w-full !max-w-md">
           <DialogHeader>

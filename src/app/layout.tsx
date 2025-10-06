@@ -19,7 +19,7 @@ export default function RootLayout({
         className={`${dancingScript.variable} antialiased`}
         suppressHydrationWarning
       >
-        <main className="max-w-md mx-auto w-full bg-slate-overlay">
+        <main className="max-w-md mx-auto w-full bg-slate-overlay overflow-hidden">
           {children}
           <Floating />
         </main>
