@@ -24,7 +24,7 @@ const Album = () => {
             {
               x: 0,
               opacity: 1,
-              duration: 0.8,
+              duration: 1.8,
               ease: "power2.out",
               scrollTrigger: {
                 trigger: el,
@@ -48,7 +48,7 @@ const Album = () => {
             {
               x: 0,
               opacity: 1,
-              duration: 0.8,
+              duration: 1.8,
               ease: "power2.out",
               scrollTrigger: {
                 trigger: el,

@@ -21,7 +21,7 @@ export default function RootLayout({
       >
         <main className="max-w-md mx-auto w-full bg-slate-overlay overflow-hidden">
           {children}
-          {/* <Floating /> */}
+          <Floating />
         </main>
       </body>
     </html>

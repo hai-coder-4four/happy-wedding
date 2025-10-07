@@ -1,44 +1,44 @@
 "use client";
 
 import Lottie from "lottie-react";
-import React from "react";
+import React, { useState } from "react";
 
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 
 import GiftAnimation from "/public/assets/json/gift.json";
 import Image from "next/image";
 
 const Gift = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="flex flex-col items-center justify-center">
-      <div className="w-full h-[120px] flex flex-col items-center justify-center">
+    <div className="relative flex flex-col items-center justify-center bg-[url('/assets/images/wedding.png')] background-center py-10 backdrop-blur-md">
+      <div className="w-full h-full absolute inset-0 bg-black/50"></div>
+      <div className="z-10 max-w-[80%] mx-auto">
+        <h2 className="text-center text-2xl font-bold mb-4 z-10 text-white">
+          Hộp mừng cưới
+        </h2>
+        <p className="text-center text-sm mb-4 z-10 text-white">
+          Hãy chia sẻ hạnh phúc của mình với chúng mình bằng cách gửi hộp mừng
+          cưới
+        </p>
+      </div>
+      <div
+        className="w-full h-[150px] flex flex-col items-center justify-center z-10 cursor-pointer"
+        onClick={() => setIsOpen(true)}
+      >
         <Lottie
           animationData={GiftAnimation}
           loop={true}
           className="size-full"
         />
       </div>
-      <Dialog>
-        <DialogTrigger asChild className="cursor-pointer">
-          <Button>
-            <span>Mừng cưới</span>
-            <Image
-              src="/assets/gif/lucky-bag.gif"
-              alt="lucky-bag"
-              width={24}
-              height={24}
-              className="mb-2"
-            />
-          </Button>
-        </DialogTrigger>
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="bg-white w-full !max-w-md">
           <DialogHeader>
             <DialogTitle className="text-center">QR Ngân Hàng</DialogTitle>

@@ -17,7 +17,7 @@ const Floating = () => {
       snowflake.innerHTML = "❄️";
       snowflake.style.left = `${Math.random() * 100}%`;
       snowflake.style.top = "-20px";
-      snowflake.style.fontSize = `${Math.random() * 10 + 12}px`;
+      snowflake.style.fontSize = `${Math.random() * 10 + 5}px`;
       snowflake.style.opacity = `${Math.random() * 0.5 + 0.5}`;
       snowContainerRef.current?.appendChild(snowflake);
 
@@ -55,8 +55,8 @@ const Floating = () => {
       });
     };
 
-    const snowInterval = setInterval(createSnowflake, 2000);
-    const heartInterval = setInterval(createHeart, 4000);
+    const snowInterval = setInterval(createSnowflake, 3000);
+    const heartInterval = setInterval(createHeart, 5000);
 
     // Start first snowflake and heart after delays
     const initialSnowTimeout = setTimeout(createSnowflake, 1000);
