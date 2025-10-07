@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import Floating from "@/components/layouts/floating";
-import { dancingScript } from "@/configs/fonts/custom-fonts";
+import { dancingScript, lora } from "@/configs/fonts/custom-fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,12 +16,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${dancingScript.variable} antialiased`}
+        className={`${dancingScript.variable} ${lora.variable} antialiased`}
         suppressHydrationWarning
       >
-        <main className="max-w-md mx-auto w-full bg-slate-overlay overflow-hidden">
+        <main className="max-w-md mx-auto w-full bg-[rgb(178,188,163,0.1)] overflow-hidden">
           {children}
-          {/* <Floating /> */}
+          <Floating />
         </main>
       </body>
     </html>

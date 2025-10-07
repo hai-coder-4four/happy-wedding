@@ -76,7 +76,7 @@ const Album = () => {
 
   return (
     <div ref={containerRef} className="w-full py-10 overflow-hidden">
-      <h2 className="text-center text-2xl font-bold mb-4">
+      <h2 className="text-center text-4xl font-bold mb-4">
         Bộ sưu tập hình cưới
       </h2>
       <div className="grid grid-cols-3 grid-rows-11 gap-1 h-[900px]">

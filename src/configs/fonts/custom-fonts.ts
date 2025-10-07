@@ -1,4 +1,4 @@
-import { Dancing_Script } from "next/font/google";
+import { Dancing_Script, Lora } from "next/font/google";
 
 const dancingScript = Dancing_Script({
   variable: "--font-dancing-script",
@@ -6,4 +6,10 @@ const dancingScript = Dancing_Script({
   weight: ["400", "500", "600", "700"],
 });
 
-export { dancingScript };
+const lora = Lora({
+  variable: "--font-lora",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+export { dancingScript, lora };

@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 
 import { Card, CardContent } from "@/components/ui/card";
 import Countdown from "../_components/countdown";
+import { DateIcon } from "@/assets/icons";
 
 const Calendar = () => {
   const [selectedDates] = useState<number[]>([5]);
@@ -17,6 +18,10 @@ const Calendar = () => {
   const daysInMonth = 30;
   const firstDayOfWeek = 1; // Tuesday (0 = Monday, 6 = Sunday)
 
+  // Only 5 rows (5*7 = 35 cells)
+  const totalRows = 5;
+  const totalCells = totalRows * 7;
+
   // Generate calendar grid
   const calendarDays = [];
 
@@ -25,14 +30,17 @@ const Calendar = () => {
     calendarDays.push(null);
   }
 
-  // Add all days of the month
-  for (let day = 1; day <= daysInMonth; day++) {
+  // Add all days of the month, but only up to the number of cells in 5 rows
+  for (
+    let day = 1;
+    day <= daysInMonth && calendarDays.length < totalCells;
+    day++
+  ) {
     calendarDays.push(day);
   }
 
-  // Add days from next month to fill the grid
-  const remainingCells = 42 - calendarDays.length;
-  for (let day = 1; day <= remainingCells; day++) {
+  // Add days from next month to fill the grid (if needed)
+  for (let day = 1; calendarDays.length < totalCells; day++) {
     calendarDays.push(day);
   }
 
@@ -214,23 +222,20 @@ const Calendar = () => {
   };
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-white py-4">
       <Countdown />
-      <Card className="border-none shadow-none">
-        <CardContent className="p-6">
+      <Card className="border-none shadow-none p-0">
+        <CardContent className="p-0">
           {/* Header with decorative title and heart */}
-          <div className="relative mb-6">
-            <div ref={headerRef} className="text-center">
-              <h1
-                ref={titleRef}
-                className="mb-4 text-3xl text-gray-700 font-dancing-script"
-              >
+          <div className="relative mb-2">
+            <div
+              ref={headerRef}
+              className="flex flex-col items-center text-center"
+            >
+              <h1 ref={titleRef} className="text-3xl text-gray-700">
                 Lưu ngày này nhé !
               </h1>
-            </div>
-
-            <div ref={monthRef} className="mb-4 flex flex-col items-center">
-              <CalendarIcon className="mb-2 h-8 w-8 text-rose-300" />
+              <DateIcon className="size-24" />
             </div>
           </div>
 

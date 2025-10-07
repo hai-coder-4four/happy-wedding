@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const BANNER_ITEMS = [
   { id: 1, image: "/assets/images/wedding.png", text: "20" },
   { id: 2, image: "/assets/images/wedding.png", text: "10" },
-  { id: 3, image: "/assets/images/wedding.png", text: "2025" },
+  { id: 3, image: "/assets/images/wedding.png", text: "25" },
 ];
 
 const Banner = () => {
@@ -39,9 +39,12 @@ const Banner = () => {
 
       imageRefs.current.forEach((el, index) => {
         if (!el) return;
+        // Nếu là item đầu hoặc cuối thì y khởi tạo là 200, còn lại là 100
+        const initialY =
+          index === 0 || index === BANNER_ITEMS.length - 1 ? 130 : 100;
         gsap.fromTo(
           el,
-          { scale: 0.5, y: 100, opacity: 0 },
+          { scale: 0.5, y: initialY, opacity: 0 },
           {
             scale: 1,
             y: 0,
@@ -61,11 +64,14 @@ const Banner = () => {
 
       textRefs.current.forEach((el, index) => {
         if (!el) return;
+        // Nếu là item đầu hoặc cuối thì y khởi tạo là 130, còn lại là 30
+        const initialY =
+          index === 0 || index === BANNER_ITEMS.length - 1 ? 130 : 30;
         gsap.fromTo(
           el,
-          { y: 30, opacity: 0 },
+          { y: initialY, opacity: 0 },
           {
-            y: 0,
+            y: 10,
             opacity: 1,
             duration: 0.8,
             ease: "power2.out",
@@ -103,9 +109,15 @@ const Banner = () => {
       {BANNER_ITEMS.map((item, idx) => (
         <div
           key={item.id}
-          className="relative aspect-[2/3] w-full cursor-pointer overflow-hidden rounded-lg"
+          className="relative aspect-[2/3] w-full border-[3px] border-[rgb(178,188,163)] rounded-md overflow-hidden cursor-pointer"
           onMouseEnter={() => handleMouseEnter(idx)}
           onMouseLeave={() => handleMouseLeave(idx)}
+          style={
+            // Để item đầu và cuối tụt xuống dưới 100px
+            idx === 0 || idx === BANNER_ITEMS.length - 1
+              ? { marginTop: "30px" }
+              : undefined
+          }
         >
           <div
             ref={(el) => {
@@ -118,16 +130,16 @@ const Banner = () => {
               alt={item.text}
               width={300}
               height={300}
-              className="size-full object-cover transition-transform duration-300 rounded-lg hover:scale-110"
+              className="size-full object-cover transition-transform duration-300 hover:scale-110 rounded-[5px] overflow-hidden"
             />
           </div>
           <div
             ref={(el) => {
               textRefs.current[idx] = el;
             }}
-            className="absolute bottom-3 left-0 right-0 text-center text-white"
+            className="absolute bottom-0 -right-1 text-center text-white"
           >
-            <span className="text-4xl font-bold drop-shadow-lg">
+            <span className="text-7xl drop-shadow-lg font-lora font-bold">
               {item.text}
             </span>
           </div>

@@ -1,4 +1,1 @@
-declare module "*.json" {
-  const value: Record<string, unknown>;
-  export default value;
-}
+export type SVGProps = React.SVGProps<SVGSVGElement>;

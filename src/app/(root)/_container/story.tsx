@@ -4,11 +4,10 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { LineIcon } from "@/assets/icons";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Preface = () => {
+const Story = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -80,43 +79,19 @@ const Preface = () => {
     <div className="w-full flex items-center justify-center p-4">
       <div className="w-full bg-white rounded-lg overflow-hidden">
         <div ref={headerRef} className="pt-8 pb-4 flex justify-center">
-          <div className="w-16 h-16 relative">
-            <svg
-              viewBox="0 0 100 100"
-              className="w-full h-full text-[#8b7355]"
-              fill="currentColor"
-            >
-              <path d="M50 20 L45 30 L35 32 L42 40 L40 50 L50 45 L60 50 L58 40 L65 32 L55 30 Z" />
-              <path d="M30 35 L28 40 L23 41 L26 44 L25 49 L30 46 L35 49 L34 44 L37 41 L32 40 Z" />
-              <path d="M70 35 L68 40 L63 41 L66 44 L65 49 L70 46 L75 49 L74 44 L77 41 L72 40 Z" />
-              <path
-                d="M25 55 L30 65 L20 70 L25 75 L20 85 L30 80 L35 90"
-                stroke="currentColor"
-                strokeWidth="2"
-                fill="none"
+          <div className="space-y-1 mb-4">
+            <div className="required w-[80px] h-auto mx-auto">
+              <Image
+                src="/assets/images/leaf.png"
+                alt="leaf"
+                width={100}
+                height={100}
+                className="size-full object-contain"
               />
-              <path
-                d="M75 55 L70 65 L80 70 L75 75 L80 85 L70 80 L65 90"
-                stroke="currentColor"
-                strokeWidth="2"
-                fill="none"
-              />
-            </svg>
-          </div>
-        </div>
-
-        <div className="space-y-1 mb-4">
-          <h2 ref={titleRef} className="text-4xl text-center text-[#4a4a4a]">
-            Lời Ngỏ
-          </h2>
-          <div className="required w-[150px] h-auto mx-auto">
-            <Image
-              src="/assets/images/line.png"
-              alt="line"
-              width={150}
-              height={30}
-              className="size-full object-contain"
-            />
+            </div>
+            <h2 ref={titleRef} className="text-4xl text-center text-[#4a4a4a]">
+              Chuyện Chúng Mình
+            </h2>
           </div>
         </div>
 
@@ -125,20 +100,20 @@ const Preface = () => {
           className="px-8 pb-6 space-y-4 text-[#5a5a5a] leading-relaxed"
         >
           <p className="text-line text-center">
-            Cảm ơn bạn đã dành tình cảm cho vợ chồng mình. ❤️
-          </p>
-          <p className="text-line text-center">
-            Chúng mình biết các bạn đều đang rất bận, bận với công việc, với
-            cuộc sống và với cả gia đình bạn.
-          </p>
-          <p className="text-line text-center">
-            Nhưng thực sự rất tuyệt vời nếu như ngày Hạnh Phúc của chúng mình có
-            thêm sự góp mặt của bạn và người thương. Vợ chồng mình rất hi vọng
-            sẽ có mặt bạn trong ngày quan trọng này để chúng kiến chứng chặng
-            đường hạnh phúc này cùng chúng mình. 🙏
-          </p>
-          <p className="text-line text-center font-medium">
-            Một lần nữa, chân thành cảm ơn tất cả các bạn ❤️
+            Chúng mình quen nhau khi cùng làm việc ở công ty. Thường xuyên phải
+            tương tác với nhau, nên cứ thế phát sinh tình cảm khi nào chả hay.
+            Các cụ hay bảo nên tránh các trường hợp con thầy, vợ bạn, gái cơ
+            quan để yêu đương. Ấy thế mà chả hiểu sao, dây tơ hồng siết chặt quá
+            nên là 2 đứa cứ thế va vào nhau. Yêu nhau nhùng nhằng thế mà giờ
+            cũng hơn 3 năm, trải qua nhiều cảm xúc cùng nhau, vui có buồn có,
+            nhưng tốt cái là chưa có chưa tay 😂. Mỗi đứa giờ 1 công việc, 1
+            định hướng khác nhau, nhưng có cái yêu nhau thì vẫn còn cùng nhau
+            🤣😍. Thế là 1 ngày đẹp trời, Thịnh mua cái nhẫn, dẫn nàng đến quán
+            bò bít tết khứa khứa uống rượu vang, rồi á là quỳ xuống hỏi mình
+            cưới nhau nha, Em lia lịa gật đầu. Thế là giờ chúng mình có đám
+            cưới, thế là chúng mình về chung 1 nhà đó mí bạn :)) Chuyện tình yêu
+            chúng mình đơn giản thế thôi đó. Cảm ơn bạn đã đọc đến tận đây nhé
+            !! Cảm ơn bạn vì đã dành tình cảm cho Vợ Chồng mình !!! Yêu bạn 😜❤️
           </p>
         </div>
 
@@ -158,4 +133,4 @@ const Preface = () => {
   );
 };
 
-export default Preface;
+export default Story;
