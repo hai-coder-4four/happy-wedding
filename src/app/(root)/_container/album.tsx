@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,45 +79,117 @@ const Album = () => {
       <h2 className="text-center text-2xl font-bold mb-4">
         Bộ sưu tập hình cưới
       </h2>
-      <div className="grid grid-cols-3 grid-rows-11 gap-1">
+      <div className="grid grid-cols-3 grid-rows-11 gap-1 h-[900px]">
         <div
           ref={addLeftRef}
-          className="row-start-2 row-span-2 w-full min-h-[80px] bg-gray-200"
-        ></div>
+          className="row-start-2 row-span-2 w-full rounded-md overflow-hidden"
+        >
+          <Image
+            src="/assets/images/wedding.png"
+            alt="wedding"
+            width={300}
+            height={300}
+            className="size-full object-cover"
+          />
+        </div>
 
         <div
           ref={addRightRef}
-          className="col-start-2 col-span-2 row-span-2 w-full min-h-[80px] bg-gray-200"
-        ></div>
+          className="col-start-2 col-span-2 row-span-2 w-full rounded-md overflow-hidden"
+        >
+          <Image
+            src="/assets/images/wedding.png"
+            alt="wedding"
+            width={300}
+            height={300}
+            className="size-full object-cover"
+          />
+        </div>
 
         <div
           ref={addRightRef}
-          className="col-span-2 row-span-5 w-full min-h-[80px] bg-gray-200"
-        ></div>
+          className="col-span-2 row-span-5 w-full rounded-md overflow-hidden"
+        >
+          <Image
+            src="/assets/images/wedding.png"
+            alt="wedding"
+            width={300}
+            height={300}
+            className="size-full object-cover"
+          />
+        </div>
 
-        <div ref={addLeftRef} className="w-full min-h-[80px] bg-gray-200"></div>
+        <div ref={addLeftRef} className="w-full rounded-md overflow-hidden">
+          <Image
+            src="/assets/images/wedding.png"
+            alt="wedding"
+            width={300}
+            height={300}
+            className="size-full object-cover"
+          />
+        </div>
 
         <div
           ref={addLeftRef}
-          className="row-span-2 w-full min-h-[80px] bg-gray-200"
-        ></div>
+          className="row-span-2 w-full rounded-md overflow-hidden"
+        >
+          <Image
+            src="/assets/images/wedding.png"
+            alt="wedding"
+            width={300}
+            height={300}
+            className="size-full object-cover"
+          />
+        </div>
 
-        <div ref={addLeftRef} className="w-full min-h-[80px] bg-gray-200"></div>
+        <div ref={addLeftRef} className="w-full rounded-md overflow-hidden">
+          <Image
+            src="/assets/images/wedding.png"
+            alt="wedding"
+            width={300}
+            height={300}
+            className="size-full object-cover"
+          />
+        </div>
 
         <div
           ref={addLeftRef}
-          className="row-span-2 w-full min-h-[80px] bg-gray-200"
-        ></div>
+          className="row-span-2 w-full rounded-md overflow-hidden"
+        >
+          <Image
+            src="/assets/images/wedding.png"
+            alt="wedding"
+            width={300}
+            height={300}
+            className="size-full object-cover"
+          />
+        </div>
 
         <div
           ref={addRightRef}
-          className="col-span-2 row-span-5 w-full min-h-[80px] bg-gray-200"
-        ></div>
+          className="col-span-2 row-span-5 w-full rounded-md overflow-hidden"
+        >
+          <Image
+            src="/assets/images/wedding.png"
+            alt="wedding"
+            width={300}
+            height={300}
+            className="size-full object-cover"
+          />
+        </div>
 
         <div
           ref={addLeftRef}
-          className="row-span-2 w-full min-h-[80px] bg-gray-200"
-        ></div>
+          className="row-span-2 w-full rounded-md overflow-hidden"
+        >
+          <Image
+            src="/assets/images/wedding.png"
+            alt="wedding"
+            width={300}
+            height={300}
+            className="size-full object-cover"
+          />
+        </div>
       </div>
     </div>
   );

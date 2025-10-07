@@ -155,7 +155,7 @@ const HeartImage = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="overflow-hidden">
+    <div ref={containerRef} className="overflow-hidden py-10">
       <h2 ref={titleRef} className="text-center text-xl mb-4 text-gray-500">
         Thân mời bạn tham gia bữa tiệc đánh dấu ngày chúng mình về chung một
         nhà!
