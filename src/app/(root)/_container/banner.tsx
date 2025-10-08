@@ -39,7 +39,6 @@ const Banner = () => {
 
       imageRefs.current.forEach((el, index) => {
         if (!el) return;
-        // Nếu là item đầu hoặc cuối thì y khởi tạo là 200, còn lại là 100
         const initialY =
           index === 0 || index === BANNER_ITEMS.length - 1 ? 130 : 100;
         gsap.fromTo(
@@ -113,7 +112,6 @@ const Banner = () => {
           onMouseEnter={() => handleMouseEnter(idx)}
           onMouseLeave={() => handleMouseLeave(idx)}
           style={
-            // Để item đầu và cuối tụt xuống dưới 100px
             idx === 0 || idx === BANNER_ITEMS.length - 1
               ? { marginTop: "30px" }
               : undefined
@@ -130,7 +128,7 @@ const Banner = () => {
               alt={item.text}
               width={300}
               height={300}
-              className="size-full object-cover transition-transform duration-300 hover:scale-110 rounded-[5px] overflow-hidden"
+              className="size-full object-cover transition-transform duration-300 hover:scale-110 rounded-md overflow-hidden"
             />
           </div>
           <div
