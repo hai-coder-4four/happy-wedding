@@ -76,7 +76,7 @@ const Preface = () => {
   }, []);
 
   return (
-    <div className="w-full flex items-center justify-center p-4">
+    <div className="w-full flex items-center justify-center">
       <div className="w-full bg-white rounded-lg overflow-hidden p-4">
         <div ref={headerRef} className="py-4 flex justify-center">
           <div className="w-16 h-16 relative">

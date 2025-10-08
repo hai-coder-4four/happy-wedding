@@ -7,6 +7,7 @@ import Album from "./_container/album";
 import Preface from "./_container/preface";
 import Story from "./_container/story";
 import Info from "./_container/info";
+import Map from "./_container/map";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Album />
       <Video />
       <Gift />
+      <Map />
     </div>
   );
 }
