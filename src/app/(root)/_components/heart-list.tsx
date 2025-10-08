@@ -19,15 +19,13 @@ const HEART_GRID = [
   [false, false, false, true, false, false, false],
 ];
 
-const HeartImage = () => {
+const HeartList = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Set initial states
-      gsap.set(titleRef.current, { opacity: 0, y: 30 });
       gsap.set(imageRefs.current, { opacity: 0, scale: 0.3, y: 50 });
 
       // Create timeline with ScrollTrigger
@@ -38,14 +36,6 @@ const HeartImage = () => {
           end: "bottom 20%",
           toggleActions: "play none none reverse",
         },
-      });
-
-      // Animate title
-      tl.to(titleRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out",
       });
 
       // Animate images with stagger
@@ -156,11 +146,7 @@ const HeartImage = () => {
 
   return (
     <div ref={containerRef} className="overflow-hidden py-10">
-      <h2 ref={titleRef} className="text-center text-xl mb-4 text-gray-500">
-        Thân mời bạn tham gia bữa tiệc đánh dấu ngày chúng mình về chung một
-        nhà!
-      </h2>
-      <div className="grid grid-cols-7 gap-2 px-4">
+      <div className="grid grid-cols-7 gap-2">
         {HEART_GRID.flat().map((showImage, idx) => (
           <div className="aspect-square w-full" key={idx}>
             {showImage && (
@@ -196,4 +182,4 @@ const HeartImage = () => {
   );
 };
 
-export default HeartImage;
+export default HeartList;

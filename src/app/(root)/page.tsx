@@ -1,5 +1,4 @@
 import Calendar from "./_container/calendar";
-import HeartImage from "./_container/heart-image";
 import Gift from "./_container/gift";
 import Video from "./_container/video";
 import Heading from "./_container/heading";
@@ -7,6 +6,7 @@ import Banner from "./_container/banner";
 import Album from "./_container/album";
 import Preface from "./_container/preface";
 import Story from "./_container/story";
+import Info from "./_container/info";
 
 export default function Home() {
   return (
@@ -14,9 +14,9 @@ export default function Home() {
       <Banner />
       <Heading />
       <Story />
+      <Info />
       <Calendar />
       <Preface />
-      <HeartImage />
       <Album />
       <Video />
       <Gift />

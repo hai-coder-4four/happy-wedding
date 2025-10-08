@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import HeartList from "../_components/heart-list";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,7 +12,6 @@ const Story = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -57,19 +57,6 @@ const Story = () => {
           },
         });
       }
-
-      gsap.from(imageRef.current, {
-        opacity: 0,
-        y: 50,
-        scale: 0.95,
-        duration: 1,
-        scrollTrigger: {
-          trigger: imageRef.current,
-          start: "top 80%",
-          end: "top 50%",
-          scrub: 1,
-        },
-      });
     });
 
     return () => ctx.revert();
@@ -117,17 +104,7 @@ const Story = () => {
           </p>
         </div>
 
-        <div ref={imageRef}>
-          <div className="relative overflow-hidden">
-            <Image
-              src="/assets/images/wedding.png"
-              alt="Wedding Photo"
-              width={500}
-              height={500}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-        </div>
+        <HeartList />
       </div>
     </div>
   );
