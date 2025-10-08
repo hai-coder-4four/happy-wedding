@@ -76,14 +76,17 @@ const Album = () => {
 
   return (
     <div ref={containerRef} className="section overflow-hidden">
-      <h2 className="text-center text-4xl font-bold mb-4">Album hình cưới</h2>
+      <h2 className="text-center text-4xl text-turquoise font-bold mb-4">
+        Album hình cưới
+      </h2>
       <div className="grid grid-cols-3 grid-rows-11 gap-1 h-[900px]">
         <div
           ref={addLeftRef}
+          id="wedding-1"
           className="row-start-2 row-span-2 w-full rounded-md overflow-hidden"
         >
           <Image
-            src="/assets/images/wedding.png"
+            src="/assets/images/wedding-4.jpg"
             alt="wedding"
             width={300}
             height={300}
@@ -93,10 +96,11 @@ const Album = () => {
 
         <div
           ref={addRightRef}
+          id="wedding-2"
           className="col-start-2 col-span-2 row-span-2 w-full rounded-md overflow-hidden"
         >
           <Image
-            src="/assets/images/wedding.png"
+            src="/assets/images/wedding-2.jpg"
             alt="wedding"
             width={300}
             height={300}
@@ -106,20 +110,11 @@ const Album = () => {
 
         <div
           ref={addRightRef}
+          id="wedding-3"
           className="col-span-2 row-span-5 w-full rounded-md overflow-hidden"
         >
           <Image
-            src="/assets/images/wedding.png"
-            alt="wedding"
-            width={300}
-            height={300}
-            className="size-full object-cover"
-          />
-        </div>
-
-        <div ref={addLeftRef} className="w-full rounded-md overflow-hidden">
-          <Image
-            src="/assets/images/wedding.png"
+            src="/assets/images/wedding-10.jpg"
             alt="wedding"
             width={300}
             height={300}
@@ -129,20 +124,11 @@ const Album = () => {
 
         <div
           ref={addLeftRef}
-          className="row-span-2 w-full rounded-md overflow-hidden"
+          id="wedding-4"
+          className="w-full rounded-md overflow-hidden"
         >
           <Image
-            src="/assets/images/wedding.png"
-            alt="wedding"
-            width={300}
-            height={300}
-            className="size-full object-cover"
-          />
-        </div>
-
-        <div ref={addLeftRef} className="w-full rounded-md overflow-hidden">
-          <Image
-            src="/assets/images/wedding.png"
+            src="/assets/images/wedding-1.jpg"
             alt="wedding"
             width={300}
             height={300}
@@ -152,10 +138,39 @@ const Album = () => {
 
         <div
           ref={addLeftRef}
+          id="wedding-5"
           className="row-span-2 w-full rounded-md overflow-hidden"
         >
           <Image
-            src="/assets/images/wedding.png"
+            src="/assets/images/wedding-5.jpg"
+            alt="wedding"
+            width={300}
+            height={300}
+            className="size-full object-cover"
+          />
+        </div>
+
+        <div
+          ref={addLeftRef}
+          id="wedding-6"
+          className="w-full rounded-md overflow-hidden"
+        >
+          <Image
+            src="/assets/images/wedding-1.jpg"
+            alt="wedding"
+            width={300}
+            height={300}
+            className="size-full object-cover"
+          />
+        </div>
+
+        <div
+          ref={addLeftRef}
+          id="wedding-7"
+          className="row-span-2 w-full rounded-md overflow-hidden"
+        >
+          <Image
+            src="/assets/images/wedding-7.jpg"
             alt="wedding"
             width={300}
             height={300}
@@ -165,10 +180,11 @@ const Album = () => {
 
         <div
           ref={addRightRef}
+          id="wedding-8"
           className="col-span-2 row-span-5 w-full rounded-md overflow-hidden"
         >
           <Image
-            src="/assets/images/wedding.png"
+            src="/assets/images/wedding-8.jpg"
             alt="wedding"
             width={300}
             height={300}
@@ -178,10 +194,11 @@ const Album = () => {
 
         <div
           ref={addLeftRef}
+          id="wedding-9"
           className="row-span-2 w-full rounded-md overflow-hidden"
         >
           <Image
-            src="/assets/images/wedding.png"
+            src="/assets/images/wedding-11.jpg"
             alt="wedding"
             width={300}
             height={300}

@@ -17,7 +17,7 @@ import Image from "next/image";
 const Gift = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="my-10 relative flex flex-col items-center justify-center bg-[url('/assets/images/wedding.png')] background-center py-10 backdrop-blur-md">
+    <div className="my-10 relative flex flex-col items-center justify-center bg-[url('/assets/images/wedding-13.jpg')] background-center py-10 backdrop-blur-md">
       <div className="w-full h-full absolute inset-0 bg-black/50"></div>
       <div className="z-10 max-w-[80%] mx-auto">
         <h2 className="text-center text-4xl font-bold mb-4 z-10 text-white">

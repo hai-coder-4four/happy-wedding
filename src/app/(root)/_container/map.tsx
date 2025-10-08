@@ -46,7 +46,7 @@ const Map = () => {
       const width = marker.properties.iconSize[0];
       const height = marker.properties.iconSize[1];
       el.className = "marker";
-      el.style.backgroundImage = `url(/assets/images/wedding.png)`;
+      el.style.backgroundImage = `url(/assets/images/wedding-4.jpg)`;
       el.style.width = `${width}px`;
       el.style.height = `${height}px`;
       el.style.backgroundSize = "100%";

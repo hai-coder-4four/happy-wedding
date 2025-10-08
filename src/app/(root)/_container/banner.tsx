@@ -8,9 +8,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const BANNER_ITEMS = [
-  { id: 1, image: "/assets/images/wedding.png", text: "20" },
-  { id: 2, image: "/assets/images/wedding.png", text: "10" },
-  { id: 3, image: "/assets/images/wedding.png", text: "25" },
+  { id: 1, image: "/assets/images/wedding-10.jpg", text: "20" },
+  { id: 2, image: "/assets/images/wedding-11.jpg", text: "10" },
+  { id: 3, image: "/assets/images/wedding-12.jpg", text: "25" },
 ];
 
 const Banner = () => {
@@ -104,45 +104,53 @@ const Banner = () => {
   };
 
   return (
-    <div ref={containerRef} className="grid grid-cols-3 gap-1 overflow-hidden">
-      {BANNER_ITEMS.map((item, idx) => (
-        <div
-          key={item.id}
-          className="relative aspect-[2/3] w-full border-[3px] border-[rgb(178,188,163)] rounded-md overflow-hidden cursor-pointer"
-          onMouseEnter={() => handleMouseEnter(idx)}
-          onMouseLeave={() => handleMouseLeave(idx)}
-          style={
-            idx === 0 || idx === BANNER_ITEMS.length - 1
-              ? { marginTop: "30px" }
-              : undefined
-          }
-        >
+    <div>
+      <h1 className="text-center text-5xl text-turquoise font-bold mb-4">
+        Thư mời
+      </h1>
+      <div
+        ref={containerRef}
+        className="grid grid-cols-3 gap-1 overflow-hidden"
+      >
+        {BANNER_ITEMS.map((item, idx) => (
           <div
-            ref={(el) => {
-              imageRefs.current[idx] = el;
-            }}
-            className="h-full w-full"
+            key={item.id}
+            className="relative aspect-[2/3] w-full border-[3px] border-[rgb(178,188,163)] rounded-md overflow-hidden cursor-pointer"
+            onMouseEnter={() => handleMouseEnter(idx)}
+            onMouseLeave={() => handleMouseLeave(idx)}
+            style={
+              idx === 0 || idx === BANNER_ITEMS.length - 1
+                ? { marginTop: "30px" }
+                : undefined
+            }
           >
-            <Image
-              src={item.image}
-              alt={item.text}
-              width={300}
-              height={300}
-              className="size-full object-cover transition-transform duration-300 hover:scale-y-125 rounded-[5px] overflow-hidden"
-            />
+            <div
+              ref={(el) => {
+                imageRefs.current[idx] = el;
+              }}
+              className="h-full w-full"
+            >
+              <Image
+                src={item.image}
+                alt={item.text}
+                width={300}
+                height={300}
+                className="size-full object-cover transition-transform duration-300 hover:scale-y-125 rounded-[5px] overflow-hidden"
+              />
+            </div>
+            <div
+              ref={(el) => {
+                textRefs.current[idx] = el;
+              }}
+              className="absolute bottom-0 -right-0.5 text-center text-white"
+            >
+              <span className="text-7xl drop-shadow-lg font-lora font-bold">
+                {item.text}
+              </span>
+            </div>
           </div>
-          <div
-            ref={(el) => {
-              textRefs.current[idx] = el;
-            }}
-            className="absolute bottom-0 -right-0.5 text-center text-white"
-          >
-            <span className="text-7xl drop-shadow-lg font-lora font-bold">
-              {item.text}
-            </span>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

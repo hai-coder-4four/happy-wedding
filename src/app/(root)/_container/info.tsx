@@ -1,87 +1,263 @@
 "use client";
 
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
-import { Facebook } from "lucide-react";
+import Image from "next/image";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const GROOM_TESTIMONIALS = [
   {
-    src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/assets/images/re-1.jpg",
   },
   {
-    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/assets/images/re-2.jpg",
   },
   {
-    src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/assets/images/re-3.jpg",
   },
   {
-    src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/assets/images/re-4.jpg",
   },
 ];
 
 const BRIDE_TESTIMONIALS = [
   {
-    src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/assets/images/dau-1.jpg",
   },
   {
-    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/assets/images/dau-2.jpg",
   },
   {
-    src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/assets/images/dau-3.jpg",
   },
   {
-    src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/assets/images/dau-4.jpg",
   },
 ];
 
+// FacebookIcon component with scale animation
+const AnimatedFacebookIcon = () => {
+  const iconRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!iconRef.current) return;
+    const ctx = gsap.context(() => {
+      gsap.to(iconRef.current, {
+        scale: 1.1,
+        duration: 0.7,
+        yoyo: true,
+        repeat: -1,
+        ease: "power1.inOut",
+      });
+    }, iconRef);
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <div
+      ref={iconRef}
+      className="relative size-5 rounded-full overflow-hidden cursor-pointer shadow-lg ring-2 ring-blue-400"
+      style={{ willChange: "transform" }}
+    >
+      <Image
+        src="/assets/images/facebook.png"
+        alt="facebook"
+        width={20}
+        height={20}
+        className="size-full object-cover"
+      />
+    </div>
+  );
+};
+
 const Info = () => {
+  const groomTextRef = useRef<HTMLDivElement | null>(null);
+  const brideTextRef = useRef<HTMLDivElement | null>(null);
+  const groomTitleRef = useRef<HTMLDivElement | null>(null);
+  const brideTitleRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    // Animation for groom text (slide from left)
+    if (groomTextRef.current) {
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          groomTextRef.current,
+          {
+            x: -300,
+            opacity: 0,
+          },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1.5,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: groomTextRef.current,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }, groomTextRef);
+      return () => ctx.revert();
+    }
+  }, []);
+
+  useEffect(() => {
+    // Animation for bride text (slide from right)
+    if (brideTextRef.current) {
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          brideTextRef.current,
+          {
+            x: 300,
+            opacity: 0,
+          },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1.5,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: brideTextRef.current,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }, brideTextRef);
+      return () => ctx.revert();
+    }
+  }, []);
+
+  useEffect(() => {
+    // Animation for groom title (slide from bottom)
+    if (groomTitleRef.current) {
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          groomTitleRef.current,
+          {
+            y: 100,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: groomTitleRef.current,
+              start: "top 85%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }, groomTitleRef);
+      return () => ctx.revert();
+    }
+  }, []);
+
+  useEffect(() => {
+    // Animation for bride title (slide from bottom)
+    if (brideTitleRef.current) {
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          brideTitleRef.current,
+          {
+            y: 100,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: brideTitleRef.current,
+              start: "top 85%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }, brideTitleRef);
+      return () => ctx.revert();
+    }
+  }, []);
+
   return (
     <div className="section w-full flex items-center justify-center">
-      <div className="space-y-10 px-4 w-full bg-white rounded-lg overflow-hidden">
-        <div className="w-full space-y-6">
-          <h2 className="text-4xl font-lobster text-left text-turquoise">
-            Chú rể
-          </h2>
-          <AnimatedTestimonials testimonials={GROOM_TESTIMONIALS} autoplay />
-          <div className="text-left">
-            <div className="flex items-center justify-start gap-2">
-              <h2 className="text-2xl font-bold">Hải Trần</h2>
-              <div className="size-6 rounded-full bg-blue-500 flex items-center justify-center">
-                <Facebook className="size-4 text-white" />
-              </div>
+      <div className="space-y-10 p-4 w-full bg-white rounded-lg overflow-hidden">
+        <div className="w-full space-y-6 border-4 border-turquoise rounded-lg p-4">
+          <div
+            className="flex items-end justify-start gap-3"
+            ref={groomTitleRef}
+          >
+            <h2 className="text-4xl font-lobster text-left text-turquoise">
+              Chú rể
+            </h2>
+            <div className="relative w-[100px] h-auto mb-1">
+              <Image
+                src="/assets/images/line-3.png"
+                alt="line"
+                width={100}
+                height={100}
+                className="size-full object-contain"
+              />
             </div>
-            <p className="text-sm text-gray-500">25/02/1997</p>
-            <p className="text-sm text-gray-500">Cung Bạch Dương</p>
-            <p className="text-sm text-gray-500">
+          </div>
+          <AnimatedTestimonials testimonials={GROOM_TESTIMONIALS} autoplay />
+          <div className="text-center" ref={groomTextRef}>
+            <div className="flex items-center justify-center gap-3">
+              <h2 className="text-2xl font-lobster tracking-widest text-turquoise">
+                Hải Trần
+              </h2>
+              <AnimatedFacebookIcon />
+            </div>
+            <p className="font-lobster">25/02/1997</p>
+            <p className="font-lobster mb-2">♈ Cung Bạch Dương</p>
+            <p className="text-sm text-gray-500 font-lora italic">
               Là một chàng trai đáng yêu, thân thiện, hòa đồng, và rất trầm tính
               nhưng vẫn có thể đối mặt với những thử thách và khó khăn trong
               cuộc sống.
             </p>
           </div>
         </div>
-        <div className="w-full space-y-6">
-          <h2 className="text-4xl font-lobster text-right text-turquoise">
-            Cô dâu
-          </h2>
-          <AnimatedTestimonials testimonials={BRIDE_TESTIMONIALS} autoplay />
-          <div className="text-right">
-            <div className="flex items-center justify-end gap-2">
-              <div className="size-6 rounded-full bg-blue-500 flex items-center justify-center">
-                <Facebook className="size-4 text-white" />
-              </div>
-              <h2 className="text-2xl font-bold">Hải Trần</h2>
+        <div className="w-full space-y-6 border-4 border-turquoise rounded-lg p-4">
+          <div className="flex items-end justify-end gap-3" ref={brideTitleRef}>
+            <div className="relative w-[100px] h-auto mb-1">
+              <Image
+                src="/assets/images/line-3.png"
+                alt="line"
+                width={100}
+                height={100}
+                className="size-full object-contain"
+              />
             </div>
-            <p className="text-sm text-gray-500">25/02/1997</p>
-            <p className="text-sm text-gray-500">Cung Bạch Dương</p>
-            <p className="text-sm text-gray-500">
-              Là cô dâu đáng yêu, thân thiện, hòa đồng, và rất trầm tính nhưng
-              vẫn có thể đối mặt với những thử thách và khó khăn trong cuộc
-              sống.
+            <h2 className="text-4xl font-lobster text-left text-turquoise">
+              Cô dâu
+            </h2>
+          </div>
+          <AnimatedTestimonials testimonials={BRIDE_TESTIMONIALS} autoplay />
+          <div className="text-center" ref={brideTextRef}>
+            <div className="flex items-center justify-center gap-3">
+              <h2 className="text-2xl font-lobster tracking-widest text-turquoise">
+                Hải Trần
+              </h2>
+              <AnimatedFacebookIcon />
+            </div>
+            <p className="font-lobster">25/02/1997</p>
+            <p className="font-lobster mb-2">♈ Cung Bạch Dương</p>
+            <p className="text-sm text-gray-500 font-lora italic">
+              Là một chàng trai đáng yêu, thân thiện, hòa đồng, và rất trầm tính
+              nhưng vẫn có thể đối mặt với những thử thách và khó khăn trong
+              cuộc sống.
             </p>
           </div>
         </div>

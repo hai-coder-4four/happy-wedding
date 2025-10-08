@@ -9,7 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const HEART_GRID = [
-  // 7 columns per row, 7 rows
+  // 7 columns per row, 6 rows
   // true = show image, false = empty cell
   [false, true, true, false, true, true, false],
   [true, true, true, true, true, true, true],
@@ -18,6 +18,27 @@ const HEART_GRID = [
   [false, false, true, true, true, false, false],
   [false, false, false, true, false, false, false],
 ];
+
+// Danh sách các hình khác nhau cho từng item
+const HEART_IMAGES = [
+  "/assets/images/wedding-1.jpg",
+  "/assets/images/wedding-2.jpg",
+  "/assets/images/wedding-3.jpg",
+  "/assets/images/wedding-4.jpg",
+  "/assets/images/wedding-5.jpg",
+  "/assets/images/wedding-6.jpg",
+  "/assets/images/wedding-7.jpg",
+  "/assets/images/wedding-8.jpg",
+  "/assets/images/wedding-9.jpg",
+  "/assets/images/wedding-10.jpg",
+  "/assets/images/wedding-11.jpg",
+  "/assets/images/wedding-12.jpg",
+  "/assets/images/wedding-13.jpg",
+  "/assets/images/wedding-14.jpg",
+];
+
+// Đếm số lượng true trong HEART_GRID để biết cần bao nhiêu hình
+const NUM_IMAGES = HEART_GRID.flat().filter(Boolean).length;
 
 const HeartList = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -144,6 +165,13 @@ const HeartList = () => {
     return () => ctx.revert();
   }, []);
 
+  const imagesToUse: string[] = [];
+  for (let i = 0; i < NUM_IMAGES; i++) {
+    imagesToUse.push(HEART_IMAGES[i % HEART_IMAGES.length]);
+  }
+
+  let imageIdx = 0;
+
   return (
     <div ref={containerRef} className="overflow-hidden pt-4 px-2">
       <div className="grid grid-cols-7 gap-2">
@@ -158,8 +186,8 @@ const HeartList = () => {
               >
                 <div className="relative size-full">
                   <Image
-                    src="/assets/images/wedding.png"
-                    alt="wedding"
+                    src={imagesToUse[imageIdx++]}
+                    alt={`wedding-${imageIdx}`}
                     width={300}
                     height={300}
                     className="size-full object-cover rounded-lg"

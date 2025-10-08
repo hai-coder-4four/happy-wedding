@@ -222,7 +222,7 @@ const Calendar = () => {
   };
 
   return (
-    <div className="section bg-white">
+    <div className="section bg-white rounded-lg">
       <Countdown />
       <Card className="border-none shadow-none p-0">
         <CardContent className="p-0">
@@ -240,16 +240,16 @@ const Calendar = () => {
           </div>
 
           {/* Calendar Grid */}
-          <div className="border-t border-turquoise pt-4">
+          <div className="border-t border-[rgb(178,188,163,0.5)] pt-4">
             {/* Day headers */}
-            <div className="mb-3 grid grid-cols-7 gap-2">
+            <div className="mb-3 grid grid-cols-7">
               {dayNames.map((day, index) => (
                 <div
                   key={day}
                   ref={(el) => {
                     dayHeaderRefs.current[index] = el;
                   }}
-                  className="py-1 text-center text-sm font-medium text-gray-600"
+                  className="py-1 text-center text-sm font-medium"
                 >
                   {day}
                 </div>
@@ -257,7 +257,7 @@ const Calendar = () => {
             </div>
 
             {/* Calendar days */}
-            <div className="grid grid-cols-7 gap-2">
+            <div className="grid grid-cols-7">
               {calendarDays.map((day, index) => {
                 const isCurrentMonth =
                   index >= firstDayOfWeek &&
