@@ -129,6 +129,10 @@
     @apply mx-auto h-full w-full px-4 max-w-(--container) 2xl:px-0;
   }
 
+  .section {
+    @apply w-full py-10;
+  }
+
   .flex-center {
     @apply flex items-center justify-center;
   }

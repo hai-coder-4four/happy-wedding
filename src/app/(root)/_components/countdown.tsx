@@ -52,7 +52,7 @@ const Countdown = () => {
 
   return (
     <Card className="border-none shadow-none">
-      <CardContent className="p-6">
+      <CardContent className="p-4">
         <h3 className="mb-4 text-center text-xl font-medium">
           09:30 Thứ Hai, ngày 30/10/2025 <br /> (Tức ngày 01/10 Ất Tỵ)
         </h3>

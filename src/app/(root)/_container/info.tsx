@@ -41,8 +41,8 @@ const BRIDE_TESTIMONIALS = [
 
 const Info = () => {
   return (
-    <div className="w-full flex items-center justify-center">
-      <div className="space-y-10 py-10 px-4 w-full bg-white rounded-lg overflow-hidden">
+    <div className="section w-full flex items-center justify-center">
+      <div className="space-y-10 px-4 w-full bg-white rounded-lg overflow-hidden">
         <div className="w-full space-y-6">
           <h2 className="text-4xl font-lobster text-left text-turquoise">
             Chú rể

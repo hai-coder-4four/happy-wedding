@@ -8,6 +8,9 @@ import Preface from "./_container/preface";
 import Story from "./_container/story";
 import Info from "./_container/info";
 import Map from "./_container/map";
+import EventLocation from "./_container/event-location";
+import BlessingForm from "./_container/blessing-form";
+import ThankYou from "./_container/thank-you";
 
 export default function Home() {
   return (
@@ -17,11 +20,14 @@ export default function Home() {
       <Story />
       <Info />
       <Calendar />
+      <EventLocation />
       <Preface />
       <Album />
       <Video />
       <Gift />
+      <BlessingForm />
       <Map />
+      <ThankYou />
     </div>
   );
 }

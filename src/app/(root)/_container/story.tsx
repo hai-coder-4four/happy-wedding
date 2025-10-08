@@ -63,7 +63,7 @@ const Story = () => {
   }, []);
 
   return (
-    <div className="w-full flex items-center justify-center">
+    <div className="section w-full flex items-center justify-center">
       <div className="w-full bg-white rounded-lg overflow-hidden p-2">
         <div ref={headerRef} className="flex justify-center mb-4">
           <div className="space-y-1">

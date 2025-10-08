@@ -222,7 +222,7 @@ const Calendar = () => {
   };
 
   return (
-    <div className="w-full bg-white py-4">
+    <div className="section bg-white">
       <Countdown />
       <Card className="border-none shadow-none p-0">
         <CardContent className="p-0">
@@ -240,7 +240,7 @@ const Calendar = () => {
           </div>
 
           {/* Calendar Grid */}
-          <div className="border-t border-gray-300 pt-4">
+          <div className="border-t border-turquoise pt-4">
             {/* Day headers */}
             <div className="mb-3 grid grid-cols-7 gap-2">
               {dayNames.map((day, index) => (

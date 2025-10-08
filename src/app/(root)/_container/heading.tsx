@@ -2,7 +2,7 @@ import Spinning from "../_components/spinning";
 
 const Heading = () => {
   return (
-    <div className="relative w-full flex flex-col items-center justify-center py-4">
+    <div className="py-4 relative w-full flex flex-col items-center justify-center">
       <span className="pointer-events-none text-center text-base leading-none uppercase font-lora">
         Welcome To Our Wedding
       </span>
