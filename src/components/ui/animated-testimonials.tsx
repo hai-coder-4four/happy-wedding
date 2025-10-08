@@ -40,14 +40,16 @@ export const AnimatedTestimonials = ({
     }
   }, [autoplay]);
 
-  const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
+  const randomRotateY = (index: number) => {
+    // Use index-based seed for consistent values between server and client
+    const seed = (index * 9301 + 49297) % 233280;
+    return (seed / 233280) * 21 - 10;
   };
   return (
-    <div className="mx-auto px-4 antialiased">
+    <div className="mx-auto px-8 antialiased">
       <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
         <div>
-          <div className="relative h-80 w-full">
+          <div className="relative w-full aspect-square">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -56,13 +58,13 @@ export const AnimatedTestimonials = ({
                     opacity: 0,
                     scale: 0.9,
                     z: -100,
-                    rotate: randomRotateY(),
+                    rotate: randomRotateY(index),
                   }}
                   animate={{
                     opacity: isActive(index) ? 1 : 0.7,
                     scale: isActive(index) ? 1 : 0.95,
                     z: isActive(index) ? 0 : -100,
-                    rotate: isActive(index) ? 0 : randomRotateY(),
+                    rotate: isActive(index) ? 0 : randomRotateY(index),
                     zIndex: isActive(index)
                       ? 40
                       : testimonials.length + 2 - index,
@@ -72,7 +74,7 @@ export const AnimatedTestimonials = ({
                     opacity: 0,
                     scale: 0.9,
                     z: 100,
-                    rotate: randomRotateY(),
+                    rotate: randomRotateY(index),
                   }}
                   transition={{
                     duration: 0.4,

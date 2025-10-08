@@ -41,35 +41,42 @@ const BRIDE_TESTIMONIALS = [
 
 const Info = () => {
   return (
-    <div className="space-y-10">
-      <div>
+    <div className="space-y-10 py-10">
+      <div className="w-full space-y-6">
         <h2 className="text-4xl font-bold text-left text-green-500">Chú rể</h2>
-        <AnimatedTestimonials testimonials={GROOM_TESTIMONIALS} />
-        <div>
+        <AnimatedTestimonials testimonials={GROOM_TESTIMONIALS} autoplay />
+        <div className="text-left">
           <div className="flex items-center gap-2">
             <h2 className="text-2xl font-bold">Hải Trần</h2>
             <div className="size-6 rounded-full bg-blue-500">
-              <Facebook className="size-6 text-white" />
+              <Facebook className="size-5 text-white" />
             </div>
           </div>
-          <span className="text-sm text-gray-500">25/02/1997</span>
-          <span className="text-sm text-gray-500">Cung Bạch Dương</span>
-          <p className="text-sm text-gray-500">Là một chàng trai đáng yêu</p>
+          <p className="text-sm text-gray-500">25/02/1997</p>
+          <p className="text-sm text-gray-500">Cung Bạch Dương</p>
+          <p className="text-sm text-gray-500">
+            Là một chàng trai đáng yêu, thân thiện, hòa đồng, và rất trầm tính
+            nhưng vẫn có thể đối mặt với những thử thách và khó khăn trong cuộc
+            sống.
+          </p>
         </div>
       </div>
-      <div>
-        <h2 className="text-4xl font-bold text-left text-green-500">Cô dâu</h2>
-        <AnimatedTestimonials testimonials={BRIDE_TESTIMONIALS} />
-        <div>
+      <div className="w-full space-y-6">
+        <h2 className="text-4xl font-bold text-right text-green-500">Cô dâu</h2>
+        <AnimatedTestimonials testimonials={BRIDE_TESTIMONIALS} autoplay />
+        <div className="text-right">
           <div className="flex items-center gap-2">
             <h2 className="text-2xl font-bold">Hải Trần</h2>
             <div className="size-6 rounded-full bg-blue-500">
-              <Facebook className="size-6 text-white" />
+              <Facebook className="size-5 text-white" />
             </div>
           </div>
-          <span className="text-sm text-gray-500">25/02/1997</span>
-          <span className="text-sm text-gray-500">Cung Bạch Dương</span>
-          <p className="text-sm text-gray-500">Là cô dâu đáng yêu</p>
+          <p className="text-sm text-gray-500">25/02/1997</p>
+          <p className="text-sm text-gray-500">Cung Bạch Dương</p>
+          <p className="text-sm text-gray-500">
+            Là cô dâu đáng yêu, thân thiện, hòa đồng, và rất trầm tính nhưng vẫn
+            có thể đối mặt với những thử thách và khó khăn trong cuộc sống.
+          </p>
         </div>
       </div>
     </div>
