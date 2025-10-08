@@ -137,7 +137,7 @@ const Banner = () => {
             ref={(el) => {
               textRefs.current[idx] = el;
             }}
-            className="absolute bottom-0 -right-1 text-center text-white"
+            className="absolute bottom-0 -right-0.5 text-center text-white"
           >
             <span className="text-7xl drop-shadow-lg font-lora font-bold">
               {item.text}
