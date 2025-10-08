@@ -77,7 +77,7 @@ const Story = () => {
               />
             </div>
             <h2 ref={titleRef} className="text-4xl text-center text-[#4a4a4a]">
-              Chuyện Chúng Mình
+              Câu Chuyện Tình Yêu
             </h2>
           </div>
         </div>

@@ -46,9 +46,9 @@ const Info = () => {
         <h2 className="text-4xl font-bold text-left text-green-500">Chú rể</h2>
         <AnimatedTestimonials testimonials={GROOM_TESTIMONIALS} autoplay />
         <div className="text-left">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-start gap-2">
             <h2 className="text-2xl font-bold">Hải Trần</h2>
-            <div className="size-6 rounded-full bg-blue-500">
+            <div className="size-6 rounded-full bg-blue-500 flex items-center justify-center">
               <Facebook className="size-5 text-white" />
             </div>
           </div>
@@ -65,11 +65,11 @@ const Info = () => {
         <h2 className="text-4xl font-bold text-right text-green-500">Cô dâu</h2>
         <AnimatedTestimonials testimonials={BRIDE_TESTIMONIALS} autoplay />
         <div className="text-right">
-          <div className="flex items-center gap-2">
-            <h2 className="text-2xl font-bold">Hải Trần</h2>
-            <div className="size-6 rounded-full bg-blue-500">
+          <div className="flex items-center justify-end gap-2">
+            <div className="size-6 rounded-full bg-blue-500 flex items-center justify-center">
               <Facebook className="size-5 text-white" />
             </div>
+            <h2 className="text-2xl font-bold">Hải Trần</h2>
           </div>
           <p className="text-sm text-gray-500">25/02/1997</p>
           <p className="text-sm text-gray-500">Cung Bạch Dương</p>
