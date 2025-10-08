@@ -104,7 +104,7 @@ export function HeroVideoDialog({
                 className="size-8 scale-100 fill-white text-white transition-transform duration-200 ease-out group-hover:scale-105"
                 style={{
                   filter:
-                    "drop-shadow(0 4px 3px rgb(178 188 163 / 0.07)) drop-shadow(0 2px 2px rgb(178 188 163 / 0.06))",
+                    "drop-shadow(0 4px 3px rgb(178 188 163 / 0.3)) drop-shadow(0 2px 2px rgb(178 188 163 / 0.2))",
                 }}
               />
             </div>

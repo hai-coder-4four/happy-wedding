@@ -1,11 +1,13 @@
 :root {
   --color-primary: #000000;
   --color-secondary: #000000;
+  --color-turquoise: oklch(0.7805 0.0363 125.02) /*#b2bca3;*/
   --color-slate-overlay: oklch(98.4% 0.003 247.858);
 }
 
 @theme inline {
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
+  --color-turquoise: var(--color-turquoise);
   --color-slate-overlay: var(--color-slate-overlay);
 }

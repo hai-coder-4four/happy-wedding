@@ -128,7 +128,7 @@ const Banner = () => {
               alt={item.text}
               width={300}
               height={300}
-              className="size-full object-cover transition-transform duration-300 hover:scale-110 rounded-md overflow-hidden"
+              className="size-full object-cover transition-transform duration-300 hover:scale-y-125 rounded-[5px] overflow-hidden"
             />
           </div>
           <div

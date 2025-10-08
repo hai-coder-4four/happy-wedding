@@ -24,8 +24,7 @@ const Gift = () => {
           Hộp mừng cưới
         </h2>
         <p className="text-center text-lg mb-4 z-10 text-white">
-          Hãy chia sẻ hạnh phúc của mình với chúng mình bằng cách gửi hộp mừng
-          cưới
+          Hãy chia sẻ hạnh phúc với chúng mình bằng cách gửi hộp mừng cưới
         </p>
       </div>
       <div
