@@ -64,9 +64,9 @@ const Story = () => {
 
   return (
     <div className="w-full flex items-center justify-center p-4">
-      <div className="w-full bg-white rounded-lg overflow-hidden">
-        <div ref={headerRef} className="pt-8 pb-4 flex justify-center">
-          <div className="space-y-1 mb-4">
+      <div className="w-full bg-white rounded-lg overflow-hidden p-2">
+        <div ref={headerRef} className="flex justify-center mb-4">
+          <div className="space-y-1">
             <div className="required w-[80px] h-auto mx-auto">
               <Image
                 src="/assets/images/leaf.png"
@@ -84,7 +84,7 @@ const Story = () => {
 
         <div
           ref={textRef}
-          className="px-8 pb-6 space-y-4 text-[#5a5a5a] leading-relaxed"
+          className="py-4 space-y-4 text-[#5a5a5a] leading-relaxed"
         >
           <p className="text-line text-center">
             Chúng mình quen nhau khi cùng làm việc ở công ty. Thường xuyên phải

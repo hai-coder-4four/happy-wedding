@@ -77,8 +77,8 @@ const Preface = () => {
 
   return (
     <div className="w-full flex items-center justify-center p-4">
-      <div className="w-full bg-white rounded-lg overflow-hidden">
-        <div ref={headerRef} className="pt-8 pb-4 flex justify-center">
+      <div className="w-full bg-white rounded-lg overflow-hidden p-4">
+        <div ref={headerRef} className="py-4 flex justify-center">
           <div className="w-16 h-16 relative">
             <svg
               viewBox="0 0 100 100"
@@ -121,7 +121,7 @@ const Preface = () => {
 
         <div
           ref={textRef}
-          className="px-8 pb-6 space-y-4 text-[#5a5a5a] leading-relaxed"
+          className="py-4 space-y-4 text-[#5a5a5a] leading-relaxed"
         >
           <p className="text-line text-center">
             Cảm ơn bạn đã dành tình cảm cho vợ chồng mình. ❤️

@@ -42,9 +42,9 @@ const BRIDE_TESTIMONIALS = [
 const Info = () => {
   return (
     <div className="w-full flex items-center justify-center p-4">
-      <div className="space-y-10 py-10 w-full bg-white rounded-lg overflow-hidden">
+      <div className="space-y-10 py-10 px-4 w-full bg-white rounded-lg overflow-hidden">
         <div className="w-full space-y-6">
-          <h2 className="text-4xl font-pacifico text-left text-turquoise">
+          <h2 className="text-4xl font-pacifico text-left text-turquoise uppercase">
             Chú rể
           </h2>
           <AnimatedTestimonials testimonials={GROOM_TESTIMONIALS} autoplay />
@@ -65,7 +65,7 @@ const Info = () => {
           </div>
         </div>
         <div className="w-full space-y-6">
-          <h2 className="text-4xl font-pacifico text-right text-turquoise">
+          <h2 className="text-4xl font-pacifico text-right text-turquoise uppercase">
             Cô dâu
           </h2>
           <AnimatedTestimonials testimonials={BRIDE_TESTIMONIALS} autoplay />

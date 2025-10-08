@@ -145,8 +145,8 @@ const HeartList = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="overflow-hidden py-6">
-      <div className="grid grid-cols-7 gap-2 px-2">
+    <div ref={containerRef} className="overflow-hidden py-4 px-2">
+      <div className="grid grid-cols-7 gap-2">
         {HEART_GRID.flat().map((showImage, idx) => (
           <div className="aspect-square w-full" key={idx}>
             {showImage && (
