@@ -16,19 +16,17 @@ export default function Home() {
   return (
     <div className="min-h-screen pb-4">
       <Banner />
-      <div className="px-2">
-        <Story />
-        <Info />
-        <Calendar />
-        <EventLocation />
-        <Preface />
-        <Album />
-        <Video />
-        <Gift />
-        <BlessingForm />
-        <Map />
-        <ThankYou />
-      </div>
+      <Story />
+      <Info />
+      <Calendar />
+      {/* <EventLocation /> */}
+      <Preface />
+      <Album />
+      <Video />
+      <Gift />
+      {/* <BlessingForm /> */}
+      <Map />
+      <ThankYou />
     </div>
   );
 }

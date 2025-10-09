@@ -2,7 +2,7 @@ import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
 
 const Video = () => {
   return (
-    <div className="section rounded-lg">
+    <div className="section px-2 rounded-lg">
       <h2 className="text-4xl text-center text-[#4a4a4a] font-bold mb-4">
         Video của chúng mình
       </h2>

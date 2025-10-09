@@ -193,7 +193,7 @@ const Info = () => {
 
   return (
     <div className="section w-full flex items-center justify-center">
-      <div className="w-full space-y-10 rounded-lg overflow-hidden">
+      <div className="w-full space-y-2 rounded-lg overflow-hidden">
         <div>
           <h2 className="text-4xl text-center text-[#4a4a4a] font-bold">
             Giới thiệu
@@ -206,68 +206,76 @@ const Info = () => {
             className="w-[100px] h-auto object-contain mx-auto"
           />
         </div>
-        <div className="relative w-full max-w-[432px] h-[620px] mx-auto">
-          <div className="absolute inset-0">
-            <div className="relative size-full">
-              <Image
-                src="/assets/images/room-1.png"
-                alt="room-1"
-                width={500}
-                height={500}
-                className="size-full object-contain"
+        <div className="space-y-2">
+          <div className="relative w-full max-w-[432px] h-[620px] mx-auto">
+            <div className="absolute inset-0">
+              <div className="relative size-full">
+                <Image
+                  src="/assets/images/room-1.png"
+                  alt="room-1"
+                  width={500}
+                  height={500}
+                  className="size-full object-contain"
+                />
+              </div>
+            </div>
+            <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[70%] space-y-6">
+              <AnimatedTestimonials
+                testimonials={GROOM_TESTIMONIALS}
+                autoplay
               />
-            </div>
-          </div>
-          <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[70%] space-y-6">
-            <AnimatedTestimonials testimonials={GROOM_TESTIMONIALS} autoplay />
-            <div className="text-center" ref={groomTextRef}>
-              <div className="flex items-center justify-center gap-3">
-                <h2 className="text-2xl font-lobster tracking-widest text-turquoise">
-                  Hải Trần
-                </h2>
-                <AnimatedFacebookIcon />
-              </div>
-              <div className="text-center font-titillium-web">
-                <p>25/02/1997</p>
-                <p className="mb-2">♈ Cung Bạch Dương</p>
-                <p className="text-gray-500 italic font-dancing-script">
-                  Là một chàng trai đáng yêu, thân thiện, hòa đồng, và rất trầm
-                  tính nhưng vẫn có thể đối mặt với những thử thách và khó khăn
-                  trong cuộc sống.
-                </p>
+              <div className="text-center" ref={groomTextRef}>
+                <div className="flex items-center justify-center gap-3">
+                  <h2 className="text-2xl font-lobster tracking-widest text-turquoise">
+                    Hải Trần
+                  </h2>
+                  <AnimatedFacebookIcon />
+                </div>
+                <div className="text-center font-titillium-web">
+                  <p>25/02/1997</p>
+                  <p className="mb-2">♈ Cung Bạch Dương</p>
+                  <p className="text-gray-500 italic font-dancing-script">
+                    Là một chàng trai đáng yêu, thân thiện, hòa đồng, và rất
+                    trầm tính nhưng vẫn có thể đối mặt với những thử thách và
+                    khó khăn trong cuộc sống.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="relative w-full max-w-[432px] h-[620px] mx-auto">
-          <div className="absolute inset-0">
-            <div className="relative size-full">
-              <Image
-                src="/assets/images/room-2.png"
-                alt="room-1"
-                width={500}
-                height={500}
-                className="size-full object-contain"
+          <div className="relative w-full max-w-[432px] h-[620px] mx-auto">
+            <div className="absolute inset-0">
+              <div className="relative size-full">
+                <Image
+                  src="/assets/images/room-2.png"
+                  alt="room-1"
+                  width={500}
+                  height={500}
+                  className="size-full object-contain"
+                />
+              </div>
+            </div>
+            <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[70%] space-y-6">
+              <AnimatedTestimonials
+                testimonials={BRIDE_TESTIMONIALS}
+                autoplay
               />
-            </div>
-          </div>
-          <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[70%] space-y-6">
-            <AnimatedTestimonials testimonials={BRIDE_TESTIMONIALS} autoplay />
-            <div className="text-center" ref={brideTextRef}>
-              <div className="flex items-center justify-center gap-3">
-                <h2 className="text-2xl font-lobster tracking-widest text-turquoise">
-                  Hải Trần
-                </h2>
-                <AnimatedFacebookIcon />
-              </div>
-              <div className="text-center font-titillium-web">
-                <p>25/02/1997</p>
-                <p className="mb-2">♈ Cung Bạch Dương</p>
-                <p className="text-gray-500 italic font-dancing-script">
-                  Là một chàng trai đáng yêu, thân thiện, hòa đồng, và rất trầm
-                  tính nhưng vẫn có thể đối mặt với những thử thách và khó khăn
-                  trong cuộc sống.
-                </p>
+              <div className="text-center" ref={brideTextRef}>
+                <div className="flex items-center justify-center gap-3">
+                  <h2 className="text-2xl font-lobster tracking-widest text-turquoise">
+                    Hải Trần
+                  </h2>
+                  <AnimatedFacebookIcon />
+                </div>
+                <div className="text-center font-titillium-web">
+                  <p>25/02/1997</p>
+                  <p className="mb-2">♈ Cung Bạch Dương</p>
+                  <p className="text-gray-500 italic font-dancing-script">
+                    Là một chàng trai đáng yêu, thân thiện, hòa đồng, và rất
+                    trầm tính nhưng vẫn có thể đối mặt với những thử thách và
+                    khó khăn trong cuộc sống.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

@@ -130,7 +130,7 @@
   }
 
   .section {
-    @apply w-full py-10;
+    @apply w-full py-6;
   }
 
   .flex-center {

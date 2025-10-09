@@ -63,8 +63,8 @@ const Story = () => {
   }, []);
 
   return (
-    <div className="section w-full flex items-center justify-center">
-      <div className="w-full bg-white rounded-lg overflow-hidden p-2">
+    <div className="section bg-white !pt-0 flex items-center justify-center">
+      <div className="w-full overflow-hidden py-2 px-4">
         <div ref={headerRef} className="flex justify-center mb-4">
           <div className="space-y-1">
             <div className="required w-[80px] h-auto mx-auto">

@@ -33,6 +33,7 @@ const LightBox = () => {
       y: "100vh", // Fall down to bottom of screen
       scale: 0.5,
       duration: 3,
+      delay: 0.5,
       ease: "power3.inOut",
     })
       // Then left and right images slide out together
@@ -40,19 +41,19 @@ const LightBox = () => {
         leftImageRef.current,
         {
           x: "-100%",
-          duration: 2.5,
+          duration: 3,
           ease: "power3.out",
         },
-        1.5 // Start after center animation begins
+        2 // Start after center animation begins
       )
       .to(
         rightImageRef.current,
         {
           x: "100%",
-          duration: 2.5,
+          duration: 2,
           ease: "power3.out",
         },
-        1.5 // Start at the same time as left image
+        2 // Start at the same time as left image
       )
       // Hide the container after all animations complete
       .to(

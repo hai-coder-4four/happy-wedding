@@ -75,7 +75,7 @@ const Album = () => {
   };
 
   return (
-    <div ref={containerRef} className="section overflow-hidden">
+    <div ref={containerRef} className="section px-2 overflow-hidden">
       <h2 className="text-4xl text-center text-[#4a4a4a] font-bold mb-4">
         Album hình cưới
       </h2>
