@@ -76,7 +76,10 @@ const Story = () => {
                 className="size-full object-contain"
               />
             </div>
-            <h2 ref={titleRef} className="text-4xl text-center text-[#4a4a4a]">
+            <h2
+              ref={titleRef}
+              className="text-4xl text-center text-[#4a4a4a] font-bold"
+            >
               Câu Chuyện Tình Yêu
             </h2>
           </div>

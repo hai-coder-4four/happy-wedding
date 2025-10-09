@@ -222,7 +222,7 @@ const Calendar = () => {
   };
 
   return (
-    <div className="section bg-white rounded-lg">
+    <div className="section bg-white rounded-lg px-6">
       <Countdown />
       <Card className="border-none shadow-none p-0">
         <CardContent className="p-0">

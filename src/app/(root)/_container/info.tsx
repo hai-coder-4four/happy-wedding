@@ -193,72 +193,83 @@ const Info = () => {
 
   return (
     <div className="section w-full flex items-center justify-center">
-      <div className="space-y-10 p-4 w-full bg-white rounded-lg overflow-hidden">
-        <div className="w-full space-y-6 border-4 border-turquoise rounded-lg p-4">
-          <div
-            className="flex items-end justify-start gap-3"
-            ref={groomTitleRef}
-          >
-            <h2 className="text-4xl font-lobster text-left text-turquoise">
-              Chú rể
-            </h2>
-            <div className="relative w-[100px] h-auto mb-1">
+      <div className="w-full space-y-10 rounded-lg overflow-hidden">
+        <div>
+          <h2 className="text-4xl text-center text-[#4a4a4a] font-bold">
+            Giới thiệu
+          </h2>
+          <Image
+            src="/assets/images/line-3.png"
+            alt="line"
+            width={100}
+            height={100}
+            className="w-[100px] h-auto object-contain mx-auto"
+          />
+        </div>
+        <div className="relative w-full max-w-[432px] h-[620px] mx-auto">
+          <div className="absolute inset-0">
+            <div className="relative size-full">
               <Image
-                src="/assets/images/line-3.png"
-                alt="line"
-                width={100}
-                height={100}
+                src="/assets/images/room-1.png"
+                alt="room-1"
+                width={500}
+                height={500}
                 className="size-full object-contain"
               />
             </div>
           </div>
-          <AnimatedTestimonials testimonials={GROOM_TESTIMONIALS} autoplay />
-          <div className="text-center" ref={groomTextRef}>
-            <div className="flex items-center justify-center gap-3">
-              <h2 className="text-2xl font-lobster tracking-widest text-turquoise">
-                Hải Trần
-              </h2>
-              <AnimatedFacebookIcon />
+          <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[70%] space-y-6">
+            <AnimatedTestimonials testimonials={GROOM_TESTIMONIALS} autoplay />
+            <div className="text-center" ref={groomTextRef}>
+              <div className="flex items-center justify-center gap-3">
+                <h2 className="text-2xl font-lobster tracking-widest text-turquoise">
+                  Hải Trần
+                </h2>
+                <AnimatedFacebookIcon />
+              </div>
+              <div className="text-center font-titillium-web">
+                <p>25/02/1997</p>
+                <p className="mb-2">♈ Cung Bạch Dương</p>
+                <p className="text-gray-500 italic font-dancing-script">
+                  Là một chàng trai đáng yêu, thân thiện, hòa đồng, và rất trầm
+                  tính nhưng vẫn có thể đối mặt với những thử thách và khó khăn
+                  trong cuộc sống.
+                </p>
+              </div>
             </div>
-            <p className="font-lobster">25/02/1997</p>
-            <p className="font-lobster mb-2">♈ Cung Bạch Dương</p>
-            <p className="text-sm text-gray-500 font-lora italic">
-              Là một chàng trai đáng yêu, thân thiện, hòa đồng, và rất trầm tính
-              nhưng vẫn có thể đối mặt với những thử thách và khó khăn trong
-              cuộc sống.
-            </p>
           </div>
         </div>
-        <div className="w-full space-y-6 border-4 border-turquoise rounded-lg p-4">
-          <div className="flex items-end justify-end gap-3" ref={brideTitleRef}>
-            <div className="relative w-[100px] h-auto mb-1">
+        <div className="relative w-full max-w-[432px] h-[620px] mx-auto">
+          <div className="absolute inset-0">
+            <div className="relative size-full">
               <Image
-                src="/assets/images/line-3.png"
-                alt="line"
-                width={100}
-                height={100}
+                src="/assets/images/room-2.png"
+                alt="room-1"
+                width={500}
+                height={500}
                 className="size-full object-contain"
               />
             </div>
-            <h2 className="text-4xl font-lobster text-left text-turquoise">
-              Cô dâu
-            </h2>
           </div>
-          <AnimatedTestimonials testimonials={BRIDE_TESTIMONIALS} autoplay />
-          <div className="text-center" ref={brideTextRef}>
-            <div className="flex items-center justify-center gap-3">
-              <h2 className="text-2xl font-lobster tracking-widest text-turquoise">
-                Hải Trần
-              </h2>
-              <AnimatedFacebookIcon />
+          <div className="absolute top-[100px] left-1/2 -translate-x-1/2 w-[70%] space-y-6">
+            <AnimatedTestimonials testimonials={BRIDE_TESTIMONIALS} autoplay />
+            <div className="text-center" ref={brideTextRef}>
+              <div className="flex items-center justify-center gap-3">
+                <h2 className="text-2xl font-lobster tracking-widest text-turquoise">
+                  Hải Trần
+                </h2>
+                <AnimatedFacebookIcon />
+              </div>
+              <div className="text-center font-titillium-web">
+                <p>25/02/1997</p>
+                <p className="mb-2">♈ Cung Bạch Dương</p>
+                <p className="text-gray-500 italic font-dancing-script">
+                  Là một chàng trai đáng yêu, thân thiện, hòa đồng, và rất trầm
+                  tính nhưng vẫn có thể đối mặt với những thử thách và khó khăn
+                  trong cuộc sống.
+                </p>
+              </div>
             </div>
-            <p className="font-lobster">25/02/1997</p>
-            <p className="font-lobster mb-2">♈ Cung Bạch Dương</p>
-            <p className="text-sm text-gray-500 font-lora italic">
-              Là một chàng trai đáng yêu, thân thiện, hòa đồng, và rất trầm tính
-              nhưng vẫn có thể đối mặt với những thử thách và khó khăn trong
-              cuộc sống.
-            </p>
           </div>
         </div>
       </div>

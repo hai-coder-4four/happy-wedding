@@ -1,4 +1,4 @@
-import { Dancing_Script, Lobster, Lora, Pacifico } from "next/font/google";
+import { Dancing_Script, Lobster, Lora, Titillium_Web } from "next/font/google";
 
 const dancingScript = Dancing_Script({
   variable: "--font-dancing-script",
@@ -18,4 +18,10 @@ const lobster = Lobster({
   weight: ["400"],
 });
 
-export { dancingScript, lora, lobster };
+const titilliumWeb = Titillium_Web({
+  variable: "--font-titillium-web",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+});
+
+export { dancingScript, lora, lobster, titilliumWeb };

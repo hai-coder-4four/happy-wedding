@@ -4,8 +4,8 @@ import React from "react";
 const Spinning = () => {
   return (
     <div className="w-full flex-center overflow-hidden">
-      <SpinningText className="w-full h-[200px] text-xl">
-        Hai Trần ❤️ Hải Trần ❤️
+      <SpinningText className="w-full h-[170px] text-xl">
+        End Wedding ❤️ End Wedding ❤️
       </SpinningText>
     </div>
   );

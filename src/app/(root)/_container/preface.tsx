@@ -79,12 +79,12 @@ const Preface = () => {
   return (
     <div className="section flex items-center justify-center">
       <div className="w-full bg-white rounded-lg overflow-hidden p-4">
-        <div ref={headerRef} className="w-full py-4 flex justify-center">
-          <BookIcon className="size-14 text-turquoise" />
+        <div ref={headerRef} className="w-full py-2 flex justify-center">
+          <BookIcon className="size-10 text-turquoise" />
         </div>
 
         <div className="space-y-1 mb-4">
-          <h2 ref={titleRef} className="text-4xl text-center text-[#4a4a4a]">
+          <h2 className="text-4xl text-center text-[#4a4a4a] font-bold">
             Lời Ngỏ
           </h2>
           <div className="required w-[150px] h-auto mx-auto">
@@ -123,7 +123,7 @@ const Preface = () => {
         <div ref={imageRef}>
           <div className="relative overflow-hidden">
             <Image
-              src="/assets/images/wedding-7.jpg"
+              src="/assets/images/wedding-11.jpg"
               alt="Wedding Photo"
               width={500}
               height={500}

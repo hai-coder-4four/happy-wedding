@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Heading from "../_components/heading";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -104,8 +105,8 @@ const Banner = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-center text-5xl text-turquoise font-bold mb-4">
+    <div className="section px-2 bg-[url('/assets/images/bg-banner.png')] bg-cover bg-center bg-no-repeat">
+      <h1 className="text-center text-5xl text-[#4a4a4a] font-bold mb-4">
         Thư mời
       </h1>
       <div
@@ -135,7 +136,7 @@ const Banner = () => {
                 alt={item.text}
                 width={300}
                 height={300}
-                className="size-full object-cover transition-transform duration-300 hover:scale-y-125 rounded-[5px] overflow-hidden"
+                className="size-full object-cover transition-transform duration-300 hover:scale-125 rounded-[5px] overflow-hidden"
               />
             </div>
             <div
@@ -151,6 +152,7 @@ const Banner = () => {
           </div>
         ))}
       </div>
+      <Heading />
     </div>
   );
 };

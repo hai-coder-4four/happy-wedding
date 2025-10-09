@@ -41,7 +41,7 @@ export const AnimatedTestimonials = ({
     return (seed / 233280) * 21 - 10;
   };
   return (
-    <div className="mx-auto px-8 antialiased">
+    <div className="mx-auto px-4 antialiased">
       <div className="relative grid grid-cols-1">
         <div className="relative w-full aspect-square">
           <AnimatePresence>

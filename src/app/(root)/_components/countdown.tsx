@@ -59,7 +59,11 @@ const Countdown = () => {
         <div className="grid grid-cols-4 gap-4">
           {timeUnits.map((unit) => (
             <div key={unit.label} className="flex flex-col items-center">
-              <div className="text-2xl font-bold">{unit.value}</div>
+              <div className="size-14 flex-center rounded-full bg-turquoise">
+                <div className="text-2xl font-bold text-white">
+                  {unit.value}
+                </div>
+              </div>
               <span className="mt-2 text-sm font-medium">{unit.label}</span>
             </div>
           ))}

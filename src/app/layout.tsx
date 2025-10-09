@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import Floating from "@/components/layouts/floating";
-import { dancingScript, lobster, lora } from "@/configs/fonts/custom-fonts";
+import Floating from "@/components/common/floating";
+import {
+  dancingScript,
+  lobster,
+  lora,
+  titilliumWeb,
+} from "@/configs/fonts/custom-fonts";
+import LightBox from "@/components/common/light-box";
 
 export const metadata: Metadata = {
   title: "Happy Wedding",
@@ -16,13 +22,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${dancingScript.variable} ${lora.variable} ${lobster.variable} antialiased`}
+        className={`${dancingScript.variable} ${lora.variable} ${lobster.variable} ${titilliumWeb.variable} antialiased`}
         suppressHydrationWarning
       >
         <main className="max-w-md mx-auto w-full bg-[rgb(178,188,163,0.1)] overflow-hidden">
           {children}
-          <Floating />
         </main>
+        <LightBox />
+        <Floating />
       </body>
     </html>
   );
