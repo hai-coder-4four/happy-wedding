@@ -227,13 +227,13 @@ const Calendar = () => {
       <Card className="border-none shadow-none p-0">
         <CardContent className="p-0">
           {/* Header with decorative title and heart */}
-          <div className="relative mb-2">
+          <div className="relative">
             <div
               ref={headerRef}
               className="flex flex-col items-center text-center"
             >
               <h1 ref={titleRef} className="text-3xl text-gray-700">
-                Lưu ngày này nhé !
+                Save the date
               </h1>
               <DateIcon className="size-24" />
             </div>
