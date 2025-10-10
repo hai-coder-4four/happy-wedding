@@ -129,8 +129,8 @@ const Preface = () => {
             <Image
               src="/assets/images/wedding-11.jpg"
               alt="Wedding Photo"
-              width={500}
-              height={500}
+              width={1000}
+              height={1000}
               className="w-full h-auto object-cover"
             />
           </div>
