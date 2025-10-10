@@ -24,7 +24,7 @@ export default function Home() {
       <Album />
       <Video />
       <Gift />
-      {/* <BlessingForm /> */}
+      <BlessingForm />
       <Map />
       <ThankYou />
     </div>
