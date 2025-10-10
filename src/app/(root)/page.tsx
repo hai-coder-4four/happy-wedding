@@ -22,7 +22,7 @@ export default function Home() {
       <Video />
       <Album />
       <Calendar />
-      {/* <EventLocation /> */}
+      <EventLocation />
       <Gift />
       <BlessingForm />
       <Map />
