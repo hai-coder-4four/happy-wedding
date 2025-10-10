@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { BookIcon } from "@/assets/icons";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,17 +78,13 @@ const Preface = () => {
   return (
     <div className="section flex items-center justify-center">
       <div className="w-full bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat rounded-lg overflow-hidden p-4">
-        <div ref={headerRef} className="w-full py-2 flex justify-center">
-          <BookIcon className="size-10 text-turquoise" />
-        </div>
-
         <div className="space-y-1 mb-4">
           <h2 className="text-4xl text-center text-[#4a4a4a] font-bold">
             Lời Ngỏ
           </h2>
           <div className="required w-[150px] h-auto mx-auto">
             <Image
-              src="/assets/images/line.png"
+              src="/assets/images/line-4.png"
               alt="line"
               width={150}
               height={30}

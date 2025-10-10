@@ -22,8 +22,9 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import { Heart, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import Link from "next/link";
+import { BookIcon } from "@/assets/icons";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -59,6 +60,9 @@ const BlessingForm = () => {
     <div className="bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat relative overflow-hidden">
       <div className="container max-w-2xl mx-auto px-4 py-12">
         <div className="text-center mb-8">
+          <div className="w-full py-2 flex justify-center">
+            <BookIcon className="size-10 text-turquoise" />
+          </div>
           <h1 className="text-4xl text-[#4a4a4a] font-bold mb-4">Sổ Lưu Bút</h1>
           <p className="text-gray-700 text-lg leading-relaxed">
             Cảm ơn bạn rất nhiều vì đã gửi những lời chúc mừng tốt đẹp nhất đến
@@ -149,8 +153,7 @@ const BlessingForm = () => {
                             htmlFor="yes"
                             className="font-normal flex items-center gap-2 cursor-pointer flex-1"
                           >
-                            Có, tôi sẽ đến
-                            <Heart className="w-5 h-5 text-red-500 fill-red-500" />
+                            Có, tôi sẽ đến 💗
                           </Label>
                         </div>
                         <div className="flex items-center space-x-3 bg-white border border-gray-200 rounded-lg p-4 hover:border-pink-300 transition-colors flex-1">
@@ -159,7 +162,7 @@ const BlessingForm = () => {
                             htmlFor="no"
                             className="font-normal cursor-pointer flex-1"
                           >
-                            Xin lỗi, tôi bận mất rồi
+                            Xin lỗi, tôi bận mất rồi 🥹
                           </Label>
                         </div>
                       </RadioGroup>
@@ -181,9 +184,9 @@ const BlessingForm = () => {
           <div className="text-center mt-6">
             <Link
               href="/all-wishes"
-              className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 underline"
+              className="inline-flex items-center gap-2 text-turquoise underline hover:text-turquoise/80"
             >
-              <Mail className="w-4 h-4" />
+              <Mail className="w-4 h-4 text-turquoise" />
               Xem tất cả lời chúc của mọi người
             </Link>
           </div>

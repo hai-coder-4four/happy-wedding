@@ -76,9 +76,20 @@ const Album = () => {
 
   return (
     <div ref={containerRef} className="section px-2 overflow-hidden">
-      <h2 className="text-4xl text-center text-[#4a4a4a] font-bold mb-4">
-        Album hình cưới
-      </h2>
+      <div className="space-y-1 mb-4">
+        <h2 className="text-4xl text-center text-[#4a4a4a] font-bold">
+          Album hình cưới
+        </h2>
+        <div className="required w-[150px] h-auto mx-auto">
+          <Image
+            src="/assets/images/line-4.png"
+            alt="line"
+            width={150}
+            height={30}
+            className="size-full object-contain"
+          />
+        </div>
+      </div>
       <div className="grid grid-cols-3 grid-rows-11 gap-1 h-[900px]">
         <div
           ref={addLeftRef}

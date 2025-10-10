@@ -194,19 +194,21 @@ const Info = () => {
   return (
     <div className="section w-full flex items-center justify-center">
       <div className="w-full space-y-2 rounded-lg overflow-hidden">
-        <div>
+        <div className="space-y-1 mb-4">
           <h2 className="text-4xl text-center text-[#4a4a4a] font-bold">
             Giới thiệu
           </h2>
-          <Image
-            src="/assets/images/line-3.png"
-            alt="line"
-            width={100}
-            height={100}
-            className="w-[100px] h-auto object-contain mx-auto"
-          />
+          <div className="required w-[150px] h-auto mx-auto">
+            <Image
+              src="/assets/images/line-4.png"
+              alt="line"
+              width={150}
+              height={30}
+              className="size-full object-contain"
+            />
+          </div>
         </div>
-        <div className="space-y-2">
+        <div className="space-y-1">
           <div className="relative w-full max-w-[432px] h-[620px] mx-auto">
             <div className="absolute inset-0">
               <div className="relative size-full">
@@ -226,7 +228,7 @@ const Info = () => {
               />
               <div className="text-center" ref={groomTextRef}>
                 <div className="flex items-center justify-center gap-3">
-                  <h2 className="text-2xl font-lobster tracking-widest text-turquoise">
+                  <h2 className="text-3xl font-lobster tracking-widest text-turquoise">
                     Hải Trần
                   </h2>
                   <AnimatedFacebookIcon />
@@ -234,7 +236,7 @@ const Info = () => {
                 <div className="text-center font-titillium-web">
                   <p>25/02/1997</p>
                   <p className="mb-2">♈ Cung Bạch Dương</p>
-                  <p className="text-gray-500 italic font-dancing-script">
+                  <p className="italic font-dancing-script">
                     Là một chàng trai đáng yêu, thân thiện, hòa đồng, và rất
                     trầm tính nhưng vẫn có thể đối mặt với những thử thách và
                     khó khăn trong cuộc sống.
@@ -262,7 +264,7 @@ const Info = () => {
               />
               <div className="text-center" ref={brideTextRef}>
                 <div className="flex items-center justify-center gap-3">
-                  <h2 className="text-2xl font-lobster tracking-widest text-turquoise">
+                  <h2 className="text-3xl font-lobster tracking-widest text-turquoise">
                     Hải Trần
                   </h2>
                   <AnimatedFacebookIcon />
@@ -270,7 +272,7 @@ const Info = () => {
                 <div className="text-center font-titillium-web">
                   <p>25/02/1997</p>
                   <p className="mb-2">♈ Cung Bạch Dương</p>
-                  <p className="text-gray-500 italic font-dancing-script">
+                  <p className="italic font-dancing-script">
                     Là một chàng trai đáng yêu, thân thiện, hòa đồng, và rất
                     trầm tính nhưng vẫn có thể đối mặt với những thử thách và
                     khó khăn trong cuộc sống.

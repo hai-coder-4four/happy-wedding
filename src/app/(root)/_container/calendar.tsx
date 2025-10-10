@@ -222,9 +222,9 @@ const Calendar = () => {
   };
 
   return (
-    <div className="section bg-white rounded-lg px-6">
+    <div className="section px-4 overflow-hidden">
       <Countdown />
-      <Card className="border-none shadow-none p-0">
+      <Card className="border-none shadow-none p-0 rounded-t-none rounded-b-lg bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat overflow-hidden">
         <CardContent className="p-0">
           {/* Header with decorative title and heart */}
           <div className="relative">
@@ -232,10 +232,10 @@ const Calendar = () => {
               ref={headerRef}
               className="flex flex-col items-center text-center"
             >
-              <h1 ref={titleRef} className="text-3xl text-gray-700">
+              <h1 ref={titleRef} className="text-3xl font-bold text-[#4a4a4a]">
                 Save the date
               </h1>
-              <DateIcon className="size-24" />
+              <DateIcon className="size-24 text-turquoise" />
             </div>
           </div>
 
@@ -304,7 +304,7 @@ const Calendar = () => {
                               className="absolute inset-0 flex items-center justify-center"
                               style={{ zIndex: 1 }}
                             >
-                              <Heart className="h-8 w-8 fill-rose-300 text-rose-300" />
+                              <Heart className="h-8 w-8 text-[rgb(178,188,163,0.1)] fill-turquoise" />
                             </div>
 
                             {/* More dramatic continuous pulse animation */}
@@ -313,7 +313,7 @@ const Calendar = () => {
                               className="absolute inset-0 flex items-center justify-center"
                               style={{ zIndex: 2 }}
                             >
-                              <Heart className="h-8 w-8 fill-rose-300 text-rose-300" />
+                              <Heart className="h-8 w-8 text-[rgb(178,188,163,0.1)] fill-turquoise" />
                             </div>
 
                             {/* Additional dramatic zoom burst effect */}
@@ -322,7 +322,7 @@ const Calendar = () => {
                               className="absolute inset-0 flex items-center justify-center"
                               style={{ zIndex: 0 }}
                             >
-                              <Heart className="h-10 w-10 fill-rose-200 text-rose-200" />
+                              <Heart className="h-10 w-10 text-[rgb(178,188,163,0.1)] fill-turquoise" />
                             </div>
                           </>
                         )}
@@ -343,7 +343,7 @@ const Calendar = () => {
                 width="80"
                 height="20"
                 viewBox="0 0 80 20"
-                className="text-rose-300"
+                className="text-turquoise"
               >
                 <path
                   ref={svgPathRef}
@@ -355,7 +355,7 @@ const Calendar = () => {
                 />
               </svg>
               <div ref={bottomHeartRef} className="absolute -top-1 -right-1">
-                <Heart className="h-3 w-3 fill-rose-300 text-rose-300" />
+                <Heart className="h-3 w-3 text-[rgb(178,188,163,0.1)] fill-turquoise" />
               </div>
             </div>
           </div>
