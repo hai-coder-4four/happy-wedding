@@ -66,7 +66,7 @@ const Story = () => {
     <div className="section bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat !pt-0 flex items-center justify-center">
       <div className="w-full overflow-hidden py-2 px-4">
         <div ref={headerRef} className="flex justify-center mb-4">
-          <div className="space-y-1">
+          <div className="space-y-1 mb-4">
             <div className="required w-[80px] h-auto mx-auto">
               <Image
                 src="/assets/images/leaf.png"
@@ -82,6 +82,15 @@ const Story = () => {
             >
               Câu Chuyện Tình Yêu
             </h2>
+            <div className="required w-[150px] h-auto mx-auto">
+              <Image
+                src="/assets/images/line-4.png"
+                alt="line"
+                width={150}
+                height={30}
+                className="size-full object-contain"
+              />
+            </div>
           </div>
         </div>
 

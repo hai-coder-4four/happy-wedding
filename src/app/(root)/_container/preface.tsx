@@ -79,6 +79,15 @@ const Preface = () => {
     <div className="section flex items-center justify-center">
       <div className="w-full bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat rounded-lg overflow-hidden p-4">
         <div className="space-y-1 mb-4">
+          <div className="required w-[80px] h-auto mx-auto">
+            <Image
+              src="/assets/images/tay.png"
+              alt="wedding"
+              width={100}
+              height={100}
+              className="size-full object-contain"
+            />
+          </div>
           <h2 className="text-4xl text-center text-[#4a4a4a] font-bold">
             Lời Ngỏ
           </h2>
