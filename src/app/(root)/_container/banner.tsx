@@ -105,7 +105,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="px-2 py-4 bg-[url('/assets/images/bg-banner.png')] bg-cover bg-center bg-no-repeat">
+    <div className="px-2 pt-4 min-h-[800px] bg-[url('/assets/images/bg-banner.png')] bg-cover bg-center bg-no-repeat">
       <h1 className="text-center text-5xl text-[#4a4a4a] font-bold mb-4">
         Thư mời
       </h1>

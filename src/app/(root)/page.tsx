@@ -18,11 +18,11 @@ export default function Home() {
       <Banner />
       <Story />
       <Info />
+      <Preface />
+      <Video />
+      <Album />
       <Calendar />
       {/* <EventLocation /> */}
-      <Preface />
-      <Album />
-      <Video />
       <Gift />
       <BlessingForm />
       <Map />

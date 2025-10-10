@@ -56,7 +56,7 @@ const BlessingForm = () => {
   };
 
   return (
-    <div className="bg-white relative overflow-hidden">
+    <div className="bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat relative overflow-hidden">
       <div className="container max-w-2xl mx-auto px-4 py-12">
         <div className="text-center mb-8">
           <h1 className="text-4xl text-[#4a4a4a] font-bold mb-4">Sổ Lưu Bút</h1>

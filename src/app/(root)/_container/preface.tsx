@@ -78,7 +78,7 @@ const Preface = () => {
 
   return (
     <div className="section flex items-center justify-center">
-      <div className="w-full bg-white rounded-lg overflow-hidden p-4">
+      <div className="w-full bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat rounded-lg overflow-hidden p-4">
         <div ref={headerRef} className="w-full py-2 flex justify-center">
           <BookIcon className="size-10 text-turquoise" />
         </div>
