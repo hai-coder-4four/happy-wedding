@@ -90,7 +90,7 @@ const Map = () => {
   }, []);
 
   return (
-    <div className="section aspect-3/2">
+    <div className="w-full aspect-3/2">
       <div ref={mapContainerRef} id="map" style={{ height: "100%" }} />
     </div>
   );

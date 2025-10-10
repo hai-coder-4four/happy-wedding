@@ -25,6 +25,7 @@ import { Label } from "@/components/ui/label";
 import { Mail } from "lucide-react";
 import Link from "next/link";
 import { BookIcon } from "@/assets/icons";
+import Image from "next/image";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -57,14 +58,23 @@ const BlessingForm = () => {
   };
 
   return (
-    <div className="bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat relative overflow-hidden">
-      <div className="container max-w-2xl mx-auto px-4 py-12">
-        <div className="text-center mb-8">
-          <div className="w-full py-2 flex justify-center">
+    <div className="section bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat relative rounded-lg overflow-hidden">
+      <div className="w-full mx-auto px-4">
+        <div className="text-center space-y-1 mb-8">
+          <div className="w-full flex justify-center">
             <BookIcon className="size-10 text-turquoise" />
           </div>
-          <h1 className="text-4xl text-[#4a4a4a] font-bold mb-4">Sổ Lưu Bút</h1>
-          <p className="text-gray-700 text-lg leading-relaxed">
+          <h1 className="text-4xl text-[#4a4a4a] font-bold">Sổ Lưu Bút</h1>
+          <div className="required w-[150px] h-auto mx-auto">
+            <Image
+              src="/assets/images/line-4.png"
+              alt="line"
+              width={150}
+              height={30}
+              className="size-full object-contain"
+            />
+          </div>
+          <p className="mt-4">
             Cảm ơn bạn rất nhiều vì đã gửi những lời chúc mừng tốt đẹp nhất đến
             đám cưới của chúng mình!
           </p>
@@ -162,7 +172,7 @@ const BlessingForm = () => {
                             htmlFor="no"
                             className="font-normal cursor-pointer flex-1"
                           >
-                            Xin lỗi, tôi bận mất rồi 🥹
+                            Xin lỗi, tôi không đến được 🥹
                           </Label>
                         </div>
                       </RadioGroup>

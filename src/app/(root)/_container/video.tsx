@@ -21,7 +21,7 @@ const Video = () => {
       <HeroVideoDialog
         className="w-full"
         animationStyle="from-center"
-        videoSrc="https://youtu.be/rIXhXaQ8tiM?si=Ov7l-682yLod_GBD"
+        videoSrc="https://www.youtube.com/embed/rIXhXaQ8tiM?si=Ov7l-682yLod_GBD"
         thumbnailSrc="/assets/images/wedding-1.jpg"
         thumbnailAlt="Wedding Video Thumbnail"
       />

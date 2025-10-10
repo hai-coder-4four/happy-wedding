@@ -1,6 +1,6 @@
 "use client";
 
-import { Calendar as CalendarIcon, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 import React, { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 
@@ -222,9 +222,9 @@ const Calendar = () => {
   };
 
   return (
-    <div className="section px-4 overflow-hidden">
+    <div className="section rounded-lg overflow-hidden bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat">
       <Countdown />
-      <Card className="border-none shadow-none p-0 rounded-t-none rounded-b-lg bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat overflow-hidden">
+      <Card className="px-4 border-none shadow-none p-0 bg-transparent overflow-hidden">
         <CardContent className="p-0">
           {/* Header with decorative title and heart */}
           <div className="relative">
