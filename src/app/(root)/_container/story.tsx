@@ -82,15 +82,6 @@ const Story = () => {
             >
               Câu Chuyện Tình Yêu
             </h2>
-            <div className="required w-[150px] h-auto mx-auto">
-              <Image
-                src="/assets/images/line-4.png"
-                alt="line"
-                width={150}
-                height={30}
-                className="size-full object-contain"
-              />
-            </div>
           </div>
         </div>
 
