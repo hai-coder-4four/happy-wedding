@@ -55,7 +55,7 @@ export const useScrollAnimation = ({
   textAnimation = {
     opacity: 0,
     y: 20,
-    duration: 0.8,
+    duration: 1,
     stagger: 0.1,
   },
   scrollTrigger = {
