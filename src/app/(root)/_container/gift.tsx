@@ -17,25 +17,27 @@ import Image from "next/image";
 const Gift = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="section px-2 relative flex flex-col items-center justify-center bg-[url('/assets/images/wedding-13.jpg')] background-center py-10 backdrop-blur-md overflow-hidden">
-      <div className="w-full h-full absolute inset-0 bg-black/50"></div>
-      <div className="z-10 max-w-[80%] mx-auto">
-        <h2 className="text-center text-4xl font-bold mb-4 z-10 text-white">
-          Hộp mừng cưới
-        </h2>
-        <p className="text-center text-lg mb-4 z-10 text-white">
-          Hãy chia sẻ hạnh phúc với chúng mình bằng cách gửi hộp mừng cưới
-        </p>
-      </div>
-      <div
-        className="w-full h-[150px] flex flex-col items-center justify-center z-10 cursor-pointer"
-        onClick={() => setIsOpen(true)}
-      >
-        <Lottie
-          animationData={GiftAnimation}
-          loop={true}
-          className="size-full"
-        />
+    <div className="section">
+      <div className="relative px-2 flex flex-col items-center justify-center bg-[url('/assets/images/wedding-13.jpg')] background-center py-10 backdrop-blur-md border-4 border-[rgb(178,188,163)] rounded-lg overflow-hidden">
+        <div className="w-full h-full absolute inset-0 bg-black/70"></div>
+        <div className="z-10 max-w-[80%] mx-auto">
+          <h2 className="text-center text-4xl font-bold mb-4 z-10 text-white">
+            Hộp mừng cưới
+          </h2>
+          <p className="text-center text-lg mb-4 z-10 text-white">
+            Hãy chia sẻ hạnh phúc với chúng mình bằng cách gửi hộp mừng cưới
+          </p>
+        </div>
+        <div
+          className="w-full h-[150px] flex flex-col items-center justify-center z-10 cursor-pointer"
+          onClick={() => setIsOpen(true)}
+        >
+          <Lottie
+            animationData={GiftAnimation}
+            loop={true}
+            className="size-full"
+          />
+        </div>
       </div>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="bg-white w-full !max-w-md">

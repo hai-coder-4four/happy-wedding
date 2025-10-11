@@ -23,8 +23,8 @@ export default function Home() {
       <Album />
       <Calendar />
       <EventLocation />
-      <Gift />
       <BlessingForm />
+      <Gift />
       <Map />
       <ThankYou />
     </div>
