@@ -8,6 +8,8 @@ import {
   titilliumWeb,
 } from "@/configs/fonts/custom-fonts";
 import LightBox from "@/components/common/light-box";
+import Footer from "@/components/layouts/footer";
+import Music from "@/components/common/music";
 
 export const metadata: Metadata = {
   title: "Happy Wedding",
@@ -27,9 +29,11 @@ export default function RootLayout({
       >
         <main className="max-w-md mx-auto w-full bg-[rgb(178,188,163,0.1)] overflow-hidden">
           {children}
+          <Footer />
         </main>
-        {/* <LightBox /> */}
-        {/* <Floating /> */}
+        <Music />
+        <LightBox />
+        <Floating />
       </body>
     </html>
   );

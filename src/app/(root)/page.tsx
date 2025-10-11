@@ -14,7 +14,7 @@ import ThankYou from "./_container/thank-you";
 
 export default function Home() {
   return (
-    <div className="min-h-screen pb-4">
+    <div className="min-h-screen">
       <Banner />
       <Story />
       <Info />

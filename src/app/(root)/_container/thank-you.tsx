@@ -3,9 +3,9 @@ import React from "react";
 
 const ThankYou = () => {
   return (
-    <div className="section bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat">
+    <div className="section pb-0 bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat border-2 border-[rgb(178,188,163)] overflow-hidden">
       <div className="w-[80%] mx-auto flex flex-col items-center gap-8">
-        <div className="grid grid-rows-3 grid-cols-2 h-[800px] gap-4 overflow-hidden">
+        <div className="grid grid-rows-3 grid-cols-2 h-[800px] gap-2 overflow-hidden">
           <div className="col-span-2 row-span-2 rounded-t-full border-4 border-[rgb(178,188,163)] overflow-hidden">
             <Image
               src="/assets/images/wedding-10.jpg"

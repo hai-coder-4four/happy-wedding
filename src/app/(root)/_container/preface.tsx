@@ -81,8 +81,8 @@ const Preface = () => {
         <div className="space-y-1 mb-4">
           <div className="required w-[80px] h-auto mx-auto">
             <Image
-              src="/assets/images/tay.png"
-              alt="wedding"
+              src="/assets/images/leaf.png"
+              alt="leaf"
               width={100}
               height={100}
               className="size-full object-contain"

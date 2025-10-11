@@ -69,8 +69,8 @@ const Story = () => {
           <div className="space-y-1 mb-4">
             <div className="required w-[80px] h-auto mx-auto">
               <Image
-                src="/assets/images/leaf.png"
-                alt="leaf"
+                src="/assets/images/tay.png"
+                alt="wedding"
                 width={100}
                 height={100}
                 className="size-full object-contain"
@@ -107,12 +107,12 @@ const Story = () => {
             cũng hơn 3 năm, trải qua nhiều cảm xúc cùng nhau, vui có buồn có,
             nhưng tốt cái là chưa có chưa tay 😂. Mỗi đứa giờ 1 công việc, 1
             định hướng khác nhau, nhưng có cái yêu nhau thì vẫn còn cùng nhau
-            🤣😍. Thế là 1 ngày đẹp trời, Thịnh mua cái nhẫn, dẫn nàng đến quán
-            bò bít tết khứa khứa uống rượu vang, rồi á là quỳ xuống hỏi mình
-            cưới nhau nha, Em lia lịa gật đầu. Thế là giờ chúng mình có đám
-            cưới, thế là chúng mình về chung 1 nhà đó mí bạn :)) Chuyện tình yêu
-            chúng mình đơn giản thế thôi đó. Cảm ơn bạn đã đọc đến tận đây nhé
-            !! Cảm ơn bạn vì đã dành tình cảm cho Vợ Chồng mình !!! Yêu bạn 😜❤️
+            🤣😍. Thế là 1 ngày đẹp trời, anh mua cái nhẫn, dẫn em đến quán bò
+            bít tết, rồi á là quỳ xuống hỏi mình cưới nhau nha, em lia lịa gật
+            đầu. Thế là giờ chúng mình có đám cưới, thế là chúng mình về chung 1
+            nhà đó mí bạn :)) Chuyện tình yêu chúng mình đơn giản thế thôi đó.
+            Cảm ơn bạn đã đọc đến tận đây nhé !! Cảm ơn bạn vì đã dành tình cảm
+            cho Vợ Chồng mình !!! Yêu bạn 😜❤️
           </p>
         </div>
 

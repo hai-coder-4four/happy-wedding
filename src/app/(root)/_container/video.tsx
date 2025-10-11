@@ -19,7 +19,7 @@ const Video = () => {
         </div>
       </div>
       <HeroVideoDialog
-        className="w-full"
+        className="w-full rounded-xl border-4 border-[rgb(178,188,163)] overflow-hidden"
         animationStyle="from-center"
         videoSrc="https://www.youtube.com/embed/rIXhXaQ8tiM?si=Ov7l-682yLod_GBD"
         thumbnailSrc="/assets/images/wedding-1.jpg"
