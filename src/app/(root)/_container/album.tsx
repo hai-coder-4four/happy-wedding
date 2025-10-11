@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { useScrollAnimation } from "@/hooks";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,6 +12,13 @@ const Album = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const leftImagesRef = useRef<HTMLDivElement[]>([]);
   const rightImagesRef = useRef<HTMLDivElement[]>([]);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  useScrollAnimation({
+    headerRef,
+    titleRef,
+  });
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -76,8 +84,11 @@ const Album = () => {
 
   return (
     <div ref={containerRef} className="section px-2 overflow-hidden">
-      <div className="space-y-1 mb-4">
-        <h2 className="text-4xl text-center text-[#4a4a4a] font-bold">
+      <div ref={headerRef} className="space-y-1 mb-4">
+        <h2
+          ref={titleRef}
+          className="text-4xl text-center text-brown-light font-bold"
+        >
           Album hình cưới
         </h2>
         <div className="required w-[150px] h-auto mx-auto">

@@ -1,12 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 
 const ThankYou = () => {
   return (
-    <div className="section pb-0 bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat border-2 border-[rgb(178,188,163)] overflow-hidden">
+    <div className="section pb-0 bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat border-2 border-turquoise overflow-hidden">
       <div className="w-[80%] mx-auto flex flex-col items-center gap-8">
         <div className="grid grid-rows-3 grid-cols-2 h-[800px] gap-2 overflow-hidden">
-          <div className="col-span-2 row-span-2 rounded-t-full border-4 border-[rgb(178,188,163)] overflow-hidden">
+          <div className="col-span-2 row-span-2 rounded-t-full border-4 border-turquoise overflow-hidden">
             <Image
               src="/assets/images/wedding-10.jpg"
               alt="wedding"
@@ -15,7 +17,7 @@ const ThankYou = () => {
               className="size-full object-cover rounded-t-full"
             />
           </div>
-          <div className="col-span-1 border-4 border-[rgb(178,188,163)]">
+          <div className="col-span-1 border-4 border-turquoise">
             <Image
               src="/assets/images/wedding-4.jpg"
               alt="wedding"
@@ -24,7 +26,7 @@ const ThankYou = () => {
               className="size-full object-cover"
             />
           </div>
-          <div className="col-span-1 border-4 border-[rgb(178,188,163)]">
+          <div className="col-span-1 border-4 border-turquoise">
             <Image
               src="/assets/images/wedding-5.jpg"
               alt="wedding"

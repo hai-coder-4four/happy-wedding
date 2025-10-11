@@ -51,7 +51,7 @@ const Map = () => {
       el.style.height = `${height}px`;
       el.style.backgroundSize = "100%";
       el.style.display = "block";
-      el.style.border = "2px solid rgb(178,188,163)";
+      el.style.border = "2px solid var(--color-turquoise)";
       el.style.borderRadius = "50%";
       el.style.cursor = "pointer";
       el.style.padding = "0";

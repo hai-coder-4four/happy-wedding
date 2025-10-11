@@ -106,7 +106,7 @@ const Banner = () => {
 
   return (
     <div className="px-2 pt-4 min-h-[800px] bg-[url('/assets/images/bg-banner.png')] bg-cover bg-center bg-no-repeat">
-      <h1 className="text-center text-5xl text-[#4a4a4a] font-bold mb-4">
+      <h1 className="text-center text-5xl text-brown-light font-bold mb-4">
         Thư mời
       </h1>
       <div
@@ -116,7 +116,7 @@ const Banner = () => {
         {BANNER_ITEMS.map((item, idx) => (
           <div
             key={item.id}
-            className="relative aspect-[2/3] w-full border-[3px] border-[rgb(178,188,163)] rounded-md overflow-hidden cursor-pointer"
+            className="relative aspect-[2/3] w-full border-[3px] border-turquoise rounded-md overflow-hidden cursor-pointer"
             onMouseEnter={() => handleMouseEnter(idx)}
             onMouseLeave={() => handleMouseLeave(idx)}
             style={

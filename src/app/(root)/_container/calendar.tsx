@@ -3,10 +3,13 @@
 import { Heart } from "lucide-react";
 import React, { useState, useRef, useEffect } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { Card, CardContent } from "@/components/ui/card";
 import Countdown from "../_components/countdown";
 import { DateIcon } from "@/assets/icons";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Calendar = () => {
   const [selectedDates] = useState<number[]>([5]);
@@ -57,156 +60,250 @@ const Calendar = () => {
   const svgPathRef = useRef<SVGPathElement>(null);
   const bottomHeartRef = useRef<HTMLDivElement>(null);
 
-  // Animate on mount
+  // Animate with scrollTrigger
   useEffect(() => {
-    // Header fade in
-    if (headerRef.current) {
-      gsap.fromTo(
-        headerRef.current,
-        { opacity: 0, y: -20 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
-      );
-    }
-    // Title scale in
-    if (titleRef.current) {
-      gsap.fromTo(
-        titleRef.current,
-        { scale: 0.8 },
-        { scale: 1, delay: 0.2, duration: 0.6, ease: "power2.out" }
-      );
-    }
-    // Month fade in
-    if (monthRef.current) {
-      gsap.fromTo(
-        monthRef.current,
-        { opacity: 0 },
-        { opacity: 1, delay: 0.6, duration: 0.5 }
-      );
-    }
-    // Day headers
-    dayHeaderRefs.current.forEach((el, i) => {
-      if (el) {
+    const ctx = gsap.context(() => {
+      // Header fade in with scroll
+      if (headerRef.current) {
         gsap.fromTo(
-          el,
-          { opacity: 0, y: -10 },
-          { opacity: 1, y: 0, delay: 0.1 * i + 0.8, duration: 0.4 }
-        );
-      }
-    });
-    // Calendar days
-    dayCellRefs.current.forEach((el, i) => {
-      if (el) {
-        gsap.fromTo(
-          el,
-          { opacity: 0, scale: 0.8 },
+          headerRef.current,
+          { opacity: 0, y: -20 },
           {
             opacity: 1,
+            y: 0,
+            duration: 1.5,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 80%",
+              end: "top 60%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+      // Title scale in with scroll
+      if (titleRef.current) {
+        gsap.fromTo(
+          titleRef.current,
+          { scale: 0.8 },
+          {
             scale: 1,
-            delay: 0.05 * i + 1,
+            delay: 0.2,
+            duration: 1.5,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: titleRef.current,
+              start: "top 80%",
+              end: "top 60%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+      // Month fade in (if used)
+      if (monthRef.current) {
+        gsap.fromTo(
+          monthRef.current,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            delay: 0.6,
+            duration: 1,
+            scrollTrigger: {
+              trigger: monthRef.current,
+              start: "top 80%",
+              end: "top 65%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+      // Day headers with scrollTrigger
+      dayHeaderRefs.current.forEach((el, i) => {
+        if (el) {
+          gsap.fromTo(
+            el,
+            { opacity: 0, y: -10 },
+            {
+              opacity: 1,
+              y: 0,
+              delay: 0.1 * i + 0.8,
+              duration: 0.4,
+              scrollTrigger: {
+                trigger: el,
+                start: "top 90%",
+                end: "top 75%",
+                toggleActions: "play none none reverse",
+              },
+            }
+          );
+        }
+      });
+      // Calendar days with scrollTrigger
+      dayCellRefs.current.forEach((el, i) => {
+        if (el) {
+          gsap.fromTo(
+            el,
+            { opacity: 0, scale: 0.8 },
+            {
+              opacity: 1,
+              scale: 1,
+              delay: 0.05 * i + 1,
+              duration: 0.4,
+              ease: "back.out(1.7)",
+              scrollTrigger: {
+                trigger: el,
+                start: "top 100%",
+                end: "top 80%",
+                toggleActions: "play none none reverse",
+              },
+            }
+          );
+        }
+      });
+      // Heart zoom animation (dramatic zoom) with scrollTrigger
+      if (heartZoomRef.current) {
+        gsap.fromTo(
+          heartZoomRef.current,
+          { scale: 0, rotate: 0 },
+          {
+            scale: 1.8,
+            rotate: -10,
+            // delay: 1.5,
             duration: 0.4,
-            ease: "back.out(1.7)",
+            ease: "power2.inOut",
+            scrollTrigger: {
+              trigger: heartZoomRef.current,
+              start: "top 100%",
+              end: "top 70%",
+              toggleActions: "play none none reverse",
+              // once the heart triggers, do the rest of the animation with onComplete chain
+              onEnter: () => {
+                gsap.to(heartZoomRef.current, {
+                  scale: 1.1,
+                  rotate: 10,
+                  duration: 0.3,
+                  ease: "power2.inOut",
+                  onComplete: () => {
+                    gsap.to(heartZoomRef.current, {
+                      scale: 1,
+                      rotate: 0,
+                      duration: 0.3,
+                      ease: "power2.inOut",
+                    });
+                  },
+                });
+              },
+            },
+          }
+        );
+      }
+      // Heart pulse animation (continuous) with scrollTrigger
+      if (heartPulseRef.current) {
+        gsap.to(heartPulseRef.current, {
+          scale: 1.15,
+          // delay: 2.7,
+          duration: 0.75,
+          yoyo: true,
+          repeat: -1,
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: heartPulseRef.current,
+            start: "top 100%",
+            end: "top 60%",
+            toggleActions: "play none none reverse",
+          },
+        });
+      }
+      // Heart burst effect with scrollTrigger
+      if (heartBurstRef.current) {
+        gsap.fromTo(
+          heartBurstRef.current,
+          { scale: 0, opacity: 0 },
+          {
+            scale: 2.5,
+            opacity: 0.3,
+            // delay: 1.8,
+            duration: 0.3,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: heartBurstRef.current,
+              start: "top 100%",
+              end: "top 70%",
+              toggleActions: "play none none reverse",
+              onEnter: () => {
+                gsap.to(heartBurstRef.current, {
+                  scale: 0,
+                  opacity: 0,
+                  duration: 0.3,
+                  ease: "power2.out",
+                });
+              },
+            },
+          }
+        );
+      }
+      // Bottom element with scrollTrigger
+      if (bottomRef.current) {
+        gsap.fromTo(
+          bottomRef.current,
+          { opacity: 0, x: 20 },
+          {
+            opacity: 1,
+            x: 0,
+            // delay: 2.5,
+            duration: 1,
+            scrollTrigger: {
+              trigger: bottomRef.current,
+              start: "top 100%",
+              end: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+      // SVG path draw with scrollTrigger
+      if (svgPathRef.current) {
+        gsap.fromTo(
+          svgPathRef.current,
+          { strokeDasharray: 100, strokeDashoffset: 100 },
+          {
+            strokeDasharray: 100,
+            strokeDashoffset: 0,
+            // delay: 3,
+            duration: 2,
+            ease: "power2.inOut",
+            scrollTrigger: {
+              trigger: svgPathRef.current,
+              start: "top 100%",
+              end: "top 90%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+      // Bottom heart pop with scrollTrigger
+      if (bottomHeartRef.current) {
+        gsap.fromTo(
+          bottomHeartRef.current,
+          { scale: 0 },
+          {
+            scale: 1,
+            // delay: 4,
+            duration: 1,
+            ease: "back.out(2)",
+            scrollTrigger: {
+              trigger: bottomHeartRef.current,
+              start: "top 100%",
+              end: "top 90%",
+              toggleActions: "play none none reverse",
+            },
           }
         );
       }
     });
-    // Heart zoom animation (dramatic zoom)
-    if (heartZoomRef.current) {
-      gsap.fromTo(
-        heartZoomRef.current,
-        { scale: 0, rotate: 0 },
-        {
-          scale: 1.8,
-          rotate: -10,
-          delay: 1.5,
-          duration: 0.4,
-          ease: "power2.inOut",
-          onComplete: () => {
-            gsap.to(heartZoomRef.current, {
-              scale: 1.1,
-              rotate: 10,
-              duration: 0.3,
-              ease: "power2.inOut",
-              onComplete: () => {
-                gsap.to(heartZoomRef.current, {
-                  scale: 1,
-                  rotate: 0,
-                  duration: 0.3,
-                  ease: "power2.inOut",
-                });
-              },
-            });
-          },
-        }
-      );
-    }
-    // Heart pulse animation (continuous)
-    if (heartPulseRef.current) {
-      gsap.to(heartPulseRef.current, {
-        scale: 1.15,
-        delay: 2.7,
-        duration: 0.75,
-        yoyo: true,
-        repeat: -1,
-        ease: "power1.inOut",
-      });
-    }
-    // Heart burst effect
-    if (heartBurstRef.current) {
-      gsap.fromTo(
-        heartBurstRef.current,
-        { scale: 0, opacity: 0 },
-        {
-          scale: 2.5,
-          opacity: 0.3,
-          delay: 1.8,
-          duration: 0.3,
-          ease: "power2.out",
-          onComplete: () => {
-            gsap.to(heartBurstRef.current, {
-              scale: 0,
-              opacity: 0,
-              duration: 0.3,
-              ease: "power2.out",
-            });
-          },
-        }
-      );
-    }
-    // Bottom element
-    if (bottomRef.current) {
-      gsap.fromTo(
-        bottomRef.current,
-        { opacity: 0, x: 20 },
-        { opacity: 1, x: 0, delay: 2.5, duration: 0.8 }
-      );
-    }
-    // SVG path draw
-    if (svgPathRef.current) {
-      gsap.fromTo(
-        svgPathRef.current,
-        { strokeDasharray: 100, strokeDashoffset: 100 },
-        {
-          strokeDasharray: 100,
-          strokeDashoffset: 0,
-          delay: 3,
-          duration: 1.5,
-          ease: "power2.inOut",
-        }
-      );
-    }
-    // Bottom heart pop
-    if (bottomHeartRef.current) {
-      gsap.fromTo(
-        bottomHeartRef.current,
-        { scale: 0 },
-        {
-          scale: 1,
-          delay: 4,
-          duration: 0.5,
-          ease: "back.out(2)",
-        }
-      );
-    }
+    return () => ctx.revert();
   }, []);
 
   // For hover scale on day cells
@@ -232,15 +329,18 @@ const Calendar = () => {
               ref={headerRef}
               className="flex flex-col items-center text-center"
             >
-              <h1 ref={titleRef} className="text-3xl font-bold text-[#4a4a4a]">
+              <h2
+                ref={titleRef}
+                className="text-3xl font-bold text-brown-light"
+              >
                 Save the date
-              </h1>
+              </h2>
               <DateIcon className="size-24 text-turquoise" />
             </div>
           </div>
 
           {/* Calendar Grid */}
-          <div className="border-t border-[rgb(178,188,163,0.5)] pt-4">
+          <div className="border-t border-turquoise/50 pt-4">
             {/* Day headers */}
             <div className="mb-3 grid grid-cols-7">
               {dayNames.map((day, index) => (
@@ -304,7 +404,7 @@ const Calendar = () => {
                               className="absolute inset-0 flex items-center justify-center"
                               style={{ zIndex: 1 }}
                             >
-                              <Heart className="h-8 w-8 text-[rgb(178,188,163,0.1)] fill-turquoise" />
+                              <Heart className="h-8 w-8 text-turquoise/10 fill-turquoise" />
                             </div>
 
                             {/* More dramatic continuous pulse animation */}
@@ -313,7 +413,7 @@ const Calendar = () => {
                               className="absolute inset-0 flex items-center justify-center"
                               style={{ zIndex: 2 }}
                             >
-                              <Heart className="h-8 w-8 text-[rgb(178,188,163,0.1)] fill-turquoise" />
+                              <Heart className="h-8 w-8 text-turquoise/10 fill-turquoise" />
                             </div>
 
                             {/* Additional dramatic zoom burst effect */}
@@ -322,7 +422,7 @@ const Calendar = () => {
                               className="absolute inset-0 flex items-center justify-center"
                               style={{ zIndex: 0 }}
                             >
-                              <Heart className="h-10 w-10 text-[rgb(178,188,163,0.1)] fill-turquoise" />
+                              <Heart className="h-10 w-10 text-turquoise/10 fill-turquoise" />
                             </div>
                           </>
                         )}
@@ -355,7 +455,7 @@ const Calendar = () => {
                 />
               </svg>
               <div ref={bottomHeartRef} className="absolute -top-1 -right-1">
-                <Heart className="h-3 w-3 text-[rgb(178,188,163,0.1)] fill-turquoise" />
+                <Heart className="h-3 w-3 text-turquoise/10 fill-turquoise" />
               </div>
             </div>
           </div>

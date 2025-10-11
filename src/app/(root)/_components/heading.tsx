@@ -9,7 +9,7 @@ const Heading = () => {
         Welcome To Our Wedding
       </span>
       <div className="flex items-center justify-center gap-2">
-        <span className="text-5xl font-bold text-[#4a4a4a] tracking-widest">
+        <span className="text-5xl font-bold text-brown-light tracking-widest">
           Hải
         </span>
         <Image
@@ -19,7 +19,7 @@ const Heading = () => {
           height={100}
           className="w-[100px] h-auto object-contain mx-auto"
         />
-        <span className="text-5xl font-bold text-[#4a4a4a] tracking-widest">
+        <span className="text-5xl font-bold text-brown-light tracking-widest">
           Hải
         </span>
       </div>

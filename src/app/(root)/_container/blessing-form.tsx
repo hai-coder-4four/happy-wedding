@@ -26,6 +26,8 @@ import { Mail } from "lucide-react";
 import Link from "next/link";
 import { BookIcon } from "@/assets/icons";
 import Image from "next/image";
+import { useRef } from "react";
+import { useScrollAnimation } from "@/hooks";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -43,6 +45,16 @@ const formSchema = z.object({
 });
 
 const BlessingForm = () => {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const textRef = useRef<HTMLParagraphElement>(null);
+
+  useScrollAnimation({
+    headerRef,
+    titleRef,
+    textRef,
+  });
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -60,11 +72,13 @@ const BlessingForm = () => {
   return (
     <div className="section bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat relative rounded-lg overflow-hidden">
       <div className="w-full mx-auto px-4">
-        <div className="text-center space-y-1 mb-8">
+        <div ref={headerRef} className="text-center space-y-1 mb-8">
           <div className="w-full flex justify-center">
             <BookIcon className="size-10 text-turquoise" />
           </div>
-          <h1 className="text-4xl text-[#4a4a4a] font-bold">Sổ Lưu Bút</h1>
+          <h1 ref={titleRef} className="text-4xl text-brown-light font-bold">
+            Sổ Lưu Bút
+          </h1>
           <div className="required w-[150px] h-auto mx-auto">
             <Image
               src="/assets/images/line-4.png"
@@ -74,7 +88,7 @@ const BlessingForm = () => {
               className="size-full object-contain"
             />
           </div>
-          <p className="mt-4">
+          <p ref={textRef} className="mt-4">
             Cảm ơn bạn rất nhiều vì đã gửi những lời chúc mừng tốt đẹp nhất đến
             đám cưới của chúng mình!
           </p>

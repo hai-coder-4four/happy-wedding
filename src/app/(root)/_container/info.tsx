@@ -5,6 +5,7 @@ import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useScrollAnimation } from "@/hooks";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,11 +82,17 @@ const peopleData = [
 ];
 
 const Info = () => {
-  // Create refs array using useRef and useMemo so that order stays consistent
+  const headerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
   const refs = [
     useRef<HTMLDivElement | null>(null),
     useRef<HTMLDivElement | null>(null),
   ];
+
+  useScrollAnimation({
+    headerRef,
+    titleRef,
+  });
 
   useEffect(() => {
     // Map animation for groom (id=0, slide from left)
@@ -146,8 +153,11 @@ const Info = () => {
   return (
     <div className="section w-full flex items-center justify-center">
       <div className="w-full space-y-2 rounded-lg overflow-hidden">
-        <div className="space-y-1 mb-4">
-          <h2 className="text-4xl text-center text-[#4a4a4a] font-bold">
+        <div ref={headerRef} className="space-y-1 mb-4">
+          <h2
+            ref={titleRef}
+            className="text-4xl text-center text-brown-light font-bold"
+          >
             Giới thiệu
           </h2>
           <div className="required w-[150px] h-auto mx-auto">

@@ -27,7 +27,7 @@ export default function RootLayout({
         className={`${dancingScript.variable} ${lora.variable} ${lobster.variable} ${titilliumWeb.variable} antialiased`}
         suppressHydrationWarning
       >
-        <main className="max-w-md mx-auto w-full bg-[rgb(178,188,163,0.1)] overflow-hidden">
+        <main className="max-w-md mx-auto w-full bg-turquoise/10 overflow-hidden">
           {children}
           <Footer />
         </main>

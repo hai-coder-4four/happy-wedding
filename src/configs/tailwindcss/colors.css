@@ -3,6 +3,8 @@
   --color-secondary: #000000;
   --color-turquoise: oklch(0.7805 0.0363 125.02) /*#b2bca3*/;
   --color-slate-overlay: oklch(98.4% 0.003 247.858);
+  --color-brown-light: oklch(0.4091 0 0) /* #4a4a4a */;
+  --color-green-dark: oklch(0.6253 0.0302 185.05) /* #748e8a */;
 }
 
 @theme inline {
@@ -10,7 +12,6 @@
   --color-secondary: var(--color-secondary);
   --color-turquoise: var(--color-turquoise);
   --color-slate-overlay: var(--color-slate-overlay);
-
-  /* #748e8a */
-  /* #4a4a4a */
+  --color-brown-light: var(--color-brown-light);
+  --color-green-dark: var(--color-green-dark);
 }

@@ -1,66 +1,20 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import Image from "next/image";
 import HeartList from "../_components/heart-list";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useScrollAnimation } from "../../../hooks";
 
 const Story = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(headerRef.current, {
-        opacity: 0,
-        y: -30,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: "top 80%",
-          end: "top 50%",
-          toggleActions: "play none none reverse",
-        },
-      });
-
-      gsap.from(titleRef.current, {
-        opacity: 0,
-        y: 30,
-        duration: 1,
-        delay: 0.3,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: titleRef.current,
-          start: "top 80%",
-          end: "top 50%",
-          toggleActions: "play none none reverse",
-        },
-      });
-
-      const textLines = textRef.current?.querySelectorAll(".text-line");
-      if (textLines && textLines.length > 0) {
-        gsap.from(textLines, {
-          opacity: 0,
-          y: 20,
-          duration: 0.8,
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: textRef.current,
-            start: "top 80%",
-            end: "top 50%",
-            toggleActions: "play none none reverse",
-          },
-        });
-      }
-    });
-
-    return () => ctx.revert();
-  }, []);
+  useScrollAnimation({
+    headerRef,
+    titleRef,
+    textRef,
+  });
 
   return (
     <div className="section bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat !pt-0 flex items-center justify-center">
@@ -78,7 +32,7 @@ const Story = () => {
             </div>
             <h2
               ref={titleRef}
-              className="text-4xl text-center text-[#4a4a4a] font-bold"
+              className="text-4xl text-center text-brown-light font-bold"
             >
               Câu Chuyện Tình Yêu
             </h2>
@@ -94,10 +48,7 @@ const Story = () => {
           </div>
         </div>
 
-        <div
-          ref={textRef}
-          className="py-4 space-y-4 text-[#5a5a5a] leading-relaxed"
-        >
+        <div ref={textRef} className="py-4 space-y-4 leading-relaxed">
           <p className="text-line text-center">
             Chúng mình quen nhau khi cùng làm việc ở công ty. Thường xuyên phải
             tương tác với nhau, nên cứ thế phát sinh tình cảm khi nào chả hay.
