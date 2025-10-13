@@ -27,11 +27,16 @@ const OpenWedding = () => {
     // Create a GSAP timeline for sequential animation
     const tl = gsap.timeline({
       onComplete: () => {
-        // After the animation ends, animate container height to 0
+        // Animate container height to 0, then set display to none after animation
         gsap.to(containerRef.current, {
           height: 0,
           duration: 1.5,
           ease: "power2.inOut",
+          onComplete: () => {
+            if (containerRef.current) {
+              containerRef.current.style.display = "none";
+            }
+          },
         });
       },
     });
