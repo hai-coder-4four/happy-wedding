@@ -78,13 +78,13 @@ const Floating = () => {
       {/* Snow animation container */}
       <div
         ref={snowContainerRef}
-        className="pointer-events-none fixed inset-0 z-50"
+        className="pointer-events-none fixed inset-0 z-90"
       />
 
       {/* Heart animation container */}
       <div
         ref={heartContainerRef}
-        className="pointer-events-none fixed inset-0 z-50"
+        className="pointer-events-none fixed inset-0 z-90"
       />
     </div>
   );

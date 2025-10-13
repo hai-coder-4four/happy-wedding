@@ -35,7 +35,7 @@ const SceneMask = ({ show, onComplete }: SceneMaskProps) => {
       gsap.set(maskRef.current, { opacity: 0, pointerEvents: "auto" });
       gsap.to(maskRef.current, {
         opacity: 1,
-        duration: SCENE_DURATION,
+        duration: 0.5,
         ease: "power2.in",
       });
     } else {
@@ -52,7 +52,7 @@ const SceneMask = ({ show, onComplete }: SceneMaskProps) => {
   return (
     <div
       ref={maskRef}
-      className="fixed z-[999] top-0 left-0 w-full h-full bg-gradient-to-br from-[#f6d365]/90 to-[#fdc097]/90 pointer-events-none select-none"
+      className="fixed z-10 top-0 left-0 w-full h-full bg-gradient-to-br from-[#f6d365]/90 to-[#fdc097]/90 pointer-events-none select-none"
       style={{ opacity: show ? 1 : 0, transition: "opacity 0.2s" }}
     />
   );

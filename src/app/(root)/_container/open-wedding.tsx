@@ -1,11 +1,12 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { useWeddingStore } from "@/stores/wedding-store";
 import { useShallow } from "zustand/react/shallow";
+import Lottie from "lottie-react";
+import HandTapAnimation from "/public/assets/json/hand-tap.json";
 
 const OpenWedding = () => {
   // State to track if the invitation has been opened
@@ -20,13 +21,30 @@ const OpenWedding = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const mainImageRef = useRef<HTMLDivElement>(null);
   const invitationRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const noteRef = useRef<HTMLDivElement>(null);
 
   const { setIsWelcome } = useWeddingStore(
     useShallow((state) => ({
       setIsWelcome: state.setIsWelcome,
     }))
   );
+
+  // Effect to create zoom in/out animation for noteRef
+  useEffect(() => {
+    if (noteRef.current && !isOpen) {
+      const zoomAnimation = gsap.to(noteRef.current, {
+        scale: 1.25,
+        duration: 1,
+        ease: "power2.inOut",
+        yoyo: true,
+        repeat: -1,
+      });
+
+      return () => {
+        zoomAnimation.kill();
+      };
+    }
+  }, [isOpen]);
 
   // Handles the opening animation for the invitation
   const handleOpenInvitation = () => {
@@ -51,7 +69,7 @@ const OpenWedding = () => {
     });
 
     // Animate button out (fade and shrink)
-    tl.to(buttonRef.current, {
+    tl.to(noteRef.current, {
       opacity: 0,
       scale: 0.8,
       duration: 0.3,
@@ -104,20 +122,15 @@ const OpenWedding = () => {
     >
       <div className="relative w-full flex flex-col items-center justify-center overflow-hidden gap-4">
         {/* Open Invitation Button */}
-        <div className="absolute left-0 right-0 bottom-14 flex items-center justify-center z-20">
-          <Button
-            ref={buttonRef}
-            onClick={handleOpenInvitation}
-            className="text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            Mở Thiệp
-          </Button>
+        <div className="absolute left-0 right-0 bottom-20 flex items-center justify-center z-20">
+          <div ref={noteRef}>Nhấn vào đây để mở thiệp</div>
         </div>
 
         {/* Main Wedding Image - changes source based on open state */}
         <div
           ref={mainImageRef}
           className="relative w-[300px] h-auto mx-auto z-10"
+          onClick={handleOpenInvitation}
         >
           <Image
             src={currentImage}
@@ -143,6 +156,13 @@ const OpenWedding = () => {
             />
           </div>
         </div>
+
+        {/* Click Animation */}
+        <Lottie
+          animationData={HandTapAnimation}
+          loop={true}
+          className="absolute top-[55%] left-[55%] -translate-x-1/2 -translate-y-1/2 z-20 size-32"
+        />
       </div>
     </div>
   );
