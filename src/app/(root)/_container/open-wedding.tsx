@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 import { gsap } from "gsap";
+import { useWeddingStore } from "@/stores/wedding-store";
+import { useShallow } from "zustand/react/shallow";
 
 const OpenWedding = () => {
   // State to track if the invitation has been opened
@@ -19,6 +21,12 @@ const OpenWedding = () => {
   const mainImageRef = useRef<HTMLDivElement>(null);
   const invitationRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const { setIsWelcome } = useWeddingStore(
+    useShallow((state) => ({
+      setIsWelcome: state.setIsWelcome,
+    }))
+  );
 
   // Handles the opening animation for the invitation
   const handleOpenInvitation = () => {
@@ -36,6 +44,7 @@ const OpenWedding = () => {
             if (containerRef.current) {
               containerRef.current.style.display = "none";
             }
+            setIsWelcome(true);
           },
         });
       },

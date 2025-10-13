@@ -29,9 +29,9 @@ export default function RootLayout({
         <main className="max-w-md mx-auto w-full bg-turquoise/10 overflow-hidden">
           {children}
         </main>
-        <Music />
+        {/* <Music />
         <LightBox />
-        <Floating />
+        <Floating /> */}
       </body>
     </html>
   );
