@@ -5,7 +5,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { useWeddingStore } from "@/stores/wedding-store";
 import { useShallow } from "zustand/react/shallow";
-import Lottie from "lottie-react";
+import Lottie, { LottieRef } from "lottie-react";
 import HandTapAnimation from "/public/assets/json/hand-tap.json";
 
 const OpenWedding = () => {
@@ -22,6 +22,7 @@ const OpenWedding = () => {
   const mainImageRef = useRef<HTMLDivElement>(null);
   const invitationRef = useRef<HTMLDivElement>(null);
   const noteRef = useRef<HTMLDivElement>(null);
+  const handTapRef = useRef<HTMLDivElement>(null);
 
   const { setIsWelcome } = useWeddingStore(
     useShallow((state) => ({
@@ -75,6 +76,11 @@ const OpenWedding = () => {
       duration: 0.3,
       ease: "power2.inOut",
     })
+      .to(handTapRef.current, {
+        opacity: 0,
+        duration: 0.3,
+        ease: "power2.inOut",
+      })
       // Scale down the main image
       .to(
         mainImageRef.current,
@@ -158,12 +164,14 @@ const OpenWedding = () => {
         </div>
 
         {/* Click Animation */}
-        <Lottie
-          onClick={handleOpenInvitation}
-          animationData={HandTapAnimation}
-          loop={true}
-          className="absolute top-[55%] left-[55%] -translate-x-1/2 -translate-y-1/2 z-20 size-28"
-        />
+        <div ref={handTapRef}>
+          <Lottie
+            onClick={handleOpenInvitation}
+            animationData={HandTapAnimation}
+            loop={true}
+            className="absolute top-[55%] left-[55%] -translate-x-1/2 -translate-y-1/2 z-20 size-28"
+          />
+        </div>
       </div>
     </div>
   );
