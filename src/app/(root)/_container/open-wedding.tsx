@@ -4,8 +4,6 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 import { gsap } from "gsap";
-import { useWeddingStore } from "@/stores/wedding-store";
-import { useShallow } from "zustand/react/shallow";
 
 const OpenWedding = () => {
   // State to track if the invitation has been opened
@@ -22,13 +20,6 @@ const OpenWedding = () => {
   const invitationRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  // Extract setIsWelcome from the wedding store using zustand
-  const { setIsWelcome } = useWeddingStore(
-    useShallow((state) => ({
-      setIsWelcome: state.setIsWelcome,
-    }))
-  );
-
   // Handles the opening animation for the invitation
   const handleOpenInvitation = () => {
     if (isOpen) return;
@@ -36,10 +27,12 @@ const OpenWedding = () => {
     // Create a GSAP timeline for sequential animation
     const tl = gsap.timeline({
       onComplete: () => {
-        // After the animation ends, wait 1 second then show the main content
-        setTimeout(() => {
-          setIsWelcome(true);
-        }, 1000);
+        // After the animation ends, animate container height to 0
+        gsap.to(containerRef.current, {
+          height: 0,
+          duration: 1.5,
+          ease: "power2.inOut",
+        });
       },
     });
 
@@ -93,46 +86,48 @@ const OpenWedding = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full flex flex-col items-center justify-center overflow-hidden gap-4"
+      className="h-screen w-full flex flex-col items-center justify-center"
     >
-      {/* Open Invitation Button */}
-      <div className="absolute left-0 right-0 bottom-14 flex items-center justify-center z-20">
-        <Button
-          ref={buttonRef}
-          onClick={handleOpenInvitation}
-          className="text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+      <div className="relative w-full flex flex-col items-center justify-center overflow-hidden gap-4">
+        {/* Open Invitation Button */}
+        <div className="absolute left-0 right-0 bottom-14 flex items-center justify-center z-20">
+          <Button
+            ref={buttonRef}
+            onClick={handleOpenInvitation}
+            className="text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            Mở Thiệp
+          </Button>
+        </div>
+
+        {/* Main Wedding Image - changes source based on open state */}
+        <div
+          ref={mainImageRef}
+          className="relative w-[300px] h-auto mx-auto z-10"
         >
-          Mở Thiệp
-        </Button>
-      </div>
-
-      {/* Main Wedding Image - changes source based on open state */}
-      <div
-        ref={mainImageRef}
-        className="relative w-[300px] h-auto mx-auto z-10"
-      >
-        <Image
-          src={currentImage}
-          alt="wedding"
-          width={500}
-          height={500}
-          className="size-full object-contain"
-        />
-      </div>
-
-      {/* Wedding Invitation - hidden at start, revealed after open */}
-      <div
-        ref={invitationRef}
-        className="absolute top-0 left-0 right-0 h-[195px] overflow-hidden opacity-0"
-      >
-        <div className="relative w-[240px] h-auto mx-auto">
           <Image
-            src="/assets/images/wedding-invitation.jpg"
-            alt="wedding-invitation"
+            src={currentImage}
+            alt="wedding"
             width={500}
             height={500}
-            className="size-full object-contain rounded-lg shadow-lg"
+            className="size-full object-contain"
           />
+        </div>
+
+        {/* Wedding Invitation - hidden at start, revealed after open */}
+        <div
+          ref={invitationRef}
+          className="absolute top-0 left-0 right-0 h-[195px] overflow-hidden opacity-0"
+        >
+          <div className="relative w-[240px] h-auto mx-auto">
+            <Image
+              src="/assets/images/wedding-invitation.jpg"
+              alt="wedding-invitation"
+              width={500}
+              height={500}
+              className="size-full object-contain rounded-lg shadow-lg"
+            />
+          </div>
         </div>
       </div>
     </div>

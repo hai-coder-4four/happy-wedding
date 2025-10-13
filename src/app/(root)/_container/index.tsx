@@ -1,7 +1,5 @@
 "use client";
 
-import { useWeddingStore } from "@/stores/wedding-store";
-import { useShallow } from "zustand/react/shallow";
 import OpenWedding from "./open-wedding";
 import Banner from "./banner";
 import Story from "./story";
@@ -15,34 +13,25 @@ import BlessingForm from "./blessing-form";
 import Gift from "./gift";
 import Map from "./map";
 import ThankYou from "./thank-you";
+import Footer from "./footer";
 
 const HomeContainer = () => {
-  const { isWelcome } = useWeddingStore(
-    useShallow((state) => ({
-      isWelcome: state.isWelcome,
-    }))
-  );
-
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center">
-      {!isWelcome ? (
-        <OpenWedding />
-      ) : (
-        <>
-          <Banner />
-          <Story />
-          <Info />
-          <Preface />
-          <Video />
-          <Album />
-          <Calendar />
-          <EventLocation />
-          <BlessingForm />
-          <Gift />
-          <Map />
-          <ThankYou />
-        </>
-      )}
+    <div className="min-h-screen w-full">
+      <OpenWedding />
+      <Banner />
+      <Story />
+      <Info />
+      <Preface />
+      <Video />
+      <Album />
+      <Calendar />
+      <EventLocation />
+      <BlessingForm />
+      <Gift />
+      <Map />
+      <ThankYou />
+      <Footer />
     </div>
   );
 };

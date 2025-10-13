@@ -8,7 +8,6 @@ import {
   titilliumWeb,
 } from "@/configs/fonts/custom-fonts";
 import LightBox from "@/components/common/light-box";
-import Footer from "@/components/layouts/footer";
 import Music from "@/components/common/music";
 
 export const metadata: Metadata = {
@@ -29,7 +28,6 @@ export default function RootLayout({
       >
         <main className="max-w-md mx-auto w-full bg-turquoise/10 overflow-hidden">
           {children}
-          <Footer />
         </main>
         <Music />
         <LightBox />
