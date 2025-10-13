@@ -136,7 +136,7 @@ const OpenWedding = () => {
             className="size-24 object-contain"
           />
           <h2 className="text-4xl text-green-dark font-bold">
-            Hải Trần & Hải Trần
+            Hải Trần ❤️ Hải Trần
           </h2>
         </div>
         <div className="relative w-full flex flex-col items-center justify-center overflow-hidden gap-1">
@@ -175,7 +175,7 @@ const OpenWedding = () => {
             <Lottie
               animationData={HandTapAnimation}
               loop={true}
-              className="absolute top-[59%] left-[55%] -translate-x-1/2 -translate-y-1/2 z-20 size-28"
+              className="absolute top-[55%] left-[56%] -translate-x-1/2 -translate-y-1/2 z-20 size-28"
             />
           </div>
 
