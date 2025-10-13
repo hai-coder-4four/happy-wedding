@@ -124,8 +124,20 @@ const OpenWedding = () => {
   return (
     <div
       ref={containerRef}
-      className="h-screen w-full flex flex-col items-center justify-center overflow-hidden"
+      className="h-screen w-full flex flex-col items-center justify-center gap-2 bg-[url('/assets/images/bg-section.png')] background-center border-4 border-turquoise overflow-hidden"
     >
+      <div className="flex flex-col items-center justify-center gap-2">
+        <Image
+          src="/assets/svg/wedding-couple.svg"
+          alt="wedding-couple"
+          width={300}
+          height={300}
+          className="size-24 object-contain"
+        />
+        <h2 className="text-4xl text-green-dark font-bold">
+          Hải Trần & Hải Trần
+        </h2>
+      </div>
       <div className="relative w-full flex flex-col items-center justify-center overflow-hidden gap-4">
         {/* Open Invitation Button */}
         <div className="absolute left-0 right-0 bottom-20 flex items-center justify-center z-20">
@@ -136,7 +148,6 @@ const OpenWedding = () => {
         <div
           ref={mainImageRef}
           className="relative w-[300px] h-auto mx-auto z-10"
-          onClick={handleOpenInvitation}
         >
           <Image
             src={currentImage}
@@ -150,9 +161,9 @@ const OpenWedding = () => {
         {/* Wedding Invitation - hidden at start, revealed after open */}
         <div
           ref={invitationRef}
-          className="absolute top-0 left-0 right-0 h-[195px] overflow-hidden opacity-0"
+          className="absolute top-0 left-0 right-0 h-[180px] overflow-hidden opacity-0"
         >
-          <div className="relative w-[240px] h-auto mx-auto">
+          <div className="relative w-[250px] h-auto mx-auto">
             <Image
               src="/assets/images/wedding-invitation.jpg"
               alt="wedding-invitation"
@@ -166,12 +177,17 @@ const OpenWedding = () => {
         {/* Click Animation */}
         <div ref={handTapRef}>
           <Lottie
-            onClick={handleOpenInvitation}
             animationData={HandTapAnimation}
             loop={true}
-            className="absolute top-[55%] left-[55%] -translate-x-1/2 -translate-y-1/2 z-20 size-28"
+            className="absolute top-[52%] left-[55%] -translate-x-1/2 -translate-y-1/2 z-20 size-28"
           />
         </div>
+
+        {/* Overlay */}
+        <div
+          onClick={handleOpenInvitation}
+          className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[250px] h-[180px] opacity-0"
+        ></div>
       </div>
     </div>
   );
