@@ -14,7 +14,7 @@ const OpenWedding = () => {
 
   // State to manage which wedding image to display (closed or open)
   const [currentImage, setCurrentImage] = useState(
-    "/assets/images/close-wedding.png"
+    "/assets/images/close-wedding-1.png"
   );
 
   // Refs for DOM elements to be animated
@@ -124,70 +124,71 @@ const OpenWedding = () => {
   return (
     <div
       ref={containerRef}
-      className="h-screen w-full flex flex-col items-center justify-center gap-2 bg-[url('/assets/images/bg-section.png')] background-center border-4 border-turquoise overflow-hidden"
+      className="h-dvh w-full bg- border-4 border-turquoise overflow-hidden"
     >
-      <div className="flex flex-col items-center justify-center gap-2">
-        <Image
-          src="/assets/svg/wedding-couple.svg"
-          alt="wedding-couple"
-          width={300}
-          height={300}
-          className="size-24 object-contain"
-        />
-        <h2 className="text-4xl text-green-dark font-bold">
-          Hải Trần & Hải Trần
-        </h2>
-      </div>
-      <div className="relative w-full flex flex-col items-center justify-center overflow-hidden gap-4">
-        {/* Open Invitation Button */}
-        <div className="absolute left-0 right-0 bottom-20 flex items-center justify-center z-20">
-          <div ref={noteRef}>Nhấn vào đây để mở thiệp</div>
-        </div>
-
-        {/* Main Wedding Image - changes source based on open state */}
-        <div
-          ref={mainImageRef}
-          className="relative w-[300px] h-auto mx-auto z-10"
-        >
+      <div className="size-full flex flex-col items-center justify-center gap-5 bg-[url('/assets/images/wedding-poster.png')] background-center">
+        <div className="flex flex-col items-center justify-center gap-2">
           <Image
-            src={currentImage}
-            alt="wedding"
-            width={500}
-            height={500}
-            className="size-full object-contain"
+            src="/assets/svg/wedding-couple.svg"
+            alt="wedding-couple"
+            width={300}
+            height={300}
+            className="size-24 object-contain"
           />
+          <h2 className="text-4xl text-green-dark font-bold">
+            Hải Trần & Hải Trần
+          </h2>
         </div>
-
-        {/* Wedding Invitation - hidden at start, revealed after open */}
-        <div
-          ref={invitationRef}
-          className="absolute top-0 left-0 right-0 h-[180px] overflow-hidden opacity-0"
-        >
-          <div className="relative w-[250px] h-auto mx-auto">
+        <div className="relative w-full flex flex-col items-center justify-center overflow-hidden gap-1">
+          {/* Main Wedding Image - changes source based on open state */}
+          <div
+            ref={mainImageRef}
+            className="relative w-[300px] h-auto mx-auto z-10"
+          >
             <Image
-              src="/assets/images/wedding-invitation.jpg"
-              alt="wedding-invitation"
+              src={currentImage}
+              alt="wedding"
               width={500}
               height={500}
-              className="size-full object-contain rounded-lg shadow-lg"
+              className="size-full object-contain"
             />
           </div>
-        </div>
 
-        {/* Click Animation */}
-        <div ref={handTapRef}>
-          <Lottie
-            animationData={HandTapAnimation}
-            loop={true}
-            className="absolute top-[52%] left-[55%] -translate-x-1/2 -translate-y-1/2 z-20 size-28"
-          />
-        </div>
+          {/* Wedding Invitation - hidden at start, revealed after open */}
+          <div
+            ref={invitationRef}
+            className="absolute top-0 left-0 right-0 h-[195px] overflow-hidden opacity-0"
+          >
+            <div className="relative w-[250px] h-auto mx-auto">
+              <Image
+                src="/assets/images/wedding-invitation.jpg"
+                alt="wedding-invitation"
+                width={500}
+                height={500}
+                className="size-full object-contain rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
 
-        {/* Overlay */}
-        <div
-          onClick={handleOpenInvitation}
-          className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[250px] h-[180px] opacity-0"
-        ></div>
+          {/* Click Animation */}
+          <div ref={handTapRef}>
+            <Lottie
+              animationData={HandTapAnimation}
+              loop={true}
+              className="absolute top-[59%] left-[55%] -translate-x-1/2 -translate-y-1/2 z-20 size-28"
+            />
+          </div>
+
+          {/* Overlay */}
+          <div
+            onClick={handleOpenInvitation}
+            className="absolute top-[47%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[300px] h-[208px] opacity-0"
+          ></div>
+
+          <div className="flex items-center justify-center z-20">
+            <div ref={noteRef}>Nhấn vào đây để mở thiệp</div>
+          </div>
+        </div>
       </div>
     </div>
   );

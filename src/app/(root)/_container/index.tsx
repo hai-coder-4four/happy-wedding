@@ -104,7 +104,7 @@ const HomeContainer = () => {
   }, [isWelcome]);
 
   return (
-    <div className="min-h-screen w-full relative">
+    <div className="size-full relative">
       <OpenWedding />
       <SceneMask show={showMask} />
       {showContent && <MainContent />}
