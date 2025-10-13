@@ -91,7 +91,7 @@ const OpenWedding = () => {
   return (
     <div
       ref={containerRef}
-      className="h-screen w-full flex flex-col items-center justify-center"
+      className="h-screen w-full flex flex-col items-center justify-center overflow-hidden"
     >
       <div className="relative w-full flex flex-col items-center justify-center overflow-hidden gap-4">
         {/* Open Invitation Button */}
