@@ -159,9 +159,10 @@ const OpenWedding = () => {
 
         {/* Click Animation */}
         <Lottie
+          onClick={handleOpenInvitation}
           animationData={HandTapAnimation}
           loop={true}
-          className="absolute top-[55%] left-[55%] -translate-x-1/2 -translate-y-1/2 z-20 size-32"
+          className="absolute top-[55%] left-[55%] -translate-x-1/2 -translate-y-1/2 z-20 size-28"
         />
       </div>
     </div>
