@@ -99,7 +99,7 @@ const Gift = () => {
         </div>
       </div>
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="w-full !max-w-md bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat">
+        <DialogContent className="w-full !max-w-md bg-[url('/assets/images/bg-section.png')] background-center">
           <DialogHeader className="gap-0">
             <DialogTitle className="text-center text-2xl text-brown-light font-bold">
               QR Ngân Hàng

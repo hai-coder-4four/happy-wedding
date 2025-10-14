@@ -55,7 +55,7 @@ const Calendar = ({
 
   return (
     <div
-      className={`section px-4 rounded-lg overflow-hidden bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat ${className}`}
+      className={`section px-4 rounded-lg overflow-hidden bg-[url('/assets/images/bg-section.png')] background-center ${className}`}
     >
       <Countdown />
       <Card className="px-4 border-none shadow-none p-0 bg-transparent overflow-hidden">

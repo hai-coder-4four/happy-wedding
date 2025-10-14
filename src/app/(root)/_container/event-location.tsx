@@ -74,7 +74,7 @@ const EventLocation = () => {
             ref={(el) => {
               eventRefs.current[idx] = el;
             }}
-            className="relative w-full h-[370px] pt-16 bg-[url('/assets/images/event-location.png')] bg-cover bg-center bg-no-repeat"
+            className="relative w-full h-[370px] pt-16 bg-[url('/assets/images/event-location.png')] background-center"
           >
             <div className="px-[62px] flex flex-col items-center justify-center text-center z-10">
               <h2 className="text-3xl text-center text-brown-light font-bold mb-4">

@@ -89,7 +89,7 @@ const OpenWedding = () => {
       )
       // Change the main image to the open wedding image
       .call(() => {
-        setCurrentImage("/assets/images/open-wedding.png");
+        setCurrentImage("/assets/images/open-wedding-1.png");
       })
       // Scale up main image with a bounce effect
       .to(mainImageRef.current, {
@@ -142,7 +142,7 @@ const OpenWedding = () => {
             className="relative w-[300px] h-auto mx-auto z-10"
           >
             <Image
-              src={currentImage}
+              src={currentImage || "/assets/images/close-wedding-1.png"}
               alt="wedding"
               width={500}
               height={500}
@@ -181,7 +181,7 @@ const OpenWedding = () => {
             className="absolute top-[47%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[300px] h-[208px] opacity-0"
           ></div>
 
-          <div className="flex items-center justify-center z-20">
+          <div className="flex-center z-20">
             <div ref={noteRef}>Nhấn vào đây để mở thiệp</div>
           </div>
         </div>

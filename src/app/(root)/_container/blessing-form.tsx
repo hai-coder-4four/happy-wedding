@@ -100,7 +100,7 @@ const BlessingForm = () => {
   }, []);
 
   return (
-    <div className="section bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat relative rounded-lg overflow-hidden">
+    <div className="section bg-[url('/assets/images/bg-section.png')] background-center relative rounded-lg overflow-hidden">
       <div className="w-full mx-auto px-4">
         <SectionHeader
           title="Sổ Lưu Bút"

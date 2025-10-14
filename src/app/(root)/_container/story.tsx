@@ -40,7 +40,7 @@ const Story = () => {
   }, []);
 
   return (
-    <div className="section bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat !pt-0 flex items-center justify-center">
+    <div className="section bg-[url('/assets/images/bg-section.png')] background-center !pt-0 flex items-center justify-center">
       <div className="w-full overflow-hidden py-2 px-4">
         <div className="flex justify-center">
           <SectionHeader

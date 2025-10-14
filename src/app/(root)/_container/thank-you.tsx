@@ -3,7 +3,7 @@ import React from "react";
 
 const ThankYou = () => {
   return (
-    <div className="section pb-0 bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat border-2 border-turquoise overflow-hidden">
+    <div className="section pb-0 bg-[url('/assets/images/bg-section.png')] background-center border-2 border-turquoise overflow-hidden">
       <div className="w-[80%] mx-auto flex flex-col items-center gap-8">
         <div className="grid grid-rows-3 grid-cols-2 h-[800px] gap-2 overflow-hidden">
           <div className="col-span-2 row-span-2 rounded-t-full border-4 border-turquoise overflow-hidden">
