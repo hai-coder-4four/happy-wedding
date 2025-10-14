@@ -9,8 +9,8 @@ import Heading from "../_components/heading";
 gsap.registerPlugin(ScrollTrigger);
 
 const BANNER_ITEMS = [
-  { id: 1, image: "/assets/images/wedding-10.jpg", text: "20" },
-  { id: 2, image: "/assets/images/wedding-11.jpg", text: "10" },
+  { id: 1, image: "/assets/images/wedding-10.jpg", text: "13" },
+  { id: 2, image: "/assets/images/wedding-11.jpg", text: "12" },
   { id: 3, image: "/assets/images/wedding-12.jpg", text: "25" },
 ];
 

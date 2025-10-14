@@ -1,7 +1,7 @@
 "use client";
 
 import { Heart } from "lucide-react";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -11,15 +11,37 @@ import { DateIcon } from "@/assets/icons";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Calendar = () => {
-  const [selectedDates] = useState<number[]>([5]);
+// Interface cho props của Calendar component
+interface CalendarProps {
+  year?: number;
+  month?: number; // 1-12
+  highlightDates?: number[]; // Các ngày cần highlight
+  className?: string;
+}
 
-  // Vietnamese day names
+// Utility functions
+const getDaysInMonth = (year: number, month: number): number => {
+  return new Date(year, month, 0).getDate();
+};
+
+const getFirstDayOfWeek = (year: number, month: number): number => {
+  // Trả về 0-6 (0 = Chủ nhật, 1 = Thứ 2, ..., 6 = Thứ 7)
+  // Nhưng chúng ta muốn 0 = Thứ 2, 6 = Chủ nhật
+  const firstDay = new Date(year, month - 1, 1).getDay();
+  return firstDay === 0 ? 6 : firstDay - 1; // Chuyển đổi để Thứ 2 = 0
+};
+
+const Calendar = ({
+  year = new Date().getFullYear(),
+  month = new Date().getMonth() + 1,
+  highlightDates = [5],
+  className = "",
+}: CalendarProps) => {
   const dayNames = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "CN"];
 
-  // April 2025 calendar data - starting on Tuesday (Thứ 3)
-  const daysInMonth = 30;
-  const firstDayOfWeek = 1; // Tuesday (0 = Monday, 6 = Sunday)
+  // Tính toán dữ liệu calendar tự động
+  const daysInMonth = getDaysInMonth(year, month);
+  const firstDayOfWeek = getFirstDayOfWeek(year, month);
 
   // Only 5 rows (5*7 = 35 cells)
   const totalRows = 5;
@@ -319,7 +341,9 @@ const Calendar = () => {
   };
 
   return (
-    <div className="section px-4 rounded-lg overflow-hidden bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat">
+    <div
+      className={`section px-4 rounded-lg overflow-hidden bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat ${className}`}
+    >
       <Countdown />
       <Card className="px-4 border-none shadow-none p-0 bg-transparent overflow-hidden">
         <CardContent className="p-0">
@@ -365,7 +389,7 @@ const Calendar = () => {
                 const isHighlighted =
                   isCurrentMonth &&
                   day !== null &&
-                  selectedDates.includes(day as number);
+                  highlightDates.includes(day as number);
 
                 // For refs
                 return (
@@ -378,7 +402,7 @@ const Calendar = () => {
                   >
                     {day && (
                       <div
-                        ref={isHighlighted && day === 5 ? undefined : undefined}
+                        ref={isHighlighted ? undefined : undefined}
                         onMouseEnter={(e) =>
                           handleDayMouseEnter(e.currentTarget)
                         }
@@ -392,11 +416,9 @@ const Calendar = () => {
                             ? "text-white"
                             : "text-gray-700 hover:bg-gray-100"
                         } `}
-                        style={
-                          isHighlighted && day === 5 ? { zIndex: 2 } : undefined
-                        }
+                        style={isHighlighted ? { zIndex: 2 } : undefined}
                       >
-                        {isHighlighted && day === 5 && (
+                        {isHighlighted && (
                           <>
                             {/* Heart background with dramatic zoom animation */}
                             <div

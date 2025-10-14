@@ -11,10 +11,10 @@ type TimeLeft = {
   seconds: number;
 };
 
-const TARGET_DATE = "2025-10-30";
+const TARGET_DATE = "2025-12-13";
 
 const EVENT_TIME_INFO =
-  "09:30 Thứ Hai, ngày 30/10/2025 <br /> (Tức ngày 01/10 Ất Tỵ)";
+  "09:30 Thứ Hai, ngày 13/12/2025 <br /> (Tức ngày 14/12 Ất Tỵ)";
 
 const Countdown = () => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
