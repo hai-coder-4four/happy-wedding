@@ -194,10 +194,6 @@ html body[data-scroll-locked] {
   margin-right: 0 !important;
 }
 
-.animate-slow-spin {
-  animation: slow-spin 3s linear infinite;
-}
-
 @keyframes slow-spin {
   from {
     transform: rotate(0deg);
@@ -217,6 +213,10 @@ html body[data-scroll-locked] {
     opacity: 1;
     transform: translateY(-50%) translateX(0);
   }
+}
+
+.animate-slow-spin {
+  animation: slow-spin 3s linear infinite;
 }
 
 .animate-fade-in {

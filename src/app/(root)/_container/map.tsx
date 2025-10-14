@@ -9,6 +9,8 @@ import { env } from "@/configs/env";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const MARKER = [108.1655061, 16.0471648];
+
 const Map = () => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
@@ -19,7 +21,7 @@ const Map = () => {
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current as HTMLElement,
       style: "mapbox://styles/mapbox/standard",
-      center: [108.1655061, 16.0471648],
+      center: MARKER as [number, number],
       zoom: 8,
     });
 
@@ -35,7 +37,7 @@ const Map = () => {
           },
           geometry: {
             type: "Point",
-            coordinates: [108.1655061, 16.0471648],
+            coordinates: MARKER,
           },
         },
       ],

@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks";
+import SectionHeader from "@/components/common/section-header";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,8 +18,34 @@ const Preface = () => {
   useScrollAnimation({
     headerRef,
     titleRef,
-    textRef,
   });
+
+  useEffect(() => {
+    if (textRef.current) {
+      gsap.fromTo(
+        textRef.current,
+        {
+          opacity: 0,
+          y: 40,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: textRef.current,
+            start: "top 85%",
+            end: "top 60%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -42,32 +69,15 @@ const Preface = () => {
   return (
     <div className="section flex items-center justify-center">
       <div className="w-full bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat rounded-lg overflow-hidden p-4">
-        <div ref={headerRef} className="space-y-1 mb-4">
-          <div className="required w-[80px] h-auto mx-auto">
-            <Image
-              src="/assets/images/leaf.png"
-              alt="leaf"
-              width={100}
-              height={100}
-              className="size-full object-contain"
-            />
-          </div>
-          <h2
-            ref={titleRef}
-            className="text-4xl text-center text-brown-light font-bold"
-          >
-            Lời Ngỏ
-          </h2>
-          <div className="required w-[150px] h-auto mx-auto">
-            <Image
-              src="/assets/images/line-4.png"
-              alt="line"
-              width={150}
-              height={30}
-              className="size-full object-contain"
-            />
-          </div>
-        </div>
+        <SectionHeader
+          title="Lời Ngỏ"
+          topIcon={{
+            src: "/assets/images/leaf.png",
+            alt: "leaf",
+            width: 100,
+            height: 100,
+          }}
+        />
 
         <div
           ref={textRef}

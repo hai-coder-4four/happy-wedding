@@ -7,7 +7,6 @@ gsap.registerPlugin(ScrollTrigger);
 interface UseScrollAnimationOptions {
   headerRef: React.RefObject<HTMLElement | null>;
   titleRef: React.RefObject<HTMLElement | null>;
-  textRef?: React.RefObject<HTMLElement | null>;
   headerAnimation?: {
     opacity?: number;
     y?: number;
@@ -22,12 +21,6 @@ interface UseScrollAnimationOptions {
     ease?: string;
     delay?: number;
   };
-  textAnimation?: {
-    opacity?: number;
-    y?: number;
-    duration?: number;
-    stagger?: number;
-  };
   scrollTrigger?: {
     start?: string;
     end?: string;
@@ -38,7 +31,6 @@ interface UseScrollAnimationOptions {
 export const useScrollAnimation = ({
   headerRef,
   titleRef,
-  textRef,
   headerAnimation = {
     opacity: 0,
     y: -30,
@@ -51,12 +43,6 @@ export const useScrollAnimation = ({
     duration: 2,
     delay: 0.3,
     ease: "power3.out",
-  },
-  textAnimation = {
-    opacity: 0,
-    y: 20,
-    duration: 1,
-    stagger: 0.1,
   },
   scrollTrigger = {
     start: "top 80%",
@@ -98,35 +84,8 @@ export const useScrollAnimation = ({
           },
         });
       }
-
-      // Text animation (optional)
-      if (textRef?.current) {
-        const textLines = textRef.current.querySelectorAll(".text-line");
-        if (textLines && textLines.length > 0) {
-          gsap.from(textLines, {
-            opacity: textAnimation.opacity,
-            y: textAnimation.y,
-            duration: textAnimation.duration,
-            stagger: textAnimation.stagger,
-            scrollTrigger: {
-              trigger: textRef.current,
-              start: scrollTrigger.start,
-              end: scrollTrigger.end,
-              toggleActions: scrollTrigger.toggleActions,
-            },
-          });
-        }
-      }
     });
 
     return () => ctx.revert();
-  }, [
-    headerRef,
-    titleRef,
-    textRef,
-    headerAnimation,
-    titleAnimation,
-    textAnimation,
-    scrollTrigger,
-  ]);
+  }, [headerRef, titleRef, headerAnimation, titleAnimation, scrollTrigger]);
 };

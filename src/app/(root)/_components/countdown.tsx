@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -12,6 +12,9 @@ type TimeLeft = {
 };
 
 const TARGET_DATE = "2025-10-30";
+
+const EVENT_TIME_INFO =
+  "09:30 Thứ Hai, ngày 30/10/2025 <br /> (Tức ngày 01/10 Ất Tỵ)";
 
 const Countdown = () => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
@@ -43,19 +46,23 @@ const Countdown = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const timeUnits = [
-    { label: "Ngày", value: timeLeft.days },
-    { label: "Giờ", value: timeLeft.hours },
-    { label: "Phút", value: timeLeft.minutes },
-    { label: "Giây", value: timeLeft.seconds },
-  ];
+  const timeUnits = useMemo(
+    () => [
+      { label: "Ngày", value: timeLeft.days },
+      { label: "Giờ", value: timeLeft.hours },
+      { label: "Phút", value: timeLeft.minutes },
+      { label: "Giây", value: timeLeft.seconds },
+    ],
+    [timeLeft]
+  );
 
   return (
     <Card className="border-none shadow-none p-0 bg-transparent overflow-hidden">
       <CardContent className="p-4">
-        <h3 className="mb-4 text-center text-xl font-medium">
-          09:30 Thứ Hai, ngày 30/10/2025 <br /> (Tức ngày 01/10 Ất Tỵ)
-        </h3>
+        <h3
+          className="mb-4 text-center text-xl font-medium"
+          dangerouslySetInnerHTML={{ __html: EVENT_TIME_INFO }}
+        ></h3>
         <div className="grid grid-cols-4 gap-4">
           {timeUnits.map((unit) => (
             <div key={unit.label} className="flex flex-col items-center">

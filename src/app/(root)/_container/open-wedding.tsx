@@ -5,19 +5,16 @@ import React, { useRef, useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { useWeddingStore } from "@/stores/wedding-store";
 import { useShallow } from "zustand/react/shallow";
-import Lottie, { LottieRef } from "lottie-react";
+import Lottie from "lottie-react";
 import HandTapAnimation from "/public/assets/json/hand-tap.json";
 
 const OpenWedding = () => {
-  // State to track if the invitation has been opened
   const [isOpen, setIsOpen] = useState(false);
 
-  // State to manage which wedding image to display (closed or open)
   const [currentImage, setCurrentImage] = useState(
     "/assets/images/close-wedding-1.png"
   );
 
-  // Refs for DOM elements to be animated
   const containerRef = useRef<HTMLDivElement>(null);
   const mainImageRef = useRef<HTMLDivElement>(null);
   const invitationRef = useRef<HTMLDivElement>(null);
@@ -30,7 +27,6 @@ const OpenWedding = () => {
     }))
   );
 
-  // Effect to create zoom in/out animation for noteRef
   useEffect(() => {
     if (noteRef.current && !isOpen) {
       const zoomAnimation = gsap.to(noteRef.current, {

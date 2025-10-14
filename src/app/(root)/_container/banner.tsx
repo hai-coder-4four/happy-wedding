@@ -64,7 +64,7 @@ const Banner = () => {
 
       textRefs.current.forEach((el, index) => {
         if (!el) return;
-        // Nếu là item đầu hoặc cuối thì y khởi tạo là 130, còn lại là 30
+        // If it's the first or last item, initial y is 130, otherwise it's 30
         const initialY =
           index === 0 || index === BANNER_ITEMS.length - 1 ? 130 : 30;
         gsap.fromTo(

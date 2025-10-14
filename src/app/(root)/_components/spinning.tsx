@@ -1,5 +1,4 @@
 import { SpinningText } from "@/components/ui/spinning-text";
-import React from "react";
 
 const Spinning = () => {
   return (

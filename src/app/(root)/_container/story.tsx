@@ -1,51 +1,57 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
+import { useEffect } from "react";
 import HeartList from "../_components/heart-list";
-import { useScrollAnimation } from "../../../hooks";
+import SectionHeader from "@/components/common/section-header";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Story = () => {
-  const headerRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
-  useScrollAnimation({
-    headerRef,
-    titleRef,
-    textRef,
-  });
+  useEffect(() => {
+    if (textRef.current) {
+      gsap.fromTo(
+        textRef.current,
+        {
+          opacity: 0,
+          y: 40,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: textRef.current,
+            start: "top 85%",
+            end: "top 60%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   return (
     <div className="section bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat !pt-0 flex items-center justify-center">
       <div className="w-full overflow-hidden py-2 px-4">
-        <div ref={headerRef} className="flex justify-center">
-          <div className="space-y-1 mb-4">
-            <div className="required w-[80px] h-auto mx-auto">
-              <Image
-                src="/assets/images/tay.png"
-                alt="wedding"
-                width={100}
-                height={100}
-                className="size-full object-contain"
-              />
-            </div>
-            <h2
-              ref={titleRef}
-              className="text-4xl text-center text-brown-light font-bold"
-            >
-              Câu Chuyện Tình Yêu
-            </h2>
-            <div className="required w-[150px] h-auto mx-auto">
-              <Image
-                src="/assets/images/line-4.png"
-                alt="line"
-                width={150}
-                height={30}
-                className="size-full object-contain"
-              />
-            </div>
-          </div>
+        <div className="flex justify-center">
+          <SectionHeader
+            title="Câu Chuyện Tình Yêu"
+            topIcon={{
+              src: "/assets/images/hold-hand.png",
+              alt: "hold-hand",
+              width: 100,
+              height: 100,
+            }}
+          />
         </div>
 
         <div ref={textRef} className="py-4 space-y-4 leading-relaxed">

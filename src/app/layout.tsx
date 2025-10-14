@@ -11,8 +11,8 @@ import LightBox from "@/components/common/light-box";
 import Music from "@/components/common/music";
 
 export const metadata: Metadata = {
-  title: "Happy Wedding",
-  description: "Happy Wedding",
+  title: "Wedding Invitation",
+  description: "Happy Ending",
 };
 
 export default function RootLayout({

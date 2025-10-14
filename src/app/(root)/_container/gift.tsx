@@ -1,7 +1,7 @@
 "use client";
 
 import Lottie from "lottie-react";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import {
   Dialog,
@@ -14,8 +14,12 @@ import {
 import GiftAnimation from "/public/assets/json/gift.json";
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const bankAccounts = [
+gsap.registerPlugin(ScrollTrigger);
+
+const BANK_ACCOUNTS = [
   {
     bankName: "VietcomBank",
     accountNumber: "0348843383",
@@ -39,8 +43,34 @@ const Gift = () => {
   useScrollAnimation({
     headerRef,
     titleRef,
-    textRef,
   });
+
+  useEffect(() => {
+    if (textRef.current) {
+      gsap.fromTo(
+        textRef.current,
+        {
+          opacity: 0,
+          y: 40,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: textRef.current,
+            start: "top 85%",
+            end: "top 60%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   return (
     <div className="section">
@@ -86,7 +116,7 @@ const Gift = () => {
             />
           </DialogHeader>
           <div className="grid grid-cols-2 gap-2">
-            {bankAccounts.map((bank) => (
+            {BANK_ACCOUNTS.map((bank) => (
               <div
                 key={bank.accountNumber}
                 className="p-2 rounded-lg border-2 border-turquoise space-y-2"

@@ -25,9 +25,20 @@ import { Label } from "@/components/ui/label";
 import { Mail } from "lucide-react";
 import Link from "next/link";
 import { BookIcon } from "@/assets/icons";
-import Image from "next/image";
-import { useRef } from "react";
-import { useScrollAnimation } from "@/hooks";
+import SectionHeader from "@/components/common/section-header";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const RELATIONSHIP_OPTIONS = [
+  { value: "friend", label: "Bạn Dâu Rể" },
+  { value: "groom", label: "Bạn chú Rể" },
+  { value: "bride", label: "Bạn cô Dâu" },
+  { value: "family", label: "Gia đình" },
+  { value: "other", label: "Khác" },
+];
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -45,15 +56,7 @@ const formSchema = z.object({
 });
 
 const BlessingForm = () => {
-  const headerRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
-
-  useScrollAnimation({
-    headerRef,
-    titleRef,
-    textRef,
-  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -69,30 +72,50 @@ const BlessingForm = () => {
     console.log(values);
   };
 
+  useEffect(() => {
+    if (textRef.current) {
+      gsap.fromTo(
+        textRef.current,
+        {
+          opacity: 0,
+          y: 40,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: textRef.current,
+            start: "top 85%",
+            end: "top 60%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   return (
     <div className="section bg-[url('/assets/images/bg-section.png')] bg-cover bg-center bg-no-repeat relative rounded-lg overflow-hidden">
       <div className="w-full mx-auto px-4">
-        <div ref={headerRef} className="text-center space-y-1 mb-8">
-          <div className="w-full flex justify-center">
-            <BookIcon className="size-10 text-turquoise" />
-          </div>
-          <h1 ref={titleRef} className="text-4xl text-brown-light font-bold">
-            Sổ Lưu Bút
-          </h1>
-          <div className="required w-[150px] h-auto mx-auto">
-            <Image
-              src="/assets/images/line-4.png"
-              alt="line"
-              width={150}
-              height={30}
-              className="size-full object-contain"
-            />
-          </div>
-          <p ref={textRef} className="mt-4">
-            Cảm ơn bạn rất nhiều vì đã gửi những lời chúc mừng tốt đẹp nhất đến
-            đám cưới của chúng mình!
-          </p>
-        </div>
+        <SectionHeader
+          title="Sổ Lưu Bút"
+          containerClassName="space-y-1 mb-8"
+          topIcon={
+            <div className="w-full flex justify-center">
+              <BookIcon className="size-10 text-turquoise" />
+            </div>
+          }
+        />
+
+        <p ref={textRef} className="mt-4">
+          Cảm ơn bạn rất nhiều vì đã gửi những lời chúc mừng tốt đẹp nhất đến
+          đám cưới của chúng mình!
+        </p>
 
         <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl">
           <Form {...form}>
@@ -130,11 +153,11 @@ const BlessingForm = () => {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="friend">Bạn Dâu Rể</SelectItem>
-                          <SelectItem value="bride">Bạn cô Dâu</SelectItem>
-                          <SelectItem value="groom">Bạn chú Rể</SelectItem>
-                          <SelectItem value="family">Gia đình</SelectItem>
-                          <SelectItem value="other">Khác</SelectItem>
+                          {RELATIONSHIP_OPTIONS.map((option) => (
+                            <SelectItem key={option.value} value={option.value}>
+                              {option.label}
+                            </SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                       <FormMessage />

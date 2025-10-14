@@ -10,35 +10,54 @@ gsap.registerPlugin(ScrollTrigger);
 
 const HEART_GRID = [
   // 7 columns per row, 6 rows
-  // true = show image, false = empty cell
-  [false, true, true, false, true, true, false],
-  [true, true, true, true, true, true, true],
-  [true, true, true, true, true, true, true],
-  [false, true, true, true, true, true, false],
-  [false, false, true, true, true, false, false],
-  [false, false, false, true, false, false, false],
+  // null = empty cell, string = image path
+  [
+    null,
+    "/assets/images/wedding-1.jpg",
+    "/assets/images/wedding-2.jpg",
+    null,
+    "/assets/images/wedding-3.jpg",
+    "/assets/images/wedding-4.jpg",
+    null,
+  ],
+  [
+    "/assets/images/wedding-5.jpg",
+    "/assets/images/wedding-6.jpg",
+    "/assets/images/wedding-7.jpg",
+    "/assets/images/wedding-8.jpg",
+    "/assets/images/wedding-9.jpg",
+    "/assets/images/wedding-10.jpg",
+    "/assets/images/wedding-11.jpg",
+  ],
+  [
+    "/assets/images/wedding-12.jpg",
+    "/assets/images/wedding-13.jpg",
+    "/assets/images/wedding-14.jpg",
+    "/assets/images/wedding-1.jpg",
+    "/assets/images/wedding-2.jpg",
+    "/assets/images/wedding-3.jpg",
+    "/assets/images/wedding-4.jpg",
+  ],
+  [
+    null,
+    "/assets/images/wedding-5.jpg",
+    "/assets/images/wedding-6.jpg",
+    "/assets/images/wedding-7.jpg",
+    "/assets/images/wedding-8.jpg",
+    "/assets/images/wedding-9.jpg",
+    null,
+  ],
+  [
+    null,
+    null,
+    "/assets/images/wedding-10.jpg",
+    "/assets/images/wedding-11.jpg",
+    "/assets/images/wedding-12.jpg",
+    null,
+    null,
+  ],
+  [null, null, null, "/assets/images/wedding-13.jpg", null, null, null],
 ];
-
-// Danh sách các hình khác nhau cho từng item
-const HEART_IMAGES = [
-  "/assets/images/wedding-1.jpg",
-  "/assets/images/wedding-2.jpg",
-  "/assets/images/wedding-3.jpg",
-  "/assets/images/wedding-4.jpg",
-  "/assets/images/wedding-5.jpg",
-  "/assets/images/wedding-6.jpg",
-  "/assets/images/wedding-7.jpg",
-  "/assets/images/wedding-8.jpg",
-  "/assets/images/wedding-9.jpg",
-  "/assets/images/wedding-10.jpg",
-  "/assets/images/wedding-11.jpg",
-  "/assets/images/wedding-12.jpg",
-  "/assets/images/wedding-13.jpg",
-  "/assets/images/wedding-14.jpg",
-];
-
-// Đếm số lượng true trong HEART_GRID để biết cần bao nhiêu hình
-const NUM_IMAGES = HEART_GRID.flat().filter(Boolean).length;
 
 const HeartList = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -165,19 +184,12 @@ const HeartList = () => {
     return () => ctx.revert();
   }, []);
 
-  const imagesToUse: string[] = [];
-  for (let i = 0; i < NUM_IMAGES; i++) {
-    imagesToUse.push(HEART_IMAGES[i % HEART_IMAGES.length]);
-  }
-
-  let imageIdx = 0;
-
   return (
     <div ref={containerRef} className="overflow-hidden pt-4 px-2">
       <div className="grid grid-cols-7 gap-2">
-        {HEART_GRID.flat().map((showImage, idx) => (
+        {HEART_GRID.flat().map((imagePath, idx) => (
           <div className="aspect-square w-full" key={idx}>
-            {showImage && (
+            {imagePath && (
               <div
                 ref={(el) => {
                   imageRefs.current[idx] = el;
@@ -186,8 +198,8 @@ const HeartList = () => {
               >
                 <div className="relative size-full">
                   <Image
-                    src={imagesToUse[imageIdx++]}
-                    alt={`wedding-${imageIdx}`}
+                    src={imagePath}
+                    alt={`wedding-${idx + 1}`}
                     width={300}
                     height={300}
                     className="size-full object-cover rounded-lg"

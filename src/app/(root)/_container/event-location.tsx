@@ -2,13 +2,13 @@
 
 import Image from "next/image";
 import React, { useRef, useEffect } from "react";
-import { useScrollAnimation } from "@/hooks";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SectionHeader from "@/components/common/section-header";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const eventLocations = [
+const EVENT_LOCATIONS = [
   {
     title: "Tiệc Nhà Trai",
     date: "Thứ Hai, ngày 30 tháng 10 năm 2025",
@@ -26,16 +26,8 @@ const eventLocations = [
 ];
 
 const EventLocation = () => {
-  const headerRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
   const eventRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  useScrollAnimation({
-    headerRef,
-    titleRef,
-  });
-
-  // Animation cho từng event location
   useEffect(() => {
     const ctx = gsap.context(() => {
       eventRefs.current.forEach((eventRef, index) => {
@@ -71,25 +63,12 @@ const EventLocation = () => {
 
   return (
     <div className="section">
-      <div ref={headerRef} className="space-y-1 mb-8">
-        <h2
-          ref={titleRef}
-          className="text-4xl text-center text-brown-light font-bold"
-        >
-          Địa điểm tiệc cưới
-        </h2>
-        <div className="required w-[150px] h-auto mx-auto">
-          <Image
-            src="/assets/images/line-4.png"
-            alt="line"
-            width={150}
-            height={30}
-            className="size-full object-contain"
-          />
-        </div>
-      </div>
+      <SectionHeader
+        title="Địa điểm tiệc cưới"
+        containerClassName="space-y-1 mb-8"
+      />
       <div className="grid grid-cols-1 gap-10">
-        {eventLocations.map((event, idx) => (
+        {EVENT_LOCATIONS.map((event, idx) => (
           <div
             key={idx}
             ref={(el) => {
