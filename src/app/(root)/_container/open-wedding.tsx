@@ -167,9 +167,9 @@ const OpenWedding = () => {
           {/* Wedding Invitation - hidden at start, revealed after open */}
           <div
             ref={invitationRef}
-            className="absolute top-0 left-0 right-0 h-[195px] overflow-hidden"
+            className="absolute top-[10px] left-0 right-0 h-[195px] overflow-hidden"
           >
-            <div className="relative w-[260px] h-[195px] mx-auto">
+            <div className="relative w-[270px] h-[195px] mx-auto">
               <Image
                 src="/assets/images/wedding-invitation.jpg"
                 alt="wedding-invitation"

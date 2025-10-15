@@ -22,7 +22,7 @@ gsap.registerPlugin(ScrollTrigger);
 const BANK_ACCOUNTS = [
   {
     bankName: "VietcomBank",
-    accountNumber: "0348843383",
+    accountNumber: "134884338332",
     accountHolder: "Nguyễn Văn A",
     qrCode: "/assets/svg/qr-code.svg",
   },

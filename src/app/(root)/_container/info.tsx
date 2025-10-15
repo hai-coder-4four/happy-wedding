@@ -21,7 +21,7 @@ const PEOPLE_DATA = [
     ],
     roomImg: "/assets/images/room-1.png",
     name: "Hải Trần",
-    facebook: "#",
+    facebook: "https://www.facebook.com/hair.tran.97",
     bday: "25/02/1997",
     zodiac: "♈ Cung Bạch Dương",
     description:
@@ -38,7 +38,7 @@ const PEOPLE_DATA = [
     ],
     roomImg: "/assets/images/room-2.png",
     name: "Hải Trần",
-    facebook: "#",
+    facebook: "https://www.facebook.com/hair.tran.97",
     bday: "25/02/1997",
     zodiac: "♈ Cung Bạch Dương",
     description:
