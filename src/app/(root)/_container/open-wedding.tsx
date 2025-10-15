@@ -16,6 +16,7 @@ const OpenWedding = () => {
   );
 
   const containerRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const mainImageRef = useRef<HTMLDivElement>(null);
   const invitationRef = useRef<HTMLDivElement>(null);
   const noteRef = useRef<HTMLDivElement>(null);
@@ -97,15 +98,25 @@ const OpenWedding = () => {
         duration: 1,
         ease: "back.out(1.7)",
       })
+      // Add: Animate headerRef marginBottom to 100px
+      .to(
+        headerRef.current,
+        {
+          marginBottom: "100px",
+          duration: 0.8,
+          ease: "power2.inOut",
+        },
+        "-=0.7" // Play this animation shortly after the image scale up begins
+      )
       // Animate the wedding invitation from bottom to top and fade it in
       .fromTo(
         invitationRef.current,
         {
-          y: 100,
+          y: 0,
           opacity: 0,
         },
         {
-          y: 0,
+          y: -80,
           opacity: 1,
           duration: 3,
           ease: "power2.out",
@@ -123,7 +134,10 @@ const OpenWedding = () => {
       className="h-dvh w-full bg- border-4 border-turquoise overflow-hidden"
     >
       <div className="size-full flex flex-col items-center justify-center gap-5 bg-[url('/assets/images/wedding-poster.png')] background-center">
-        <div className="flex flex-col items-center justify-center gap-2">
+        <div
+          ref={headerRef}
+          className="flex flex-col items-center justify-center gap-2"
+        >
           <Image
             src="/assets/svg/wedding-couple.svg"
             alt="wedding-couple"
@@ -135,7 +149,7 @@ const OpenWedding = () => {
             Hải Trần ❤️ Hải Trần
           </h2>
         </div>
-        <div className="relative w-full flex flex-col items-center justify-center overflow-hidden gap-1">
+        <div className="relative w-full flex flex-col items-center justify-center gap-1">
           {/* Main Wedding Image - changes source based on open state */}
           <div
             ref={mainImageRef}
@@ -153,15 +167,15 @@ const OpenWedding = () => {
           {/* Wedding Invitation - hidden at start, revealed after open */}
           <div
             ref={invitationRef}
-            className="absolute top-0 left-0 right-0 h-[195px] overflow-hidden opacity-0"
+            className="absolute top-0 left-0 right-0 h-[195px] overflow-hidden"
           >
-            <div className="relative w-[250px] h-auto mx-auto">
+            <div className="relative w-[280px] h-[195px] mx-auto">
               <Image
                 src="/assets/images/wedding-invitation.jpg"
                 alt="wedding-invitation"
                 width={500}
                 height={500}
-                className="size-full object-contain rounded-lg shadow-lg"
+                className="size-full object-cover rounded-lg shadow-lg"
               />
             </div>
           </div>
