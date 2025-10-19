@@ -13,11 +13,11 @@ const Heading = () => {
           Hải
         </span>
         <Image
-          src="/assets/images/nhan.png"
-          alt="nhan"
+          src="/assets/images/wedding-ring.png"
+          alt="wedding-ring"
           width={100}
           height={100}
-          className="w-[100px] h-auto object-contain mx-auto"
+          className="w-[80px] h-auto object-contain mx-auto"
         />
         <span className="text-5xl font-bold text-brown-light tracking-widest">
           Hải

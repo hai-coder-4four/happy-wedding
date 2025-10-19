@@ -1,4 +1,10 @@
-import { Dancing_Script, Lobster, Lora, Titillium_Web } from "next/font/google";
+import {
+  Dancing_Script,
+  Lobster,
+  Lora,
+  Source_Serif_4,
+  Titillium_Web,
+} from "next/font/google";
 
 const dancingScript = Dancing_Script({
   variable: "--font-dancing-script",
@@ -24,4 +30,10 @@ const titilliumWeb = Titillium_Web({
   weight: ["400", "600", "700"],
 });
 
-export { dancingScript, lora, lobster, titilliumWeb };
+const sourceSerif4 = Source_Serif_4({
+  variable: "--font-source-serif-4",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+export { dancingScript, lora, lobster, titilliumWeb, sourceSerif4 };

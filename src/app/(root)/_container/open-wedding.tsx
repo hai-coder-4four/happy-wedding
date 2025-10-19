@@ -131,23 +131,27 @@ const OpenWedding = () => {
   return (
     <div
       ref={containerRef}
-      className="h-dvh w-full bg- border-4 border-turquoise overflow-hidden"
+      className="h-dvh w-full border-4 border-turquoise overflow-hidden"
     >
-      <div className="size-full flex flex-col items-center justify-center gap-5 bg-[url('/assets/images/wedding-poster.png')] background-center">
+      <div className="size-full p-6 flex flex-col items-center justify-center gap-5 bg-[url('/assets/images/wedding-poster.png')] background-center">
         <div
           ref={headerRef}
           className="flex flex-col items-center justify-center gap-2"
         >
-          <Image
-            src="/assets/svg/wedding-couple.svg"
-            alt="wedding-couple"
-            width={300}
-            height={300}
-            className="size-24 object-contain"
-          />
-          <h2 className="text-4xl text-green-dark font-bold">
-            Hải Trần ❤️ Hải Trần
+          <h2 className="text-center text-4xl text-brown-light font-bold mb-4">
+            Thiệp mời cưới
           </h2>
+          <div className="text-3xl text-green-dark italic font-medium font-source-serif-4 flex items-center justify-center gap-2">
+            <span>Hải Trần</span>
+            <Image
+              src="/assets/svg/cupid.svg"
+              alt="cupid"
+              width={300}
+              height={300}
+              className="size-8 object-contain"
+            />
+            <span>Hải Trần</span>
+          </div>
         </div>
         <div className="relative w-full flex flex-col items-center justify-center gap-1">
           {/* Main Wedding Image - changes source based on open state */}
@@ -167,7 +171,7 @@ const OpenWedding = () => {
           {/* Wedding Invitation - hidden at start, revealed after open */}
           <div
             ref={invitationRef}
-            className="absolute top-[10px] left-0 right-0 h-[195px] overflow-hidden"
+            className="absolute top-[10px] left-0 right-0 h-[195px] opacity-0 overflow-hidden"
           >
             <div className="relative w-[270px] h-[195px] mx-auto">
               <Image
