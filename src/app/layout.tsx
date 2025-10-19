@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Thiệp mời cưới",
     description: "Thiệp mời cưới Hải Trần & Hải Trần",
-    url: "https://jrcscientific.com",
+    url: "https://coder-4four/wedding-to-me.vercel.app",
     siteName: "Thiệp mời cưới",
     images: [{ url: "/assets/images/wedding-invitation.jpg" }],
     locale: "en_US",
