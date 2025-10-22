@@ -29,6 +29,7 @@ import SectionHeader from "@/components/common/section-header";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { toast } from "sonner";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,7 +56,7 @@ const formSchema = z.object({
   }),
 });
 
-const BlessingForm = () => {
+const WeddingWishes = () => {
   const textRef = useRef<HTMLParagraphElement>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -70,6 +71,7 @@ const BlessingForm = () => {
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     console.log(values);
+    toast.success("Cảm ơn bạn đã gửi lời chúc cho chúng mình! 💗");
   };
 
   useEffect(() => {
@@ -230,7 +232,7 @@ const BlessingForm = () => {
 
           <div className="text-center mt-6">
             <Link
-              href="/all-wishes"
+              href="/loi-chuc"
               className="inline-flex items-center gap-2 text-turquoise underline hover:text-turquoise/80"
             >
               <Mail className="w-4 h-4 text-turquoise" />
@@ -243,4 +245,4 @@ const BlessingForm = () => {
   );
 };
 
-export default BlessingForm;
+export default WeddingWishes;

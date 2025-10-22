@@ -10,6 +10,7 @@ import {
 } from "@/configs/fonts/custom-fonts";
 import LightBox from "@/components/common/light-box";
 import Music from "@/components/common/music";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Thiệp mời cưới",
@@ -64,6 +65,7 @@ export default function RootLayout({
         <Music />
         <LightBox />
         <Floating />
+        <Toaster position="top-center" />
       </body>
     </html>
   );

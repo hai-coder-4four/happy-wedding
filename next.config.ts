@@ -27,6 +27,14 @@ const nextConfig: NextConfig = {
     ],
     formats: ["image/avif", "image/webp"],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/loi-chuc",
+        destination: "/all-wishes",
+      },
+    ];
+  },
 };
 
 export default nextConfig;

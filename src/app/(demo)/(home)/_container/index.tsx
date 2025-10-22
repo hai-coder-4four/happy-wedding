@@ -10,7 +10,7 @@ import Video from "./video";
 import Album from "./album";
 import Calendar from "./calendar";
 import EventLocation from "./event-location";
-import BlessingForm from "./blessing-form";
+import WeddingWishes from "./wedding-wishes";
 import Gift from "./gift";
 import Map from "./map";
 import ThankYou from "./thank-you";
@@ -68,7 +68,7 @@ const MainContent = () => (
     <Album />
     <Calendar year={2025} month={12} highlightDates={[13]} />
     <EventLocation />
-    <BlessingForm />
+    <WeddingWishes />
     <Gift />
     <Map />
     <ThankYou />
