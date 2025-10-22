@@ -69,7 +69,7 @@ const AllWishesTable = () => {
   });
 
   return (
-    <div className="w-full p-4">
+    <div className="w-full py-10 px-4 bg-turquoise/10 rounded-lg">
       <Button
         variant="outline"
         onClick={() => router.push("/")}
