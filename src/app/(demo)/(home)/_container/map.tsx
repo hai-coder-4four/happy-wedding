@@ -6,14 +6,15 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { env } from "@/configs/env";
+import { useAppStore } from "@/stores/app-store";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const MARKER = [108.1655061, 16.0471648];
 
 const Map = () => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
+
+  const { info } = useAppStore();
 
   useEffect(() => {
     mapboxgl.accessToken = env.MAPBOX_ACCESS_TOKEN;
@@ -21,7 +22,7 @@ const Map = () => {
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current as HTMLElement,
       style: "mapbox://styles/mapbox/standard",
-      center: MARKER as [number, number],
+      center: info.markerMap,
       zoom: 8,
     });
 
@@ -37,7 +38,7 @@ const Map = () => {
           },
           geometry: {
             type: "Point",
-            coordinates: MARKER,
+            coordinates: info.markerMap,
           },
         },
       ],

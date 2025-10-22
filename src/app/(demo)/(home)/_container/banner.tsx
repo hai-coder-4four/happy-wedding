@@ -1,23 +1,41 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Heading from "../_components/heading";
+import { useAppStore } from "@/stores/app-store";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const BANNER_ITEMS = [
-  { id: 1, image: "/assets/images/wedding-10.jpg", text: "13" },
-  { id: 2, image: "/assets/images/wedding-11.jpg", text: "12" },
-  { id: 3, image: "/assets/images/wedding-12.jpg", text: "25" },
-];
 
 const Banner = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
   const textRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const { info } = useAppStore();
+
+  const BANNER_ITEMS = useMemo(
+    () => [
+      {
+        id: 1,
+        image: "/assets/images/wedding-10.jpg",
+        text: info.time.day.toString(),
+      },
+      {
+        id: 2,
+        image: "/assets/images/wedding-11.jpg",
+        text: info.time.month.toString(),
+      },
+      {
+        id: 3,
+        image: "/assets/images/wedding-12.jpg",
+        text: info.time.year.toString().slice(-2),
+      },
+    ],
+    [info.time.day, info.time.month, info.time.year]
+  );
 
   useEffect(() => {
     const ctx = gsap.context(() => {

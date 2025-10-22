@@ -1,7 +1,7 @@
 "use client";
 
 import { Heart } from "lucide-react";
-import React from "react";
+import React, { useMemo } from "react";
 import { gsap } from "gsap";
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,25 +9,14 @@ import Countdown from "../_components/countdown";
 import { DateIcon } from "@/assets/icons";
 import { generateCalendarGrid, dayNames } from "@/utils/calendar";
 import { useCalendarAnimations } from "@/hooks/useCalendarAnimations";
+import { useAppStore } from "@/stores/app-store";
 
-// Interface cho props của Calendar component
-interface CalendarProps {
-  year?: number;
-  month?: number; // 1-12
-  highlightDates?: number[]; // Các ngày cần highlight
-  className?: string;
-}
+const Calendar = () => {
+  const { info } = useAppStore();
 
-const Calendar = ({
-  year = new Date().getFullYear(),
-  month = new Date().getMonth() + 1,
-  highlightDates = [5],
-  className = "",
-}: CalendarProps) => {
-  // Generate calendar data
-  const { calendarDays, daysInMonth, firstDayOfWeek } = generateCalendarGrid(
-    year,
-    month
+  const { calendarDays, daysInMonth, firstDayOfWeek } = useMemo(
+    () => generateCalendarGrid(info.time.year, info.time.month),
+    [info.time.year, info.time.month]
   );
 
   // Get animation refs
@@ -54,9 +43,7 @@ const Calendar = ({
   };
 
   return (
-    <div
-      className={`section px-4 rounded-lg overflow-hidden bg-[url('/assets/images/bg-section.png')] background-center ${className}`}
-    >
+    <div className="section px-4 rounded-lg overflow-hidden bg-[url('/assets/images/bg-section.png')] background-center">
       <Countdown />
       <Card className="px-4 border-none shadow-none p-0 bg-transparent overflow-hidden">
         <CardContent className="p-0">
@@ -102,7 +89,7 @@ const Calendar = ({
                 const isHighlighted =
                   isCurrentMonth &&
                   day !== null &&
-                  highlightDates.includes(day as number);
+                  info?.highlightDates?.includes(day as number);
 
                 // For refs
                 return (

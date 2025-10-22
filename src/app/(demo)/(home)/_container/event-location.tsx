@@ -5,28 +5,14 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionHeader from "@/components/common/section-header";
+import { useAppStore } from "@/stores/app-store";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const EVENT_LOCATIONS = [
-  {
-    title: "Tiệc Nhà Trai",
-    date: "Thứ Hai, ngày 30 tháng 10 năm 2025",
-    lunarDate: "(Tức ngày 01 tháng 11 Ất Tỵ)",
-    time: "11:00",
-    address: "Địa chỉ: 123 Đường ABC, Quận XYZ, TP. Đà Nẵng",
-  },
-  {
-    title: "Tiệc Nhà Gái",
-    date: "Thứ Ba, ngày 01 tháng 11 năm 2025",
-    lunarDate: "(Tức ngày 02 tháng 11 Ất Tỵ)",
-    time: "11:00",
-    address: "Địa chỉ: 123 Đường ABC, Quận XYZ, TP. Huế",
-  },
-];
-
 const EventLocation = () => {
   const eventRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const { info } = useAppStore();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -68,7 +54,7 @@ const EventLocation = () => {
         containerClassName="space-y-1 mb-8"
       />
       <div className="grid grid-cols-1 gap-10">
-        {EVENT_LOCATIONS.map((event, idx) => (
+        {info?.eventLocations?.map((event, idx) => (
           <div
             key={idx}
             ref={(el) => {

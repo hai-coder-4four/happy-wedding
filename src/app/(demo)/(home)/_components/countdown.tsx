@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 
 import { Card, CardContent } from "@/components/ui/card";
+import { useAppStore } from "@/stores/app-store";
 
 type TimeLeft = {
   days: number;
@@ -10,11 +11,6 @@ type TimeLeft = {
   minutes: number;
   seconds: number;
 };
-
-const TARGET_DATE = "2025-12-13";
-
-const EVENT_TIME_INFO =
-  "09:30 Thứ Hai, ngày 13/12/2025 <br /> (Tức ngày 14/12 Ất Tỵ)";
 
 const Countdown = () => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
@@ -24,9 +20,12 @@ const Countdown = () => {
     seconds: 0,
   });
 
+  const { info } = useAppStore();
+
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const difference = new Date(TARGET_DATE).getTime() - new Date().getTime();
+      const difference =
+        new Date(info.targetDate).getTime() - new Date().getTime();
 
       if (difference > 0) {
         setTimeLeft({
@@ -61,7 +60,7 @@ const Countdown = () => {
       <CardContent className="p-4">
         <h3
           className="mb-4 text-center text-xl font-medium"
-          dangerouslySetInnerHTML={{ __html: EVENT_TIME_INFO }}
+          dangerouslySetInnerHTML={{ __html: info.eventTimeInfo }}
         ></h3>
         <div className="grid grid-cols-4 gap-4">
           {timeUnits.map((unit) => (

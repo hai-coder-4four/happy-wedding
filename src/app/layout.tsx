@@ -11,6 +11,7 @@ import {
 import LightBox from "@/components/common/light-box";
 import Music from "@/components/common/music";
 import { Toaster } from "@/components/ui/sonner";
+import { AppProvider } from "@/providers/app-provider";
 
 export const metadata: Metadata = {
   title: "Thiệp mời cưới",
@@ -59,13 +60,15 @@ export default function RootLayout({
         className={`${dancingScript.variable} ${lora.variable} ${lobster.variable} ${titilliumWeb.variable} ${sourceSerif4.variable}  antialiased`}
         suppressHydrationWarning
       >
-        <main className="max-w-md mx-auto w-full bg-turquoise/10 overflow-hidden">
-          {children}
-        </main>
-        <Music />
-        <LightBox />
-        <Floating />
-        <Toaster position="top-center" />
+        <AppProvider>
+          <main className="max-w-md mx-auto w-full bg-turquoise/10 overflow-hidden">
+            {children}
+          </main>
+          <Music />
+          <LightBox />
+          <Floating />
+          <Toaster position="top-center" />
+        </AppProvider>
       </body>
     </html>
   );

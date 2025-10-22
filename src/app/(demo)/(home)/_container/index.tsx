@@ -66,7 +66,7 @@ const MainContent = () => (
     <Preface />
     <Video />
     <Album />
-    <Calendar year={2025} month={12} highlightDates={[13]} />
+    <Calendar />
     <EventLocation />
     <WeddingWishes />
     <Gift />
