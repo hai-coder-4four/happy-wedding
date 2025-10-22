@@ -1,15 +1,15 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, Suspense, ReactNode } from "react";
 import { useSearchParams } from "next/navigation";
 import { AppStore, useAppStore } from "@/stores/app-store";
 import { COUPLE_DATA } from "@/constants";
 
 type AppDataProviderProps = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
-export function AppDataProvider({ children }: AppDataProviderProps) {
+function AppDataProviderInner({ children }: AppDataProviderProps) {
   const { setInfo } = useAppStore();
   const searchParams = useSearchParams();
 
@@ -30,4 +30,12 @@ export function AppDataProvider({ children }: AppDataProviderProps) {
   }, [searchParams, setInfo]);
 
   return <>{children}</>;
+}
+
+export function AppDataProvider({ children }: AppDataProviderProps) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AppDataProviderInner>{children}</AppDataProviderInner>
+    </Suspense>
+  );
 }
