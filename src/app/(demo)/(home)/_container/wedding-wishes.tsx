@@ -114,7 +114,7 @@ const WeddingWishes = () => {
           }
         />
 
-        <p ref={textRef} className="mt-4">
+        <p ref={textRef} className="mt-4 text-center mb-4">
           Cảm ơn bạn rất nhiều vì đã gửi những lời chúc mừng tốt đẹp nhất đến
           đám cưới của chúng mình!
         </p>
